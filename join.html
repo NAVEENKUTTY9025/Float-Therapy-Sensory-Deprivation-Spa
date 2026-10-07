@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LUMA Float Therapy & Sensory Deprivation Spa – Create your float account.">
+  <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌊</text></svg>" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..900&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>LUMA | Register — Float Therapy & Sensory Deprivation Spa</title>
+
+  <style>
+    /* ============================================================
+       LUMA FLOAT SPA — COLOR THEME (exact same as index.html)
+    ============================================================ */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root, html[data-theme='dark'] {
+      --void: #0F172A;
+      --void-deep: #0A111F;
+      --void-soft: #1A2439;
+      --white: #F8FAFC;
+      --white-muted: #CBD5E1;
+      --white-dim: #94A3B8;
+      --aqua: #06B6D4;
+      --aqua-glow: rgba(6, 182, 212, 0.15);
+      --aqua-border: rgba(6, 182, 212, 0.35);
+      --border-line: rgba(248, 250, 252, 0.08);
+      --border-line-strong: rgba(248, 250, 252, 0.15);
+    }
+    html[data-theme='light'] {
+      --void: #F8FAFC;
+      --void-deep: #F1F5F9;
+      --void-soft: #FFFFFF;
+      --white: #0F172A;
+      --white-muted: #334155;
+      --white-dim: #64748B;
+      --aqua: #0891B2;
+      --aqua-glow: rgba(6, 182, 212, 0.12);
+      --aqua-border: rgba(6, 182, 212, 0.4);
+      --border-line: rgba(15, 23, 42, 0.08);
+      --border-line-strong: rgba(15, 23, 42, 0.15);
+    }
+
+    /* ============================================================
+       LOCK BODY — NO SCROLL ANYWHERE
+    ============================================================ */
+    html, body {
+      height: 100vh;
+      width: 100%;
+      overflow: hidden;
+      overscroll-behavior: none;
+    }
+    body {
+      background-color: var(--void);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color 0.4s, color 0.4s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--white);
+    }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; }
+
+    /* ============================================================
+       TOP BAR — logo (left) + toggles (right)
+    ============================================================ */
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 0.85rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      transition: opacity 0.2s;
+    }
+    .logo:hover { opacity: 0.85; }
+    .logo-icon {
+      width: 2.35rem;
+      height: 2.35rem;
+      background-color: var(--void-soft);
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--aqua);
+    }
+    .logo-icon i { color: var(--aqua); font-size: 1.05rem; }
+    .logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: 0.12em;
+      line-height: 1;
+    }
+    .logo-text span { color: var(--aqua); }
+    .logo-tagline {
+      font-size: 0.52rem;
+      color: var(--white-dim);
+      display: block;
+      margin-top: 2px;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .top-toggles {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+    .icon-btn {
+      width: 2.35rem;
+      height: 2.35rem;
+      background-color: transparent;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white-muted);
+      border: 1px solid var(--border-line-strong);
+      cursor: pointer;
+      transition: 0.2s;
+      font-family: inherit;
+      font-size: 0.8rem;
+    }
+    .icon-btn:hover {
+      border-color: var(--aqua);
+      color: var(--aqua);
+      background: var(--aqua-glow);
+    }
+
+    /* ============================================================
+       CENTERED REGISTER AREA
+    ============================================================ */
+    .register-wrap {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4.5rem 1.25rem 1rem 1.25rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .register-wrap::before {
+      content: '';
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60vw;
+      height: 60vh;
+      background: radial-gradient(circle, var(--aqua-glow) 0%, transparent 65%);
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .register-card {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 400px;
+      background-color: var(--void-soft);
+      border: 1px solid var(--border-line);
+      border-radius: 16px;
+      padding: 1.65rem 1.75rem;
+      box-shadow: 0 24px 60px -20px rgba(6, 182, 212, 0.25);
+      transition: border-color 0.3s;
+    }
+    .register-card:hover {
+      border-color: var(--aqua-border);
+    }
+
+    .card-head {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .card-head .label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--aqua);
+      display: inline-block;
+      margin-bottom: 0.4rem;
+      font-family: 'Inter', sans-serif;
+    }
+    .card-head h1 {
+      font-size: 1.75rem;
+      font-weight: 500;
+      line-height: 1.15;
+      margin-bottom: 0.25rem;
+    }
+    .card-head h1 em {
+      font-style: italic;
+      color: var(--aqua);
+      font-weight: 400;
+    }
+    .card-head p {
+      color: var(--white-muted);
+      font-size: 0.78rem;
+      font-weight: 300;
+    }
+
+    /* ============================================================
+       SOCIAL SIGNUP BUTTONS
+    ============================================================ */
+    .social-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+      margin-bottom: 0.9rem;
+    }
+    .social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      padding: 0.6rem 0.4rem;
+      border-radius: 9px;
+      border: 1px solid var(--border-line-strong);
+      background: var(--void);
+      color: var(--white);
+      font-size: 0.78rem;
+      font-weight: 600;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+    .social-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px -8px rgba(6, 182, 212, 0.3);
+    }
+    .social-btn svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+    .social-btn.google:hover { border-color: #EA4335; background: rgba(234, 67, 53, 0.08); }
+    .social-btn.facebook:hover { border-color: #1877F2; background: rgba(24, 119, 242, 0.08); }
+    .social-btn.apple:hover { border-color: var(--white); background: rgba(248, 250, 252, 0.06); }
+
+    /* ============================================================
+       DIVIDER
+    ============================================================ */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      margin: 0.85rem 0 0.95rem;
+      color: var(--white-dim);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border-line);
+    }
+
+    /* ============================================================
+       FORM
+    ============================================================ */
+    .form-group {
+      margin-bottom: 0.75rem;
+    }
+    .form-label {
+      display: block;
+      font-size: 0.60rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white-dim);
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+    .form-input-wrap {
+      position: relative;
+    }
+    .form-input-wrap i.field-icon {
+      position: absolute;
+      left: 0.8rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--white-dim);
+      font-size: 0.78rem;
+      pointer-events: none;
+      transition: color 0.25s;
+    }
+    .form-input-wrap input {
+      width: 100%;
+      padding: 0.65rem 0.85rem 0.65rem 2.2rem;
+      background: var(--void);
+      border: 1px solid var(--border-line-strong);
+      border-radius: 9px;
+      color: var(--white);
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 300;
+      outline: none;
+      transition: 0.3s;
+    }
+    .form-input-wrap input::placeholder { color: var(--white-dim); }
+    .form-input-wrap input:focus {
+      border-color: var(--aqua);
+      box-shadow: 0 0 0 3px var(--aqua-glow);
+    }
+    .form-input-wrap input:focus ~ i.field-icon {
+      color: var(--aqua);
+    }
+    .toggle-pass {
+      position: absolute;
+      right: 0.6rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent;
+      border: none;
+      color: var(--white-dim);
+      padding: 0.25rem;
+      font-size: 0.78rem;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .toggle-pass:hover { color: var(--aqua); }
+
+    /* Password strength */
+    .strength-row {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 0.35rem;
+    }
+    .strength-bar {
+      flex: 1;
+      height: 3px;
+      border-radius: 9999px;
+      background: var(--border-line-strong);
+      overflow: hidden;
+    }
+    .strength-bar > div {
+      height: 100%;
+      width: 0%;
+      background: var(--aqua);
+      transition: width 0.3s, background 0.3s;
+    }
+    .strength-label {
+      font-size: 0.6rem;
+      color: var(--white-dim);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      min-width: 45px;
+      text-align: right;
+    }
+
+    /* Terms */
+    .terms {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.45rem;
+      margin: 0.7rem 0 0.9rem;
+      font-size: 0.72rem;
+      color: var(--white-muted);
+      line-height: 1.45;
+      font-weight: 300;
+    }
+    .terms input {
+      accent-color: var(--aqua);
+      width: 14px;
+      height: 14px;
+      margin-top: 2px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .terms a {
+      color: var(--aqua);
+      font-weight: 500;
+      transition: opacity 0.2s;
+    }
+    .terms a:hover { opacity: 0.75; }
+
+    .btn-primary {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border-radius: 9999px;
+      background: var(--aqua);
+      color: var(--void);
+      border: 1px solid var(--aqua);
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: 0.3s;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+    }
+    .btn-primary:hover {
+      background: transparent;
+      color: var(--aqua);
+      box-shadow: 0 0 24px var(--aqua-glow);
+    }
+
+    .signup-line {
+      text-align: center;
+      margin-top: 0.85rem;
+      font-size: 0.75rem;
+      color: var(--white-muted);
+      font-weight: 300;
+    }
+    .signup-line a {
+      color: var(--aqua);
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+    .signup-line a:hover { opacity: 0.75; }
+
+    /* ============================================================
+       RESPONSIVE (tight, no scroll)
+    ============================================================ */
+    @media (max-height: 720px) {
+      .register-card { padding: 1.4rem 1.5rem; max-width: 380px; }
+      .card-head h1 { font-size: 1.55rem; }
+      .card-head { margin-bottom: 0.85rem; }
+      .form-group { margin-bottom: 0.65rem; }
+      .divider { margin: 0.75rem 0 0.85rem; }
+      .social-row { margin-bottom: 0.8rem; }
+      .register-wrap { padding-top: 4rem; }
+      .terms { margin: 0.6rem 0 0.75rem; }
+    }
+    @media (max-height: 640px) {
+      .register-card { padding: 1.2rem 1.35rem; }
+      .card-head p { display: none; }
+      .card-head h1 { font-size: 1.4rem; }
+      .form-input-wrap input { padding-top: 0.55rem; padding-bottom: 0.55rem; }
+    }
+    @media (max-width: 480px) {
+      .top-bar { padding: 0.7rem 1rem; }
+      .logo-tagline { display: none; }
+      .register-card { padding: 1.35rem 1.25rem; }
+      .social-btn { font-size: 0; gap: 0; padding: 0.65rem 0; }
+      .social-btn svg { width: 18px; height: 18px; }
+    }
+
+    /* RTL */
+    html[dir="rtl"] .form-input-wrap input { padding-right: 2.2rem; padding-left: 0.85rem; }
+    html[dir="rtl"] .form-input-wrap i.field-icon { left: auto; right: 0.8rem; }
+    html[dir="rtl"] .toggle-pass { right: auto; left: 0.6rem; }
+    html[dir="rtl"] .strength-label { text-align: left; }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       TOP BAR — Logo (left) + Dark + RTL toggles (right)
+  ============================================================ -->
+  <header class="top-bar">
+    <a href="index.html" class="logo" aria-label="LUMA Float home">
+      <div class="logo-icon"><i class="fas fa-water"></i></div>
+      <div>
+        <div class="logo-text">LUMA<span>FLOAT</span></div>
+        <span class="logo-tagline">FLOAT THERAPY & SPA</span>
+      </div>
+    </a>
+
+    <div class="top-toggles">
+      <button class="icon-btn" id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">
+        <i class="fas fa-sun" id="theme-icon"></i>
+      </button>
+      <button class="icon-btn" id="rtl-toggle" title="Toggle RTL" aria-label="Toggle direction">
+        <i class="fas fa-exchange-alt"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       CENTERED REGISTER CARD
+  ============================================================ -->
+  <main class="register-wrap">
+    <div class="register-card">
+
+      <!-- Head -->
+      <div class="card-head">
+        <span class="label">Join LUMA</span>
+       
+      </div>
+
+      <!-- Social signup -->
+      <div class="social-row">
+        <!-- Google -->
+        <button type="button" class="social-btn google" aria-label="Sign up with Google">
+          <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+            <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+          </svg>
+          <span class="hidden-sm">Google</span>
+        </button>
+
+        <!-- Facebook -->
+        <button type="button" class="social-btn facebook" aria-label="Sign up with Facebook">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#1877F2" d="M24 12.073c0-6.627-5.373-12-12-12S0 5.446 0 12.073C0 18.075 4.388 23.088 10.125 24v-8.437H7.078v-3.49h3.047V9.412c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.088 24 18.075 24 12.073z"/>
+          </svg>
+          <span class="hidden-sm">Facebook</span>
+        </button>
+
+        <!-- Apple -->
+        <button type="button" class="social-btn apple" aria-label="Sign up with Apple">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M17.05 12.536c-.03-2.767 2.26-4.104 2.365-4.167-1.286-1.882-3.284-2.138-3.997-2.163-1.702-.172-3.323.999-4.186.999-.863 0-2.196-.973-3.61-.946-1.858.028-3.57 1.077-4.527 2.74-1.93 3.345-.494 8.295 1.384 11.01.92 1.328 2.017 2.82 3.458 2.765 1.388-.055 1.911-.898 3.589-.898 1.678 0 2.148.898 3.61.87 1.49-.027 2.433-1.354 3.345-2.686 1.054-1.544 1.487-3.04 1.514-3.117-.033-.014-2.9-1.113-2.93-4.407zm-2.79-8.116c.766-.927 1.284-2.216 1.143-3.5-1.104.045-2.44.736-3.233 1.663-.71.82-1.332 2.13-1.165 3.387 1.231.095 2.489-.625 3.255-1.55z"/>
+          </svg>
+          <span class="hidden-sm">Apple</span>
+        </button>
+      </div>
+
+      <!-- Divider -->
+      <div class="divider">or register with email</div>
+
+      <!-- Form -->
+      <form id="registerForm" autocomplete="on" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="firstName">First Name</label>
+          <div class="form-input-wrap">
+            <input type="text" id="firstName" name="firstName" placeholder="Jane" required>
+            <i class="fas fa-user field-icon"></i>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="lastName">Last Name</label>
+          <div class="form-input-wrap">
+            <input type="text" id="lastName" name="lastName" placeholder="Doe" required>
+            <i class="fas fa-user field-icon"></i>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="email">Email Address</label>
+          <div class="form-input-wrap">
+            <input type="email" id="email" name="email" placeholder="you@lumafloat.com" required>
+            <i class="fas fa-envelope field-icon"></i>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="password">Password</label>
+          <div class="form-input-wrap">
+            <input type="password" id="password" name="password" placeholder="At least 8 characters" required>
+            <i class="fas fa-lock field-icon"></i>
+            <button type="button" class="toggle-pass" id="togglePass" aria-label="Toggle password visibility">
+              <i class="fas fa-eye"></i>
+            </button>
+          </div>
+          <div class="strength-row">
+            <div class="strength-bar"><div id="strengthFill"></div></div>
+            <span class="strength-label" id="strengthLabel">Weak</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="confirmPassword">Confirm Password</label>
+          <div class="form-input-wrap">
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Repeat your password" required>
+            <i class="fas fa-lock field-icon"></i>
+          </div>
+        </div>
+
+        <label class="terms">
+          <input type="checkbox" id="agreeTerms" required>
+          <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>. </span>
+        </label>
+
+        <button type="submit" class="btn-primary">
+          <i class="fas fa-water"></i> Create Account
+        </button>
+      </form>
+
+      <p class="signup-line">
+        Already have an account? <a href="login.html">Sign in</a>
+      </p>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      const html = document.documentElement;
+
+      /* ---------- THEME ---------- */
+      function updateThemeIcon(theme) {
+        const icon = document.getElementById('theme-icon');
+        if (!icon) return;
+        icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+      }
+      function setTheme(theme) {
+        html.setAttribute('data-theme', theme);
+        localStorage.setItem('luma-theme', theme);
+        updateThemeIcon(theme);
+      }
+      setTheme(localStorage.getItem('luma-theme') || 'dark');
+
+      document.getElementById('theme-toggle')?.addEventListener('click', () => {
+        const current = html.getAttribute('data-theme');
+        setTheme(current === 'dark' ? 'light' : 'dark');
+      });
+
+      /* ---------- DIRECTION ---------- */
+      function setDirection(dir) {
+        html.setAttribute('dir', dir);
+        localStorage.setItem('luma-direction', dir);
+      }
+      setDirection(localStorage.getItem('luma-direction') || 'ltr');
+
+      document.getElementById('rtl-toggle')?.addEventListener('click', () => {
+        const current = html.getAttribute('dir');
+        setDirection(current === 'rtl' ? 'ltr' : 'rtl');
+      });
+
+      /* ---------- SHOW / HIDE PASSWORD ---------- */
+      const togglePass = document.getElementById('togglePass');
+      const passwordInput = document.getElementById('password');
+      togglePass?.addEventListener('click', () => {
+        const isHidden = passwordInput.type === 'password';
+        passwordInput.type = isHidden ? 'text' : 'password';
+        togglePass.innerHTML = isHidden
+          ? '<i class="fas fa-eye-slash"></i>'
+          : '<i class="fas fa-eye"></i>';
+      });
+
+      /* ---------- PASSWORD STRENGTH ---------- */
+      const strengthFill = document.getElementById('strengthFill');
+      const strengthLabel = document.getElementById('strengthLabel');
+
+      function updateStrength(value) {
+        let score = 0;
+        if (value.length >= 8) score++;
+        if (/[A-Z]/.test(value)) score++;
+        if (/[0-9]/.test(value)) score++;
+        if (/[^A-Za-z0-9]/.test(value)) score++;
+
+        const map = [
+          { w: '0%',   c: 'var(--border-line-strong)', label: 'Weak' },
+          { w: '25%',  c: '#EF4444', label: 'Weak' },
+          { w: '50%',  c: '#FACC15', label: 'Fair' },
+          { w: '75%',  c: '#06B6D4', label: 'Good' },
+          { w: '100%', c: '#22C55E', label: 'Strong' }
+        ];
+        const s = map[Math.min(score, 4)];
+        strengthFill.style.width = s.w;
+        strengthFill.style.background = s.c;
+        strengthLabel.textContent = s.label;
+      }
+
+      passwordInput?.addEventListener('input', (e) => updateStrength(e.target.value));
+
+      /* ---------- FORM SUBMIT ---------- */
+      document.getElementById('registerForm')?.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const firstName = document.getElementById('firstName').value.trim();
+        const lastName = document.getElementById('lastName').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value;
+        const confirm = document.getElementById('confirmPassword').value;
+        const agree = document.getElementById('agreeTerms').checked;
+
+        if (!firstName) { document.getElementById('firstName').focus(); return; }
+        if (!lastName) { document.getElementById('lastName').focus(); return; }
+        if (!email) { document.getElementById('email').focus(); return; }
+        if (password.length < 8) { document.getElementById('password').focus(); return; }
+        if (password !== confirm) { document.getElementById('confirmPassword').focus(); return; }
+        if (!agree) { document.getElementById('agreeTerms').focus(); return; }
+
+        // Demo redirect — replace with your real signup flow
+        window.location.href = 'client-dashboard.html';
+      });
+    })();
+  </script>
+</body>
+</html>

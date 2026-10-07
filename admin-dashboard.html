@@ -1,0 +1,1627 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LUMA Float Therapy & Sensory Deprivation Spa – Admin Dashboard.">
+  <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌊</text></svg>" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..900&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>LUMA | Admin Dashboard — Float Therapy & Sensory Deprivation Spa</title>
+
+  <!-- ✅ Tailwind via official CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+  <style>
+    /* ============================================================
+       LUMA FLOAT SPA — COLOR THEME (exact same as index.html)
+    ============================================================ */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root, html[data-theme='dark'] {
+      --void: #0F172A;
+      --void-deep: #0A111F;
+      --void-soft: #1A2439;
+      --white: #F8FAFC;
+      --white-muted: #CBD5E1;
+      --white-dim: #94A3B8;
+      --aqua: #06B6D4;
+      --aqua-glow: rgba(6, 182, 212, 0.15);
+      --aqua-border: rgba(6, 182, 212, 0.35);
+      --border-line: rgba(248, 250, 252, 0.08);
+      --border-line-strong: rgba(248, 250, 252, 0.15);
+    }
+    html[data-theme='light'] {
+      --void: #F8FAFC;
+      --void-deep: #F1F5F9;
+      --void-soft: #FFFFFF;
+      --white: #0F172A;
+      --white-muted: #334155;
+      --white-dim: #64748B;
+      --aqua: #0891B2;
+      --aqua-glow: rgba(6, 182, 212, 0.12);
+      --aqua-border: rgba(6, 182, 212, 0.4);
+      --border-line: rgba(15, 23, 42, 0.08);
+      --border-line-strong: rgba(15, 23, 42, 0.15);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--void);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color 0.4s, color 0.4s;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--white);
+    }
+    p { font-weight: 300; }
+    a { text-decoration: none; color: inherit; }
+    .text-aqua { color: var(--aqua); }
+
+    /* ============================================================
+       NAVBAR — same as index.html
+    ============================================================ */
+    .navbar-container {
+      background-color: rgba(15, 23, 42, 0.92);
+      border-bottom: 1px solid var(--aqua-border);
+      padding: 0.75rem 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(6, 182, 212, 0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+    [data-theme="light"] .navbar-container {
+      background-color: rgba(248, 250, 252, 0.92);
+    }
+    .navbar-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .navbar-container .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      transition: opacity 0.2s;
+    }
+    .logo:hover { opacity: 0.85; }
+    .logo-icon {
+      width: 3rem;
+      height: 3rem;
+      background-color: var(--void-soft);
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--aqua);
+    }
+    .logo-icon i { color: var(--aqua); font-size: 1.5rem; }
+    .logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: 0.12em;
+      line-height: 1;
+    }
+    .logo-text span { color: var(--aqua); }
+    .logo-tagline {
+      font-size: 0.6rem;
+      color: var(--white-dim);
+      display: block;
+      margin-top: 2px;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+    }
+    .navbar-right-desktop {
+      display: none;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .icon-btn {
+      width: 2.5rem;
+      height: 2.5rem;
+      background-color: transparent;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white-muted);
+      border: 1px solid var(--border-line-strong);
+      cursor: pointer;
+      transition: 0.2s;
+      font-family: inherit;
+    }
+    .icon-btn:hover {
+      border-color: var(--aqua);
+      color: var(--aqua);
+      background: var(--aqua-glow);
+    }
+    .user-chip {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.35rem 0.5rem 0.35rem 0.35rem;
+      border-radius: 9999px;
+      border: 1px solid var(--border-line-strong);
+      background: var(--void-soft);
+    }
+    .user-chip .avatar {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #06B6D4 0%, #0891B2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.75rem;
+      font-family: 'Inter', sans-serif;
+    }
+    .user-chip .name {
+      font-size: 0.82rem;
+      font-weight: 500;
+      line-height: 1;
+      color: var(--white);
+    }
+    .user-chip .role {
+      font-size: 0.62rem;
+      color: var(--white-dim);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      line-height: 1;
+      margin-top: 0.2rem;
+    }
+    .mobile-menu-btn {
+      display: flex;
+      color: var(--white);
+      font-size: 1.4rem;
+      background: transparent;
+      border: 1px solid var(--border-line-strong);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .mobile-menu-btn:hover { border-color: var(--aqua); color: var(--aqua); }
+
+    @media (min-width: 1024px) {
+      .navbar-right-desktop { display: flex; }
+      .mobile-menu-btn { display: none; }
+    }
+
+    /* Mobile overlay */
+    #mobile-overlay {
+      background: rgba(10, 17, 31, 0.7);
+      backdrop-filter: blur(6px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      position: fixed;
+      inset: 0;
+      z-index: 55;
+    }
+    #mobile-overlay.active { opacity: 1; pointer-events: auto; }
+
+    /* ============================================================
+       DASHBOARD CARD
+    ============================================================ */
+    .dashboard-card {
+      background-color: var(--void-soft);
+      border: 1px solid var(--border-line);
+      border-radius: 6px;
+      transition: all 0.35s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .dashboard-card:hover {
+      border-color: var(--aqua-border);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px -12px rgba(6, 182, 212, 0.2);
+    }
+    .dashboard-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--aqua);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s ease;
+    }
+    .dashboard-card:hover::before { transform: scaleX(1); }
+
+    /* ============================================================
+       SIDEBAR LINKS
+    ============================================================ */
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.85rem 1rem;
+      border-radius: 10px;
+      color: var(--white-muted);
+      transition: all 0.25s ease;
+      font-weight: 500;
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+    .sidebar-link:hover {
+      background: var(--aqua-glow);
+      color: var(--aqua);
+      border-color: var(--aqua-border);
+    }
+    .sidebar-link.active {
+      background: var(--aqua-glow);
+      color: var(--aqua);
+      border-color: var(--aqua);
+      font-weight: 600;
+    }
+    .sidebar-link.active svg,
+    .sidebar-link.active i,
+    .sidebar-link:hover svg,
+    .sidebar-link:hover i {
+      color: var(--aqua);
+    }
+
+    /* ============================================================
+       BADGES
+    ============================================================ */
+    .badge-aqua {
+      background: var(--aqua-glow);
+      color: var(--aqua);
+      border: 1px solid var(--aqua-border);
+      font-weight: 600;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      display: inline-block;
+    }
+    .badge-success {
+      background: rgba(34, 197, 94, 0.12);
+      color: #4ADE80;
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      font-weight: 600;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      display: inline-block;
+    }
+    .badge-warning {
+      background: rgba(234, 179, 8, 0.12);
+      color: #FACC15;
+      border: 1px solid rgba(234, 179, 8, 0.3);
+      font-weight: 600;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      display: inline-block;
+    }
+    .badge-danger {
+      background: rgba(239, 68, 68, 0.12);
+      color: #F87171;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      font-weight: 600;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      display: inline-block;
+    }
+    html[data-theme='light'] .badge-success { color: #16A34A; }
+    html[data-theme='light'] .badge-warning { color: #CA8A04; }
+    html[data-theme='light'] .badge-danger { color: #DC2626; }
+
+    /* ============================================================
+       BUTTONS
+    ============================================================ */
+    .btn-accent {
+      background: var(--aqua);
+      color: var(--void);
+      transition: all 0.3s ease;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      border: 1px solid var(--aqua);
+      border-radius: 9999px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .btn-accent:hover {
+      background: transparent;
+      color: var(--aqua);
+      box-shadow: 0 0 24px var(--aqua-glow);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid var(--border-line-strong);
+      border-radius: 9999px;
+      transition: all 0.25s ease;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .btn-outline:hover {
+      border-color: var(--aqua);
+      color: var(--aqua);
+      background: var(--aqua-glow);
+    }
+    .btn-icon-sm {
+      width: 2.2rem;
+      height: 2.2rem;
+      border-radius: 8px;
+      border: 1px solid var(--border-line-strong);
+      background: transparent;
+      color: var(--white-muted);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: 0.25s;
+      font-size: 0.8rem;
+    }
+    .btn-icon-sm:hover {
+      border-color: var(--aqua);
+      color: var(--aqua);
+      background: var(--aqua-glow);
+    }
+    .logout-btn {
+      background-color: rgba(239, 68, 68, 0.12) !important;
+      color: #F87171 !important;
+      border: 1px solid rgba(239, 68, 68, 0.3) !important;
+      justify-content: center;
+      margin-top: 1rem !important;
+      border-radius: 10px;
+    }
+    .logout-btn:hover {
+      background: #EF4444 !important;
+      color: white !important;
+      transform: translateY(-1px);
+    }
+
+    /* ============================================================
+       PROGRESS BAR
+    ============================================================ */
+    .progress-bar {
+      height: 6px;
+      border-radius: 9999px;
+      background: var(--border-line-strong);
+      overflow: hidden;
+    }
+    .progress-bar > div {
+      height: 100%;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, #06B6D4, #0891B2);
+      transition: width 0.6s ease;
+    }
+
+    /* ============================================================
+       TABLES
+    ============================================================ */
+    .dash-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    .dash-table thead th {
+      text-align: left;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white-dim);
+      font-weight: 600;
+      padding: 0.75rem 0.5rem;
+      border-bottom: 1px solid var(--border-line);
+      font-family: 'Inter', sans-serif;
+    }
+    .dash-table tbody td {
+      padding: 1rem 0.5rem;
+      border-bottom: 1px solid var(--border-line);
+      color: var(--white-muted);
+      font-weight: 300;
+    }
+    .dash-table tbody tr:hover td {
+      background: var(--aqua-glow);
+      color: var(--white);
+    }
+    .dash-table tbody tr:last-child td { border-bottom: none; }
+
+    /* ============================================================
+       FORM INPUTS
+    ============================================================ */
+    .form-input {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      background: var(--void);
+      border: 1px solid var(--border-line-strong);
+      border-radius: 10px;
+      color: var(--white);
+      font-family: inherit;
+      font-size: 0.92rem;
+      font-weight: 300;
+      outline: none;
+      transition: 0.3s;
+    }
+    .form-input::placeholder { color: var(--white-dim); }
+    .form-input:focus {
+      border-color: var(--aqua);
+      box-shadow: 0 0 0 3px var(--aqua-glow);
+    }
+    .form-label {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white-dim);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    /* RTL support */
+    html[dir="rtl"] .sidebar-link { flex-direction: row-reverse; }
+
+    /* Hidden sections */
+    .admin-section.hidden { display: none; }
+
+    /* Chart wrapper */
+    .chart-wrap {
+      position: relative;
+      height: 260px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- ============================================================
+       NAVBAR — same as index.html
+  ============================================================ -->
+  <nav class="navbar-container">
+    <div class="container navbar-flex">
+
+      <!-- Left: mobile menu + logo -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button id="mobile-menu-toggle" class="mobile-menu-btn lg:hidden" aria-label="Open menu">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <a href="index.html" class="logo">
+          <div class="logo-icon"><i class="fas fa-water"></i></div>
+          <div>
+            <div class="logo-text">LUMA<span>FLOAT</span></div>
+            <span class="logo-tagline">FLOAT THERAPY & SPA</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Right: theme, rtl, admin chip -->
+      <div class="navbar-right-desktop">
+        <button class="icon-btn" id="desktop-theme-toggle" title="Toggle theme">
+          <i class="fas fa-sun" id="desktop-theme-icon"></i>
+        </button>
+        <button class="icon-btn" id="desktop-rtl-toggle" title="Toggle RTL">
+          <i class="fas fa-exchange-alt"></i>
+        </button>
+
+        <div class="user-chip">
+          <div class="avatar">AD</div>
+          <div class="hidden sm:block">
+            <div class="name">Admin</div>
+            <div class="role">Manager</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </nav>
+
+  <div id="mobile-overlay" class="lg:hidden"></div>
+
+  <!-- ============================================================
+       MAIN LAYOUT
+  ============================================================ -->
+  <div class="flex min-h-screen pt-[73px]">
+
+    <!-- SIDEBAR -->
+    <aside id="sidebar" class="fixed top-0 lg:top-[73px] left-0 w-72 lg:w-64 h-full lg:h-[calc(100vh-73px)] z-[60] transform -translate-x-full lg:translate-x-0 transition-transform duration-300 overflow-y-auto shrink-0 border-r" style="background-color: var(--void); border-color: var(--border-line);">
+      <div class="p-5">
+        <div class="flex lg:hidden justify-between items-center mb-6">
+          <span class="font-bold" style="color: var(--aqua); font-family: 'Cormorant Garamond', serif; font-size: 1.25rem;">Menu</span>
+          <button id="close-sidebar" class="p-2 rounded-lg" style="color: var(--white-muted);">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+
+        <nav class="flex flex-col gap-1">
+          <p class="text-xs uppercase tracking-wider font-bold px-3 mb-2" style="color: var(--white-dim);">Admin Panel</p>
+
+          <a href="#" data-section="overview" class="sidebar-link active">
+            <i class="fas fa-gauge w-5 text-center"></i>
+            <span>Overview</span>
+          </a>
+
+          <a href="#" data-section="floats" class="sidebar-link">
+            <i class="fas fa-water w-5 text-center"></i>
+            <span>Float Sessions</span>
+            <span class="ml-auto badge-aqua">12</span>
+          </a>
+
+          <a href="#" data-section="clients" class="sidebar-link">
+            <i class="fas fa-users w-5 text-center"></i>
+            <span>Clients</span>
+          </a>
+
+          <a href="#" data-section="bookings" class="sidebar-link">
+            <i class="fas fa-calendar-check w-5 text-center"></i>
+            <span>Bookings</span>
+            <span class="ml-auto badge-warning">4</span>
+          </a>
+
+          <a href="#" data-section="tanks" class="sidebar-link">
+            <i class="fas fa-flask w-5 text-center"></i>
+            <span>Float Tanks</span>
+          </a>
+
+          <a href="#" data-section="revenue" class="sidebar-link">
+            <i class="fas fa-chart-line w-5 text-center"></i>
+            <span>Revenue</span>
+          </a>
+
+          <a href="#" data-section="settings" class="sidebar-link">
+            <i class="fas fa-cog w-5 text-center"></i>
+            <span>Settings</span>
+          </a>
+
+          <a href="#" id="logoutBtn" class="sidebar-link logout-btn !py-2 !px-3 gap-2">
+            <i class="fas fa-sign-out-alt w-5 text-center"></i>
+            <span class="font-medium">Logout</span>
+          </a>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-1 min-w-0 space-y-6 lg:ml-64 px-4 sm:px-6 lg:px-8 py-6">
+
+      <!-- ============================================================
+           SECTION: OVERVIEW
+      ============================================================ -->
+      <div id="overview" class="admin-section">
+        <div class="mb-8">
+          <span class="text-xs uppercase tracking-widest font-semibold" style="color: var(--aqua); letter-spacing: 0.25em;">Admin Control</span>
+          <h1 class="text-3xl md:text-4xl font-serif font-medium mt-2">Welcome back, Admin.</h1>
+          <p class="mt-2 max-w-xl" style="color: var(--white-muted);">Real-time overview of your float spa. Manage sessions, clients, tanks, and revenue — all in one calm place.</p>
+        </div>
+
+        <!-- Stat cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div class="dashboard-card p-6">
+            <div class="flex items-start justify-between">
+              <div>
+                <p class="text-xs uppercase tracking-wider font-semibold" style="color: var(--white-dim); letter-spacing: 0.15em;">Today's Floats</p>
+                <p class="text-4xl font-serif font-semibold mt-2" style="color: var(--aqua);">8</p>
+                <p class="text-xs mt-2" style="color: #4ADE80;">↑ 2 from yesterday</p>
+              </div>
+              <div class="w-11 h-11 rounded-full flex items-center justify-center" style="background: var(--aqua-glow); border: 1px solid var(--aqua-border); color: var(--aqua);">
+                <i class="fas fa-water text-lg"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="dashboard-card p-6">
+            <div class="flex items-start justify-between">
+              <div>
+                <p class="text-xs uppercase tracking-wider font-semibold" style="color: var(--white-dim); letter-spacing: 0.15em;">Active Clients</p>
+                <p class="text-4xl font-serif font-semibold mt-2" style="color: var(--aqua);">142</p>
+                <p class="text-xs mt-2" style="color: #4ADE80;">↑ 12 this week</p>
+              </div>
+              <div class="w-11 h-11 rounded-full flex items-center justify-center" style="background: var(--aqua-glow); border: 1px solid var(--aqua-border); color: var(--aqua);">
+                <i class="fas fa-users text-lg"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="dashboard-card p-6">
+            <div class="flex items-start justify-between">
+              <div>
+                <p class="text-xs uppercase tracking-wider font-semibold" style="color: var(--white-dim); letter-spacing: 0.15em;">Monthly Revenue</p>
+                <p class="text-4xl font-serif font-semibold mt-2" style="color: var(--aqua);">$18.4k</p>
+                <p class="text-xs mt-2" style="color: #4ADE80;">↑ 8.2% vs last month</p>
+              </div>
+              <div class="w-11 h-11 rounded-full flex items-center justify-center" style="background: var(--aqua-glow); border: 1px solid var(--aqua-border); color: var(--aqua);">
+                <i class="fas fa-chart-line text-lg"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="dashboard-card p-6">
+            <div class="flex items-start justify-between">
+              <div>
+                <p class="text-xs uppercase tracking-wider font-semibold" style="color: var(--white-dim); letter-spacing: 0.15em;">Tank Status</p>
+                <p class="text-xl font-serif font-medium mt-2">4 / 6 Active</p>
+                <p class="text-xs mt-2" style="color: var(--aqua);">2 in maintenance</p>
+              </div>
+              <div class="w-11 h-11 rounded-full flex items-center justify-center" style="background: var(--aqua-glow); border: 1px solid var(--aqua-border); color: var(--aqua);">
+                <i class="fas fa-flask text-lg"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chart + Recent bookings -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-5">
+          <div class="dashboard-card p-6 lg:col-span-2">
+            <div class="flex justify-between items-center mb-5">
+              <h3 class="font-serif text-xl font-medium">Floats This Week</h3>
+              <span class="badge-aqua">Last 7 days</span>
+            </div>
+            <div class="chart-wrap">
+              <canvas id="floatsChart"></canvas>
+            </div>
+          </div>
+
+          <div class="dashboard-card p-6">
+            <h3 class="font-serif text-xl font-medium mb-5">Today's Schedule</h3>
+            <div class="space-y-3">
+              <div class="flex items-center gap-3 p-3 rounded-lg" style="background: var(--void); border: 1px solid var(--border-line);">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center" style="background: var(--aqua-glow); border: 1px solid var(--aqua-border); color: var(--aqua);">
+                  <i class="fas fa-water text-sm"></i>
+                </div>
+                <div class="flex-1">
+                  <p class="text-sm font-medium">Priya N. · Signature</p>
+                  <p class="text-xs" style="color: var(--white-dim);">2:00 PM · Tank 1</p>
+                </div>
+                <span class="badge-success">Confirmed</span>
+              </div>
+              <div class="flex items-center gap-3 p-3 rounded-lg" style="background: var(--void); border: 1px solid var(--border-line);">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center" style="background: var(--aqua-glow); border: 1px solid var(--aqua-border); color: var(--aqua);">
+                  <i class="fas fa-water text-sm"></i>
+                </div>
+                <div class="flex-1">
+                  <p class="text-sm font-medium">Marcus D. · Signature</p>
+                  <p class="text-xs" style="color: var(--white-dim);">3:30 PM · Tank 3</p>
+                </div>
+                <span class="badge-success">Confirmed</span>
+              </div>
+              <div class="flex items-center gap-3 p-3 rounded-lg" style="background: var(--void); border: 1px solid var(--border-line);">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center" style="background: var(--aqua-glow); border: 1px solid var(--aqua-border); color: var(--aqua);">
+                  <i class="fas fa-water text-sm"></i>
+                </div>
+                <div class="flex-1">
+                  <p class="text-sm font-medium">Elena R. · Discovery</p>
+                  <p class="text-xs" style="color: var(--white-dim);">5:00 PM · Tank 2</p>
+                </div>
+                <span class="badge-warning">Pending</span>
+              </div>
+              <div class="flex items-center gap-3 p-3 rounded-lg" style="background: var(--void); border: 1px solid var(--border-line);">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center" style="background: var(--aqua-glow); border: 1px solid var(--aqua-border); color: var(--aqua);">
+                  <i class="fas fa-water text-sm"></i>
+                </div>
+                <div class="flex-1">
+                  <p class="text-sm font-medium">James K. · Signature</p>
+                  <p class="text-xs" style="color: var(--white-dim);">7:00 PM · Tank 4</p>
+                </div>
+                <span class="badge-success">Confirmed</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent activity table -->
+        <div class="dashboard-card p-6 mt-5">
+          <div class="flex justify-between items-center mb-5">
+            <h3 class="font-serif text-xl font-medium">Recent Float Sessions</h3>
+            <button onclick="activateSection('floats');" class="text-xs font-semibold" style="color: var(--aqua); letter-spacing: 0.1em;">VIEW ALL →</button>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Ref</th>
+                  <th>Client</th>
+                  <th>Tank</th>
+                  <th>Duration</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-mono font-semibold" style="color: var(--aqua);">#LFA-1032</td>
+                  <td>Priya N.</td>
+                  <td>Tank 1</td>
+                  <td>90 min</td>
+                  <td><span class="badge-success">Completed</span></td>
+                  <td><button class="btn-icon-sm"><i class="fas fa-eye"></i></button></td>
+                </tr>
+                <tr>
+                  <td class="font-mono font-semibold" style="color: var(--aqua);">#LFA-1031</td>
+                  <td>Marcus D.</td>
+                  <td>Tank 3</td>
+                  <td>90 min</td>
+                  <td><span class="badge-aqua">In Progress</span></td>
+                  <td><button class="btn-icon-sm"><i class="fas fa-eye"></i></button></td>
+                </tr>
+                <tr>
+                  <td class="font-mono font-semibold" style="color: var(--aqua);">#LFA-1030</td>
+                  <td>Elena R.</td>
+                  <td>Tank 2</td>
+                  <td>60 min</td>
+                  <td><span class="badge-success">Completed</span></td>
+                  <td><button class="btn-icon-sm"><i class="fas fa-eye"></i></button></td>
+                </tr>
+                <tr>
+                  <td class="font-mono font-semibold" style="color: var(--aqua);">#LFA-1029</td>
+                  <td>James K.</td>
+                  <td>Tank 4</td>
+                  <td>90 min</td>
+                  <td><span class="badge-warning">Pending</span></td>
+                  <td><button class="btn-icon-sm"><i class="fas fa-eye"></i></button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================
+           SECTION: FLOAT SESSIONS
+      ============================================================ -->
+      <div id="floats" class="admin-section hidden">
+        <div class="dashboard-card p-6">
+          <div class="flex items-start justify-between flex-wrap gap-4 mb-6">
+            <div class="flex items-start gap-3">
+              <div class="w-11 h-11 rounded-full flex items-center justify-center" style="background: var(--aqua-glow); border: 1px solid var(--aqua-border); color: var(--aqua);">
+                <i class="fas fa-water"></i>
+              </div>
+              <div>
+                <h2 class="font-serif text-2xl font-medium">Float Sessions</h2>
+                <p class="text-sm mt-1" style="color: var(--white-muted);">All float sessions — active, scheduled, and completed.</p>
+              </div>
+            </div>
+            <button class="btn-accent px-6 py-2.5 text-sm">+ New Session</button>
+          </div>
+
+          <!-- Filter row -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+            <div>
+              <label class="form-label">Search</label>
+              <input type="text" class="form-input" placeholder="Search by client or ref#...">
+            </div>
+            <div>
+              <label class="form-label">Status</label>
+              <select class="form-input">
+                <option>All Status</option>
+                <option>In Progress</option>
+                <option>Completed</option>
+                <option>Pending</option>
+                <option>Cancelled</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label">Tank</label>
+              <select class="form-input">
+                <option>All Tanks</option>
+                <option>Tank 1</option>
+                <option>Tank 2</option>
+                <option>Tank 3</option>
+                <option>Tank 4</option>
+                <option>Tank 5</option>
+                <option>Tank 6</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Ref</th>
+                  <th>Client</th>
+                  <th>Tank</th>
+                  <th>Date & Time</th>
+                  <th>Duration</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-mono font-semibold" style="color: var(--aqua);">#LFA-1032</td>
+                  <td>Priya N.</td>
+                  <td>Tank 1</td>
+                  <td>May 24 · 2:00 PM</td>
+                  <td>90 min</td>
+                  <td><span class="badge-success">Completed</span></td>
+                  <td class="flex gap-2"><button class="btn-icon-sm"><i class="fas fa-eye"></i></button><button class="btn-icon-sm"><i class="fas fa-edit"></i></button></td>
+                </tr>
+                <tr>
+                  <td class="font-mono font-semibold" style="color: var(--aqua);">#LFA-1031</td>
+                  <td>Marcus D.</td>
+                  <td>Tank 3</td>
+                  <td>May 24 · 3:30 PM</td>
+                  <td>90 min</td>
+                  <td><span class="badge-aqua">In Progress</span></td>
+                  <td class="flex gap-2"><button class="btn-icon-sm"><i class="fas fa-eye"></i></button><button class="btn-icon-sm"><i class="fas fa-edit"></i></button></td>
+                </tr>
+                <tr>
+                  <td class="font-mono font-semibold" style="color: var(--aqua);">#LFA-1030</td>
+                  <td>Elena R.</td>
+                  <td>Tank 2</td>
+                  <td>May 24 · 11:00 AM</td>
+                  <td>60 min</td>
+                  <td><span class="badge-success">Completed</span></td>
+                  <td class="flex gap-2"><button class="btn-icon-sm"><i class="fas fa-eye"></i></button><button class="btn-icon-sm"><i class="fas fa-edit"></i></button></td>
+                </tr>
+                <tr>
+                  <td class="font-mono font-semibold" style="color: var(--aqua);">#LFA-1029</td>
+                  <td>James K.</td>
+                  <td>Tank 4</td>
+                  <td>May 24 · 5:00 PM</td>
+                  <td>90 min</td>
+                  <td><span class="badge-warning">Pending</span></td>
+                  <td class="flex gap-2"><button class="btn-icon-sm"><i class="fas fa-eye"></i></button><button class="btn-icon-sm"><i class="fas fa-edit"></i></button></td>
+                </tr>
+                <tr>
+                  <td class="font-mono font-semibold" style="color: var(--aqua);">#LFA-1028</td>
+                  <td>Sofia M.</td>
+                  <td>Tank 1</td>
+                  <td>May 24 · 9:00 AM</td>
+                  <td>90 min</td>
+                  <td><span class="badge-success">Completed</span></td>
+                  <td class="flex gap-2"><button class="btn-icon-sm"><i class="fas fa-eye"></i></button><button class="btn-icon-sm"><i class="fas fa-edit"></i></button></td>
+                </tr>
+                <tr>
+                  <td class="font-mono font-semibold" style="color: var(--aqua);">#LFA-1027</td>
+                  <td>Daniel T.</td>
+                  <td>Tank 5</td>
+                  <td>May 23 · 8:00 PM</td>
+                  <td>60 min</td>
+                  <td><span class="badge-danger">Cancelled</span></td>
+                  <td class="flex gap-2"><button class="btn-icon-sm"><i class="fas fa-eye"></i></button><button class="btn-icon-sm"><i class="fas fa-edit"></i></button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================
+           SECTION: CLIENTS
+      ============================================================ -->
+      <div id="clients" class="admin-section hidden">
+        <div class="dashboard-card p-6">
+          <div class="flex items-start justify-between flex-wrap gap-4 mb-6">
+            <div class="flex items-start gap-3">
+              <div class="w-11 h-11 rounded-full flex items-center justify-center" style="background: var(--aqua-glow); border: 1px solid var(--aqua-border); color: var(--aqua);">
+                <i class="fas fa-users"></i>
+              </div>
+              <div>
+                <h2 class="font-serif text-2xl font-medium">Clients</h2>
+                <p class="text-sm mt-1" style="color: var(--white-muted);">Manage your float community — members, one-timers, and guests.</p>
+              </div>
+            </div>
+            <button class="btn-accent px-6 py-2.5 text-sm">+ Add Client</button>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+            <div>
+              <label class="form-label">Search Client</label>
+              <input type="text" class="form-input" placeholder="Name, email, phone...">
+            </div>
+            <div>
+              <label class="form-label">Membership</label>
+              <select class="form-input">
+                <option>All Memberships</option>
+                <option>The Reset</option>
+                <option>Pay-as-you-go</option>
+                <option>Discovery</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label">Status</label>
+              <select class="form-input">
+                <option>All</option>
+                <option>Active</option>
+                <option>Paused</option>
+                <option>Inactive</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Client</th>
+                  <th>Email</th>
+                  <th>Membership</th>
+                  <th>Floats</th>
+                  <th>Last Visit</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-medium" style="color: var(--white);">Priya N.</td>
+                  <td>priya@example.com</td>
+                  <td>The Reset</td>
+                  <td>14</td>
+                  <td>May 24, 2026</td>
+                  <td><span class="badge-success">Active</span></td>
+                  <td><button class="btn-icon-sm"><i class="fas fa-eye"></i></button></td>
+                </tr>
+                <tr>
+                  <td class="font-medium" style="color: var(--white);">Marcus D.</td>
+                  <td>marcus@example.com</td>
+                  <td>The Reset</td>
+                  <td>22</td>
+                  <td>May 24, 2026</td>
+                  <td><span class="badge-success">Active</span></td>
+                  <td><button class="btn-icon-sm"><i class="fas fa-eye"></i></button></td>
+                </tr>
+                <tr>
+                  <td class="font-medium" style="color: var(--white);">Elena R.</td>
+                  <td>elena@example.com</td>
+                  <td>Pay-as-you-go</td>
+                  <td>6</td>
+                  <td>May 24, 2026</td>
+                  <td><span class="badge-success">Active</span></td>
+                  <td><button class="btn-icon-sm"><i class="fas fa-eye"></i></button></td>
+                </tr>
+                <tr>
+                  <td class="font-medium" style="color: var(--white);">James K.</td>
+                  <td>james@example.com</td>
+                  <td>Discovery</td>
+                  <td>1</td>
+                  <td>May 23, 2026</td>
+                  <td><span class="badge-aqua">New</span></td>
+                  <td><button class="btn-icon-sm"><i class="fas fa-eye"></i></button></td>
+                </tr>
+                <tr>
+                  <td class="font-medium" style="color: var(--white);">Sofia M.</td>
+                  <td>sofia@example.com</td>
+                  <td>The Reset</td>
+                  <td>18</td>
+                  <td>May 24, 2026</td>
+                  <td><span class="badge-success">Active</span></td>
+                  <td><button class="btn-icon-sm"><i class="fas fa-eye"></i></button></td>
+                </tr>
+                <tr>
+                  <td class="font-medium" style="color: var(--white);">Daniel T.</td>
+                  <td>daniel@example.com</td>
+                  <td>Pay-as-you-go</td>
+                  <td>3</td>
+                  <td>Apr 12, 2026</td>
+                  <td><span class="badge-warning">Inactive</span></td>
+                  <td><button class="btn-icon-sm"><i class="fas fa-eye"></i></button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================
+           SECTION: BOOKINGS
+      ============================================================ -->
+      <div id="bookings" class="admin-section hidden">
+        <div class="dashboard-card p-6">
+          <div class="flex items-start gap-3 mb-6">
+            <div class="w-11 h-11 rounded-full flex items-center justify-center" style="background: var(--aqua-glow); border: 1px solid var(--aqua-border); color: var(--aqua);">
+              <i class="fas fa-calendar-check"></i>
+            </div>
+            <div>
+              <h2 class="font-serif text-2xl font-medium">Bookings</h2>
+              <p class="text-sm mt-1" style="color: var(--white-muted);">Approve, reschedule, or cancel client bookings.</p>
+            </div>
+          </div>
+
+          <!-- Pending approvals -->
+          <div class="mb-6">
+            <h3 class="font-serif text-lg font-medium mb-4" style="color: var(--aqua);">Pending Approval</h3>
+            <div class="space-y-3">
+              <div class="flex flex-wrap items-center justify-between gap-3 p-4 rounded-xl" style="background: var(--void); border: 1px solid var(--border-line);">
+                <div class="flex items-center gap-4">
+                  <div class="w-11 h-11 rounded-full flex items-center justify-center" style="background: var(--aqua-glow); border: 1px solid var(--aqua-border); color: var(--aqua);">
+                    <i class="fas fa-water"></i>
+                  </div>
+                  <div>
+                    <p class="font-serif text-base font-medium">Elena R. · Discovery Float</p>
+                    <p class="text-xs" style="color: var(--white-dim);">May 24, 2026 · 5:00 PM · Tank 2 · 60 min</p>
+                  </div>
+                </div>
+                <div class="flex gap-2">
+                  <button class="btn-accent px-4 py-2 text-xs">Approve</button>
+                  <button class="btn-outline px-4 py-2 text-xs">Decline</button>
+                </div>
+              </div>
+              <div class="flex flex-wrap items-center justify-between gap-3 p-4 rounded-xl" style="background: var(--void); border: 1px solid var(--border-line);">
+                <div class="flex items-center gap-4">
+                  <div class="w-11 h-11 rounded-full flex items-center justify-center" style="background: var(--aqua-glow); border: 1px solid var(--aqua-border); color: var(--aqua);">
+                    <i class="fas fa-water"></i>
+                  </div>
+                  <div>
+                    <p class="font-serif text-base font-medium">James K. · Signature Float</p>
+                    <p class="text-xs" style="color: var(--white-dim);">May 25, 2026 · 2:00 PM · Tank 4 · 90 min</p>
+                  </div>
+                </div>
+                <div class="flex gap-2">
+                  <button class="btn-accent px-4 py-2 text-xs">Approve</button>
+                  <button class="btn-outline px-4 py-2 text-xs">Decline</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Confirmed bookings -->
+          <div>
+            <h3 class="font-serif text-lg font-medium mb-4">Confirmed Upcoming</h3>
+            <div class="overflow-x-auto">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Ref</th>
+                    <th>Client</th>
+                    <th>Date & Time</th>
+                    <th>Tank</th>
+                    <th>Duration</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="font-mono font-semibold" style="color: var(--aqua);">#LFA-1033</td>
+                    <td>Priya N.</td>
+                    <td>May 26 · 10:00 AM</td>
+                    <td>Tank 1</td>
+                    <td>90 min</td>
+                    <td class="flex gap-2"><button class="btn-icon-sm"><i class="fas fa-edit"></i></button><button class="btn-icon-sm"><i class="fas fa-times"></i></button></td>
+                  </tr>
+                  <tr>
+                    <td class="font-mono font-semibold" style="color: var(--aqua);">#LFA-1034</td>
+                    <td>Marcus D.</td>
+                    <td>May 26 · 2:00 PM</td>
+                    <td>Tank 3</td>
+                    <td>90 min</td>
+                    <td class="flex gap-2"><button class="btn-icon-sm"><i class="fas fa-edit"></i></button><button class="btn-icon-sm"><i class="fas fa-times"></i></button></td>
+                  </tr>
+                  <tr>
+                    <td class="font-mono font-semibold" style="color: var(--aqua);">#LFA-1035</td>
+                    <td>Sofia M.</td>
+                    <td>May 27 · 6:00 PM</td>
+                    <td>Tank 2</td>
+                    <td>90 min</td>
+                    <td class="flex gap-2"><button class="btn-icon-sm"><i class="fas fa-edit"></i></button><button class="btn-icon-sm"><i class="fas fa-times"></i></button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================
+           SECTION: FLOAT TANKS
+      ============================================================ -->
+      <div id="tanks" class="admin-section hidden">
+        <div class="dashboard-card p-6">
+          <div class="flex items-start gap-3 mb-6">
+            <div class="w-11 h-11 rounded-full flex items-center justify-center" style="background: var(--aqua-glow); border: 1px solid var(--aqua-border); color: var(--aqua);">
+              <i class="fas fa-flask"></i>
+            </div>
+            <div>
+              <h2 class="font-serif text-2xl font-medium">Float Tanks</h2>
+              <p class="text-sm mt-1" style="color: var(--white-muted);">Monitor tank status, water quality, and maintenance schedule.</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <!-- Tank 1 -->
+            <div class="p-5 rounded-xl" style="background: var(--void); border: 1px solid var(--aqua-border);">
+              <div class="flex justify-between items-start mb-3">
+                <div class="flex items-center gap-2">
+                  <i class="fas fa-water" style="color: var(--aqua);"></i>
+                  <p class="font-medium">Tank 1</p>
+                </div>
+                <span class="badge-success">Active</span>
+              </div>
+              <p class="text-xs" style="color: var(--white-dim);">Last service: May 22, 2026</p>
+              <div class="mt-3">
+                <div class="flex justify-between text-xs mb-1">
+                  <span style="color: var(--white-muted);">Water Quality</span>
+                  <span style="color: var(--aqua);">98%</span>
+                </div>
+                <div class="progress-bar"><div style="width: 98%;"></div></div>
+              </div>
+            </div>
+            <!-- Tank 2 -->
+            <div class="p-5 rounded-xl" style="background: var(--void); border: 1px solid var(--aqua-border);">
+              <div class="flex justify-between items-start mb-3">
+                <div class="flex items-center gap-2">
+                  <i class="fas fa-water" style="color: var(--aqua);"></i>
+                  <p class="font-medium">Tank 2</p>
+                </div>
+                <span class="badge-success">Active</span>
+              </div>
+              <p class="text-xs" style="color: var(--white-dim);">Last service: May 21, 2026</p>
+              <div class="mt-3">
+                <div class="flex justify-between text-xs mb-1">
+                  <span style="color: var(--white-muted);">Water Quality</span>
+                  <span style="color: var(--aqua);">96%</span>
+                </div>
+                <div class="progress-bar"><div style="width: 96%;"></div></div>
+              </div>
+            </div>
+            <!-- Tank 3 -->
+            <div class="p-5 rounded-xl" style="background: var(--void); border: 1px solid var(--aqua-border);">
+              <div class="flex justify-between items-start mb-3">
+                <div class="flex items-center gap-2">
+                  <i class="fas fa-water" style="color: var(--aqua);"></i>
+                  <p class="font-medium">Tank 3</p>
+                </div>
+                <span class="badge-aqua">In Use</span>
+              </div>
+              <p class="text-xs" style="color: var(--white-dim);">Last service: May 23, 2026</p>
+              <div class="mt-3">
+                <div class="flex justify-between text-xs mb-1">
+                  <span style="color: var(--white-muted);">Water Quality</span>
+                  <span style="color: var(--aqua);">99%</span>
+                </div>
+                <div class="progress-bar"><div style="width: 99%;"></div></div>
+              </div>
+            </div>
+            <!-- Tank 4 -->
+            <div class="p-5 rounded-xl" style="background: var(--void); border: 1px solid var(--border-line);">
+              <div class="flex justify-between items-start mb-3">
+                <div class="flex items-center gap-2">
+                  <i class="fas fa-water" style="color: var(--aqua);"></i>
+                  <p class="font-medium">Tank 4</p>
+                </div>
+                <span class="badge-success">Active</span>
+              </div>
+              <p class="text-xs" style="color: var(--white-dim);">Last service: May 20, 2026</p>
+              <div class="mt-3">
+                <div class="flex justify-between text-xs mb-1">
+                  <span style="color: var(--white-muted);">Water Quality</span>
+                  <span style="color: var(--aqua);">94%</span>
+                </div>
+                <div class="progress-bar"><div style="width: 94%;"></div></div>
+              </div>
+            </div>
+            <!-- Tank 5 -->
+            <div class="p-5 rounded-xl" style="background: var(--void); border: 1px solid rgba(234, 179, 8, 0.4);">
+              <div class="flex justify-between items-start mb-3">
+                <div class="flex items-center gap-2">
+                  <i class="fas fa-wrench" style="color: #FACC15;"></i>
+                  <p class="font-medium">Tank 5</p>
+                </div>
+                <span class="badge-warning">Maintenance</span>
+              </div>
+              <p class="text-xs" style="color: var(--white-dim);">Scheduled: May 26, 2026</p>
+              <div class="mt-3">
+                <div class="flex justify-between text-xs mb-1">
+                  <span style="color: var(--white-muted);">Water Quality</span>
+                  <span style="color: #FACC15;">82%</span>
+                </div>
+                <div class="progress-bar"><div style="width: 82%; background: linear-gradient(90deg, #FACC15, #CA8A04);"></div></div>
+              </div>
+            </div>
+            <!-- Tank 6 -->
+            <div class="p-5 rounded-xl" style="background: var(--void); border: 1px solid rgba(239, 68, 68, 0.4);">
+              <div class="flex justify-between items-start mb-3">
+                <div class="flex items-center gap-2">
+                  <i class="fas fa-wrench" style="color: #F87171;"></i>
+                  <p class="font-medium">Tank 6</p>
+                </div>
+                <span class="badge-danger">Offline</span>
+              </div>
+              <p class="text-xs" style="color: var(--white-dim);">Service required</p>
+              <div class="mt-3">
+                <div class="flex justify-between text-xs mb-1">
+                  <span style="color: var(--white-muted);">Water Quality</span>
+                  <span style="color: #F87171;">55%</span>
+                </div>
+                <div class="progress-bar"><div style="width: 55%; background: linear-gradient(90deg, #EF4444, #DC2626);"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================
+           SECTION: REVENUE
+      ============================================================ -->
+      <div id="revenue" class="admin-section hidden">
+        <div class="dashboard-card p-6">
+          <div class="flex items-start justify-between flex-wrap gap-4 mb-6">
+            <div class="flex items-start gap-3">
+              <div class="w-11 h-11 rounded-full flex items-center justify-center" style="background: var(--aqua-glow); border: 1px solid var(--aqua-border); color: var(--aqua);">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <div>
+                <h2 class="font-serif text-2xl font-medium">Revenue</h2>
+                <p class="text-sm mt-1" style="color: var(--white-muted);">Monthly performance, transactions, and membership income.</p>
+              </div>
+            </div>
+            <select class="form-input" style="width: auto;">
+              <option>Last 6 Months</option>
+              <option>This Year</option>
+              <option>All Time</option>
+            </select>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-6">
+            <div class="p-5 rounded-xl" style="background: var(--void); border: 1px solid var(--border-line);">
+              <p class="text-xs uppercase tracking-wider" style="color: var(--white-dim); letter-spacing: 0.15em;">Total Revenue</p>
+              <p class="font-serif text-3xl font-semibold mt-2" style="color: var(--aqua);">$104.2k</p>
+              <p class="text-xs mt-1" style="color: #4ADE80;">↑ 12.4% YoY</p>
+            </div>
+            <div class="p-5 rounded-xl" style="background: var(--void); border: 1px solid var(--border-line);">
+              <p class="text-xs uppercase tracking-wider" style="color: var(--white-dim); letter-spacing: 0.15em;">This Month</p>
+              <p class="font-serif text-3xl font-semibold mt-2" style="color: var(--aqua);">$18.4k</p>
+              <p class="text-xs mt-1" style="color: #4ADE80;">↑ 8.2% vs Apr</p>
+            </div>
+            <div class="p-5 rounded-xl" style="background: var(--void); border: 1px solid var(--border-line);">
+              <p class="text-xs uppercase tracking-wider" style="color: var(--white-dim); letter-spacing: 0.15em;">Avg. Per Float</p>
+              <p class="font-serif text-3xl font-semibold mt-2" style="color: var(--aqua);">$82</p>
+              <p class="text-xs mt-1" style="color: var(--white-dim);">Across 224 sessions</p>
+            </div>
+          </div>
+
+          <div class="chart-wrap" style="height: 300px;">
+            <canvas id="revenueChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Recent transactions -->
+        <div class="dashboard-card p-6 mt-5">
+          <h3 class="font-serif text-xl font-medium mb-5">Recent Transactions</h3>
+          <div class="overflow-x-auto">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Transaction ID</th>
+                  <th>Client</th>
+                  <th>Type</th>
+                  <th>Amount</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-mono font-semibold">TXN-9921</td>
+                  <td>Priya N.</td>
+                  <td>The Reset Membership</td>
+                  <td class="font-semibold">$249.00</td>
+                  <td>May 1, 2026</td>
+                  <td><span class="badge-success">Paid</span></td>
+                </tr>
+                <tr>
+                  <td class="font-mono font-semibold">TXN-9920</td>
+                  <td>Marcus D.</td>
+                  <td>The Reset Membership</td>
+                  <td class="font-semibold">$249.00</td>
+                  <td>May 1, 2026</td>
+                  <td><span class="badge-success">Paid</span></td>
+                </tr>
+                <tr>
+                  <td class="font-mono font-semibold">TXN-9918</td>
+                  <td>Elena R.</td>
+                  <td>Signature Float</td>
+                  <td class="font-semibold">$89.00</td>
+                  <td>May 24, 2026</td>
+                  <td><span class="badge-success">Paid</span></td>
+                </tr>
+                <tr>
+                  <td class="font-mono font-semibold">TXN-9917</td>
+                  <td>James K.</td>
+                  <td>Discovery Float</td>
+                  <td class="font-semibold">$59.00</td>
+                  <td>May 23, 2026</td>
+                  <td><span class="badge-success">Paid</span></td>
+                </tr>
+                <tr>
+                  <td class="font-mono font-semibold">TXN-9916</td>
+                  <td>Sofia M.</td>
+                  <td>Post-Float Massage</td>
+                  <td class="font-semibold">$65.00</td>
+                  <td>May 22, 2026</td>
+                  <td><span class="badge-success">Paid</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================
+           SECTION: SETTINGS
+      ============================================================ -->
+      <div id="settings" class="admin-section hidden">
+        <div class="dashboard-card p-6">
+          <div class="flex items-start gap-3 mb-6">
+            <div class="w-11 h-11 rounded-full flex items-center justify-center" style="background: var(--aqua-glow); border: 1px solid var(--aqua-border); color: var(--aqua);">
+              <i class="fas fa-cog"></i>
+            </div>
+            <div>
+              <h2 class="font-serif text-2xl font-medium">Settings</h2>
+              <p class="text-sm mt-1" style="color: var(--white-muted);">Configure spa hours, pricing, and notifications.</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div>
+              <label class="form-label">Spa Name</label>
+              <input type="text" class="form-input" value="LUMA Float Therapy">
+            </div>
+            <div>
+              <label class="form-label">Contact Email</label>
+              <input type="email" class="form-input" value="hello@lumafloat.com">
+            </div>
+            <div>
+              <label class="form-label">Contact Phone</label>
+              <input type="tel" class="form-input" value="+45 33 123 456">
+            </div>
+            <div>
+              <label class="form-label">Signature Float Price</label>
+              <input type="text" class="form-input" value="$89.00">
+            </div>
+            <div>
+              <label class="form-label">Discovery Float Price</label>
+              <input type="text" class="form-input" value="$59.00">
+            </div>
+            <div>
+              <label class="form-label">The Reset Monthly</label>
+              <input type="text" class="form-input" value="$249.00">
+            </div>
+            <div>
+              <label class="form-label">Opening Time</label>
+              <input type="time" class="form-input" value="08:00">
+            </div>
+            <div>
+              <label class="form-label">Closing Time</label>
+              <input type="time" class="form-input" value="21:00">
+            </div>
+          </div>
+
+          <div class="mt-6">
+            <label class="form-label">Spa Description</label>
+            <textarea class="form-input" rows="3">A sensory deprivation spa built for the modern nervous system. Zero gravity. Zero noise. Zero pressure.</textarea>
+          </div>
+
+          <div class="mt-6 space-y-3">
+            <h3 class="font-serif text-lg font-medium mb-3">Notifications</h3>
+            <label class="flex items-center justify-between gap-4 p-4 rounded-xl cursor-pointer" style="background: var(--void); border: 1px solid var(--border-line);">
+              <div>
+                <p class="font-medium text-sm">New Booking Alerts</p>
+                <p class="text-xs mt-1" style="color: var(--white-dim);">Email alert when a new booking is made.</p>
+              </div>
+              <input type="checkbox" checked class="w-5 h-5 rounded" style="accent-color: var(--aqua);">
+            </label>
+            <label class="flex items-center justify-between gap-4 p-4 rounded-xl cursor-pointer" style="background: var(--void); border: 1px solid var(--border-line);">
+              <div>
+                <p class="font-medium text-sm">Tank Maintenance Reminders</p>
+                <p class="text-xs mt-1" style="color: var(--white-dim);">Get notified when service is due.</p>
+              </div>
+              <input type="checkbox" checked class="w-5 h-5 rounded" style="accent-color: var(--aqua);">
+            </label>
+            <label class="flex items-center justify-between gap-4 p-4 rounded-xl cursor-pointer" style="background: var(--void); border: 1px solid var(--border-line);">
+              <div>
+                <p class="font-medium text-sm">Weekly Summary</p>
+                <p class="text-xs mt-1" style="color: var(--white-dim);">Receive a weekly performance digest.</p>
+              </div>
+              <input type="checkbox" checked class="w-5 h-5 rounded" style="accent-color: var(--aqua);">
+            </label>
+          </div>
+
+          <div class="flex flex-wrap gap-3 mt-6">
+            <button class="btn-accent px-7 py-3">Save Settings</button>
+            <button class="btn-outline px-7 py-3">Reset to Defaults</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="text-center text-xs border-t pt-8 pb-4" style="color: var(--white-dim); border-color: var(--border-line);">
+        <p>© 2026 LUMA Float Therapy — Midnight Void · Mineral White · Float Aqua</p>
+        <div class="flex justify-center gap-6 mt-4">
+          <a href="#" class="hover:text-aqua">Privacy</a>
+          <a href="#" class="hover:text-aqua">Terms</a>
+          <a href="contact.html" class="hover:text-aqua">Support</a>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      const html = document.documentElement;
+
+      /* ---------- THEME ---------- */
+      function updateThemeIcon(theme) {
+        const icon = document.getElementById('desktop-theme-icon');
+        if (!icon) return;
+        icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+      }
+      function setTheme(theme) {
+        html.setAttribute('data-theme', theme);
+        localStorage.setItem('luma-theme', theme);
+        updateThemeIcon(theme);
+      }
+      setTheme(localStorage.getItem('luma-theme') || 'dark');
+      document.getElementById('desktop-theme-toggle')?.addEventListener('click', () => {
+        const current = html.getAttribute('data-theme');
+        setTheme(current === 'dark' ? 'light' : 'dark');
+      });
+
+      /* ---------- DIRECTION ---------- */
+      function setDirection(dir) {
+        html.setAttribute('dir', dir);
+        localStorage.setItem('luma-direction', dir);
+      }
+      setDirection(localStorage.getItem('luma-direction') || 'ltr');
+      document.getElementById('desktop-rtl-toggle')?.addEventListener('click', () => {
+        const current = html.getAttribute('dir');
+        setDirection(current === 'rtl' ? 'ltr' : 'rtl');
+      });
+
+      /* ---------- MOBILE SIDEBAR ---------- */
+      const menuToggle = document.getElementById('mobile-menu-toggle');
+      const closeSidebar = document.getElementById('close-sidebar');
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('mobile-overlay');
+
+      function toggleMobile(open) {
+        sidebar.classList.toggle('-translate-x-full', !open);
+        overlay.classList.toggle('active', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+      }
+      menuToggle?.addEventListener('click', () => toggleMobile(true));
+      closeSidebar?.addEventListener('click', () => toggleMobile(false));
+      overlay?.addEventListener('click', () => toggleMobile(false));
+
+      /* ---------- SECTION NAVIGATION ---------- */
+      const sections = ['overview', 'floats', 'clients', 'bookings', 'tanks', 'revenue', 'settings'];
+      const links = document.querySelectorAll('.sidebar-link');
+
+      window.activateSection = function (sectionId) {
+        sections.forEach(id => {
+          const el = document.getElementById(id);
+          if (el) el.classList.toggle('hidden', id !== sectionId);
+        });
+        links.forEach(link => {
+          link.classList.remove('active');
+          if (link.dataset.section === sectionId) link.classList.add('active');
+        });
+        if (window.innerWidth < 1024) toggleMobile(false);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
+
+      links.forEach(link => {
+        if (link.dataset.section) {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            activateSection(link.dataset.section);
+          });
+        }
+      });
+
+      /* ---------- LOGOUT ---------- */
+      document.getElementById('logoutBtn')?.addEventListener('click', function (e) {
+        e.preventDefault();
+        localStorage.clear();
+        sessionStorage.clear();
+        window.location.href = 'login.html';
+      });
+
+      /* ---------- CHARTS ---------- */
+      const isDark = () => html.getAttribute('data-theme') === 'dark';
+      const chartText = () => isDark() ? '#CBD5E1' : '#334155';
+      const chartGrid = () => isDark() ? 'rgba(248, 250, 252, 0.08)' : 'rgba(15, 23, 42, 0.08)';
+      const aqua = '#06B6D4';
+
+      let floatsChart, revenueChart;
+
+      function buildFloatsChart() {
+        const ctx = document.getElementById('floatsChart');
+        if (!ctx) return;
+        if (floatsChart) floatsChart.destroy();
+        floatsChart = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            datasets: [{
+              label: 'Floats',
+              data: [12, 14, 11, 16, 18, 22, 19],
+              borderColor: aqua,
+              backgroundColor: 'rgba(6, 182, 212, 0.15)',
+              borderWidth: 2,
+              fill: true,
+              tension: 0.4,
+              pointBackgroundColor: aqua,
+              pointBorderColor: aqua,
+              pointRadius: 4,
+              pointHoverRadius: 6
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+              x: { ticks: { color: chartText() }, grid: { color: chartGrid() } },
+              y: { ticks: { color: chartText() }, grid: { color: chartGrid() }, beginAtZero: true }
+            }
+          }
+        });
+      }
+
+      function buildRevenueChart() {
+        const ctx = document.getElementById('revenueChart');
+        if (!ctx) return;
+        if (revenueChart) revenueChart.destroy();
+        revenueChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: ['Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May'],
+            datasets: [{
+              label: 'Revenue ($)',
+              data: [12400, 13800, 15200, 16400, 17000, 18400],
+              backgroundColor: 'rgba(6, 182, 212, 0.65)',
+              borderColor: aqua,
+              borderWidth: 1,
+              borderRadius: 6
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+              x: { ticks: { color: chartText() }, grid: { display: false } },
+              y: { ticks: { color: chartText() }, grid: { color: chartGrid() }, beginAtZero: true }
+            }
+          }
+        });
+      }
+
+      // Build charts on load and on theme change
+      buildFloatsChart();
+      buildRevenueChart();
+
+      // Watch for theme change to rebuild charts with new colors
+      const themeObserver = new MutationObserver(() => {
+        buildFloatsChart();
+        buildRevenueChart();
+      });
+      themeObserver.observe(html, { attributes: true, attributeFilter: ['data-theme'] });
+    })();
+  </script>
+</body>
+</html>

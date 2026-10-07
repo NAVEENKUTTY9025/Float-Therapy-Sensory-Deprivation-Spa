@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LUMA Float Therapy & Sensory Deprivation Spa – Gallery. Explore our float suites, lounge, and tranquil spaces.">
+    <title>LUMA | Gallery — Float Therapy & Sensory Deprivation Spa</title>
+    <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌊</text></svg>" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..900&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================================
+           LUMA FLOAT SPA — COLOR THEME (same as index)
+           Midnight Void #0F172A  (70%) - dominant background
+           Mineral White #F8FAFC  (20%) - typography & borders
+           Float Aqua    #06B6D4  (10%) - actions & accents
+        ============================================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --void: #0F172A;
+            --void-deep: #0A111F;
+            --void-soft: #1A2439;
+            --white: #F8FAFC;
+            --white-muted: #CBD5E1;
+            --white-dim: #94A3B8;
+            --aqua: #06B6D4;
+            --aqua-glow: rgba(6, 182, 212, 0.15);
+            --aqua-border: rgba(6, 182, 212, 0.35);
+            --border-line: rgba(248, 250, 252, 0.08);
+            --border-line-strong: rgba(248, 250, 252, 0.15);
+        }
+        [data-theme="light"] {
+            --void: #F8FAFC;
+            --void-deep: #F1F5F9;
+            --void-soft: #FFFFFF;
+            --white: #0F172A;
+            --white-muted: #334155;
+            --white-dim: #64748B;
+            --aqua: #0891B2;
+            --aqua-glow: rgba(6, 182, 212, 0.12);
+            --aqua-border: rgba(6, 182, 212, 0.4);
+            --border-line: rgba(15, 23, 42, 0.08);
+            --border-line-strong: rgba(15, 23, 42, 0.15);
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--void);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            transition: background-color 0.4s, color 0.4s;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+            color: var(--white);
+        }
+        a { text-decoration: none; color: inherit; }
+        img { display: block; max-width: 100%; }
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        .label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--aqua);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .label::before {
+            content: '';
+            width: 1.75rem;
+            height: 1px;
+            background: var(--aqua);
+        }
+        .display-title {
+            font-size: 2.75rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        @media (min-width: 768px) { .display-title { font-size: 3.75rem; } }
+        @media (min-width: 1024px) { .display-title { font-size: 4.25rem; } }
+
+        /* ============================================================
+           STICKY NAVBAR (same as index)
+        ============================================================ */
+        .navbar-container {
+            background-color: rgba(15, 23, 42, 0.92);
+            border-bottom: 1px solid var(--aqua-border);
+            padding: 0.75rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(6, 182, 212, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        [data-theme="light"] .navbar-container {
+            background-color: rgba(248, 250, 252, 0.92);
+        }
+        .navbar-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: opacity 0.2s;
+        }
+        .logo:hover { opacity: 0.85; }
+        .logo-icon {
+            width: 3rem;
+            height: 3rem;
+            background-color: var(--void-soft);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--aqua);
+        }
+        .logo-icon i { color: var(--aqua); font-size: 1.5rem; }
+        .logo-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--white);
+            letter-spacing: 0.12em;
+            line-height: 1;
+        }
+        .logo-text span { color: var(--aqua); }
+        .logo-tagline {
+            font-size: 0.6rem;
+            color: var(--white-dim);
+            display: block;
+            margin-top: 2px;
+            font-weight: 500;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+        }
+        .desktop-nav { display: none; align-items: center; gap: 0.15rem; }
+        .nav-link {
+            color: var(--white-muted);
+            padding: 0.5rem 0.8rem;
+            transition: 0.2s;
+            font-weight: 500;
+            font-size: 0.88rem;
+            cursor: pointer;
+            border-radius: 30px;
+            letter-spacing: 0.02em;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+        .nav-link:hover {
+            color: var(--aqua);
+        }
+        .nav-link.active {
+            color: var(--aqua);
+            font-weight: 600;
+        }
+        .dropdown { position: relative; }
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--void-soft);
+            border: 1px solid var(--aqua-border);
+            border-radius: 16px;
+            min-width: 210px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: 0.3s;
+            z-index: 1000;
+            box-shadow: 0 15px 30px rgba(6, 182, 212, 0.15);
+            overflow: hidden;
+            padding: 0.4rem;
+        }
+        .dropdown:hover .dropdown-menu,
+        .dropdown.active .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.7rem 1rem;
+            color: var(--white-muted);
+            transition: 0.2s;
+            font-weight: 400;
+            font-size: 0.88rem;
+            border-radius: 10px;
+        }
+        .dropdown-item i {
+            color: var(--aqua);
+            width: 1.1rem;
+            font-size: 0.85rem;
+        }
+        .dropdown-item:hover {
+            background-color: var(--aqua-glow);
+            color: var(--aqua);
+        }
+        .dropdown-arrow { font-size: 0.65rem; transition: 0.2s; }
+        .dropdown:hover .dropdown-arrow { transform: rotate(180deg); }
+        .navbar-right-desktop { display: none; align-items: center; gap: 0.6rem; }
+        .icon-btn {
+            width: 2.5rem;
+            height: 2.5rem;
+            background-color: transparent;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white-muted);
+            border: 1px solid var(--border-line-strong);
+            cursor: pointer;
+            transition: 0.2s;
+            font-family: inherit;
+        }
+        .icon-btn:hover {
+            border-color: var(--aqua);
+            color: var(--aqua);
+            background: var(--aqua-glow);
+        }
+        .login-btn {
+            background-color: var(--aqua);
+            color: var(--void);
+            padding: 0.55rem 1.15rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 0.78rem;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: 0.2s;
+            border: 1px solid var(--aqua);
+        }
+        .login-btn:hover {
+            background-color: transparent;
+            color: var(--aqua);
+            box-shadow: 0 0 20px var(--aqua-glow);
+        }
+        .mobile-menu-btn {
+            display: flex;
+            color: var(--white);
+            font-size: 1.4rem;
+            background: transparent;
+            border: 1px solid var(--border-line-strong);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .mobile-menu-btn:hover { border-color: var(--aqua); color: var(--aqua); }
+
+        /* Mobile menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--void-deep);
+            z-index: 9999;
+            overflow-y: auto;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        .mobile-menu.active { transform: translateX(0); }
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--aqua-border);
+        }
+        .mobile-menu-close {
+            color: var(--white);
+            font-size: 1.5rem;
+            background: none;
+            border: 1px solid var(--border-line-strong);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .mobile-menu-close:hover { border-color: var(--aqua); color: var(--aqua); }
+        .mobile-menu-items { padding: 1.5rem; }
+        .mobile-menu-item {
+            display: flex;
+            align-items: center;
+            padding: 1.1rem 0;
+            color: var(--white);
+            font-size: 1.25rem;
+            font-weight: 500;
+            font-family: 'Cormorant Garamond', serif;
+            border-bottom: 1px solid var(--border-line);
+        }
+        .mobile-menu-item i { color: var(--aqua); margin-right: 1rem; width: 1.75rem; font-size: 1rem; }
+        .mobile-dropdown { border-bottom: 1px solid var(--border-line); }
+        .mobile-dropdown-btn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.25rem;
+            font-family: 'Cormorant Garamond', serif;
+            padding: 1.1rem 0;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        .mobile-dropdown-btn i:first-child { color: var(--aqua); margin-right: 1rem; font-family: 'Inter', sans-serif; font-size: 1rem; }
+        .mobile-dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: var(--void-soft);
+            border-radius: 12px;
+        }
+        .mobile-dropdown-content.active { max-height: 220px; padding: 0.5rem 0; }
+        .mobile-dropdown-content a {
+            display: block;
+            padding: 0.75rem 1.5rem 0.75rem 3rem;
+            color: var(--white-muted);
+            font-weight: 400;
+            font-size: 0.95rem;
+        }
+        .mobile-dropdown-content a:hover { background-color: var(--aqua-glow); color: var(--aqua); }
+        .mobile-action-item {
+            display: flex;
+            align-items: center;
+            padding: 1.1rem 0;
+            color: var(--white);
+            font-size: 1rem;
+            background: transparent;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+            border-bottom: 1px solid var(--border-line);
+            font-weight: 500;
+            font-family: inherit;
+        }
+        .mobile-action-item i { color: var(--aqua); margin-right: 1rem; font-size: 1rem; }
+        .mobile-separator { margin: 1rem 0; border-top: 1px solid var(--aqua-border); }
+
+        /* ============================================================
+           PAGE HERO — GALLERY
+        ============================================================ */
+        .page-hero {
+            position: relative;
+            min-height: 45vh;
+            display: flex;
+            align-items: center;
+            padding-top: 120px;
+            padding-bottom: 3.5rem;
+            overflow: hidden;
+            background: var(--void);
+            border-bottom: 1px solid var(--border-line);
+        }
+        .page-hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+        .page-hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.25;
+        }
+        .page-hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(15,23,42,0.7) 0%, rgba(15,23,42,0.92) 70%, rgba(15,23,42,1) 100%);
+        }
+        [data-theme="light"] .page-hero-bg::after {
+            background: linear-gradient(180deg, rgba(248,250,252,0.7) 0%, rgba(248,250,252,0.92) 70%, rgba(248,250,252,1) 100%);
+        }
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+        .page-hero h1 {
+            font-size: 3rem;
+            font-weight: 500;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+        @media (min-width: 768px) { .page-hero h1 { font-size: 4.5rem; } }
+        .page-hero h1 em {
+            font-style: italic;
+            color: var(--aqua);
+            font-weight: 400;
+        }
+        .page-hero p {
+            font-size: 1.1rem;
+            color: var(--white-muted);
+            max-width: 600px;
+            font-weight: 300;
+        }
+
+        /* ============================================================
+           GALLERY GRID
+        ============================================================ */
+        .gallery-section {
+            padding: 5rem 0 6rem;
+        }
+
+        .gallery-filter {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 3rem;
+            justify-content: center;
+        }
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--border-line-strong);
+            color: var(--white-muted);
+            padding: 0.55rem 1.3rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: 0.25s;
+            font-family: inherit;
+        }
+        .filter-btn:hover,
+        .filter-btn.active {
+            border-color: var(--aqua);
+            color: var(--aqua);
+            background: var(--aqua-glow);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
+        }
+        @media (min-width: 640px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 1024px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); } }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid var(--border-line);
+            aspect-ratio: 1 / 1;
+            cursor: pointer;
+            transition: border-color 0.35s, transform 0.35s;
+        }
+        .gallery-item:hover {
+            border-color: var(--aqua-border);
+            transform: translateY(-4px);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease, opacity 0.4s;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.06);
+        }
+        .gallery-item .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(15,23,42,0.85) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+        .gallery-item .overlay .cat {
+            font-size: 0.62rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--aqua);
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+        .gallery-item .overlay h3 {
+            font-size: 1.35rem;
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 0.15rem;
+        }
+        .gallery-item .overlay p {
+            font-size: 0.82rem;
+            color: rgba(248,250,252,0.7);
+            font-weight: 300;
+        }
+        .gallery-item .zoom-icon {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid var(--aqua-border);
+            color: var(--aqua);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: 0.35s ease;
+            backdrop-filter: blur(6px);
+        }
+        .gallery-item:hover .zoom-icon {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            background: rgba(10, 17, 31, 0.96);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+        }
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+        .lightbox-inner {
+            position: relative;
+            max-width: 1100px;
+            width: 100%;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.25rem;
+        }
+        .lightbox-inner img {
+            max-width: 100%;
+            max-height: 75vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 4px;
+            border: 1px solid var(--aqua-border);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+        }
+        .lightbox-caption {
+            text-align: center;
+        }
+        .lightbox-caption .cat {
+            font-size: 0.65rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--aqua);
+            font-weight: 600;
+        }
+        .lightbox-caption h3 {
+            font-size: 1.6rem;
+            margin-top: 0.3rem;
+            color: #fff;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: transparent;
+            border: 1px solid var(--border-line-strong);
+            color: var(--white);
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.25s;
+        }
+        .lightbox-close:hover {
+            border-color: var(--aqua);
+            color: var(--aqua);
+            background: var(--aqua-glow);
+        }
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(15, 23, 42, 0.75);
+            border: 1px solid var(--border-line-strong);
+            color: var(--white);
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.25s;
+            backdrop-filter: blur(6px);
+        }
+        .lightbox-nav:hover {
+            border-color: var(--aqua);
+            color: var(--aqua);
+            background: var(--aqua-glow);
+        }
+        .lightbox-nav.prev { left: -70px; }
+        .lightbox-nav.next { right: -70px; }
+        @media (max-width: 1100px) {
+            .lightbox-nav.prev { left: 0.5rem; }
+            .lightbox-nav.next { right: 0.5rem; }
+        }
+        @media (max-width: 640px) {
+            .lightbox-nav { width: 40px; height: 40px; font-size: 0.9rem; }
+            .lightbox-close { top: -42px; width: 38px; height: 38px; font-size: 1rem; }
+        }
+
+        /* ============================================================
+           CTA INLINE
+        ============================================================ */
+        .cta-inline {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            padding: 3rem 2.5rem;
+            background: var(--void-soft);
+            border: 1px solid var(--aqua-border);
+            border-radius: 4px;
+            margin-top: 4rem;
+        }
+        .cta-inline h3 {
+            font-size: 2rem;
+            font-weight: 500;
+        }
+        .cta-inline h3 em {
+            font-style: italic;
+            color: var(--aqua);
+        }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            background: var(--aqua);
+            color: var(--void);
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            border: 1px solid var(--aqua);
+            transition: 0.3s;
+            cursor: pointer;
+            font-family: inherit;
+            white-space: nowrap;
+        }
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--aqua);
+            box-shadow: 0 0 32px var(--aqua-glow);
+        }
+
+        /* ============================================================
+           FOOTER
+        ============================================================ */
+        .footer {
+            background-color: var(--void);
+            color: var(--white);
+            padding: 4rem 0 2rem 0;
+            border-top: 1px solid var(--aqua-border);
+        }
+        .footer-grid {
+            display: grid;
+            gap: 2.5rem;
+            grid-template-columns: 1fr;
+            margin-bottom: 3rem;
+        }
+        @media (min-width:768px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr 1.5fr; } }
+        .footer-logo-block {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .footer .logo { margin-bottom: 0.5rem; }
+        .footer-heading {
+            color: var(--aqua);
+            margin-bottom: 1.25rem;
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            font-family: 'Inter', sans-serif;
+        }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 0.75rem; }
+        .footer-links a {
+            color: var(--white-muted);
+            transition: 0.2s;
+            font-size: 0.9rem;
+            font-weight: 300;
+        }
+        .footer-links a:hover {
+            color: var(--aqua);
+            padding-left: 4px;
+        }
+        .footer-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: 9999px;
+            border: 1px solid var(--border-line-strong);
+            background: var(--void-soft);
+            color: var(--white);
+            margin-bottom: 0.75rem;
+            font-weight: 300;
+            font-family: inherit;
+            font-size: 0.9rem;
+            outline: none;
+            transition: 0.3s;
+        }
+        .footer-input::placeholder { color: var(--white-dim); }
+        .footer-input:focus {
+            border-color: var(--aqua);
+            box-shadow: 0 0 0 3px var(--aqua-glow);
+        }
+        .footer-btn {
+            width: 100%;
+            background-color: var(--aqua);
+            color: var(--void);
+            padding: 0.75rem 1rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            border: 1px solid var(--aqua);
+            cursor: pointer;
+            transition: 0.2s;
+            font-family: inherit;
+            font-size: 0.82rem;
+            letter-spacing: 0.08em;
+        }
+        .footer-btn:hover {
+            background: transparent;
+            color: var(--aqua);
+        }
+        .footer-socials {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+        }
+        .footer-socials a {
+            color: var(--aqua);
+            font-size: 1.25rem;
+            transition: 0.2s;
+        }
+        .footer-socials a:hover { color: var(--white); transform: translateY(-2px); }
+        .copyright {
+            border-top: 1px solid var(--border-line);
+            padding-top: 1.5rem;
+            text-align: center;
+            color: var(--white-dim);
+            font-size: 0.85rem;
+            font-weight: 300;
+        }
+
+        #scroll-top {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            width: 3rem;
+            height: 3rem;
+            background-color: var(--aqua);
+            color: var(--void);
+            border-radius: 50%;
+            border: 1px solid var(--aqua);
+            cursor: pointer;
+            display: none;
+            z-index: 100;
+            transition: 0.3s;
+            font-size: 1rem;
+        }
+        #scroll-top:hover {
+            background: transparent;
+            color: var(--aqua);
+            box-shadow: 0 0 20px var(--aqua-glow);
+        }
+
+        @media (min-width: 1280px) {
+            .desktop-nav { display: flex; }
+            .navbar-right-desktop { display: flex; }
+            .mobile-menu-btn { display: none; }
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.9s ease, transform 0.9s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============================================================
+     STICKY NAVBAR
+============================================================ -->
+<nav class="navbar-container">
+    <div class="container navbar-flex">
+        <a href="index.html" class="logo">
+            <div class="logo-icon"><i class="fas fa-water"></i></div>
+            <div>
+                <div class="logo-text">LUMA<span>FLOAT</span></div>
+                <span class="logo-tagline">FLOAT THERAPY & SPA</span>
+            </div>
+        </a>
+        <div class="desktop-nav">
+            <div class="dropdown" id="home-dropdown">
+                <span class="nav-link" onclick="toggleDesktopDropdown('home-dropdown')">Home <i class="fas fa-chevron-down dropdown-arrow"></i></span>
+                <div class="dropdown-menu">
+                    <a href="index.html" class="dropdown-item"><i class="fas fa-house"></i> Home 1</a>
+                    <a href="home2.html" class="dropdown-item"><i class="fas fa-house-chimney"></i> Home 2</a>
+                </div>
+            </div>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="services.html" class="nav-link">Services</a>
+            <a href="pricing.html" class="nav-link">Pricing</a>
+            <a href="gallery.html" class="nav-link active">Gallery</a>
+            <a href="faq.html" class="nav-link">FAQ</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <div class="dropdown" id="dashboard-dropdown">
+                <span class="nav-link" onclick="toggleDesktopDropdown('dashboard-dropdown')">Dashboard <i class="fas fa-chevron-down dropdown-arrow"></i></span>
+                <div class="dropdown-menu">
+                    <a href="client-dashboard.html" class="dropdown-item"><i class="fas fa-user"></i> Client Dashboard</a>
+                    <a href="admin-dashboard.html" class="dropdown-item"><i class="fas fa-shield-halved"></i> Admin Dashboard</a>
+                </div>
+            </div>
+        </div>
+        <div class="navbar-right-desktop">
+            <button class="icon-btn" id="desktop-theme-toggle" title="Toggle theme"><i class="fas fa-sun" id="desktop-theme-icon"></i></button>
+            <button class="icon-btn" id="desktop-rtl-toggle" title="Toggle RTL"><i class="fas fa-exchange-alt"></i></button>
+            <a href="login.html" class="login-btn"><i class="fas fa-user"></i> Login</a>
+            <a href="join.html" class="login-btn">Register</a>
+        </div>
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+    </div>
+</nav>
+
+<!-- Mobile menu -->
+<div id="mobile-menu" class="mobile-menu">
+    <div class="mobile-menu-header">
+        <a href="index.html" class="logo">
+            <div class="logo-icon"><i class="fas fa-water"></i></div>
+            <div>
+                <div class="logo-text">LUMA<span>FLOAT</span></div>
+                <span class="logo-tagline">FLOAT THERAPY & SPA</span>
+            </div>
+        </a>
+        <button class="mobile-menu-close" id="close-mobile-menu" aria-label="Close menu"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="mobile-menu-items">
+        <div class="mobile-dropdown">
+            <button class="mobile-dropdown-btn" onclick="toggleMobileDropdown('home-mobile')">
+                <span><i class="fas fa-home"></i> Home</span> <i class="fas fa-chevron-down"></i>
+            </button>
+            <div id="home-mobile" class="mobile-dropdown-content">
+                <a href="index.html">Home 1</a> <a href="home2.html">Home 2</a>
+            </div>
+        </div>
+        <a href="about.html" class="mobile-menu-item"><i class="fas fa-users"></i> About</a>
+        <a href="services.html" class="mobile-menu-item"><i class="fas fa-spa"></i> Services</a>
+        <a href="pricing.html" class="mobile-menu-item"><i class="fas fa-tag"></i> Pricing</a>
+        <a href="gallery.html" class="mobile-menu-item"><i class="fas fa-image"></i> Gallery</a>
+        <a href="faq.html" class="mobile-menu-item"><i class="fas fa-question-circle"></i> FAQ</a>
+        <a href="contact.html" class="mobile-menu-item"><i class="fas fa-envelope"></i> Contact</a>
+        <div class="mobile-dropdown">
+            <button class="mobile-dropdown-btn" onclick="toggleMobileDropdown('dashboard-mobile')">
+                <span><i class="fas fa-gauge"></i> Dashboard</span> <i class="fas fa-chevron-down"></i>
+            </button>
+            <div id="dashboard-mobile" class="mobile-dropdown-content">
+                <a href="client-dashboard.html">Client Dashboard</a>
+                <a href="admin-dashboard.html">Admin Dashboard</a>
+            </div>
+        </div>
+        <div class="mobile-separator"></div>
+        <button class="mobile-action-item" onclick="window.location.href='login.html'"><i class="fas fa-sign-in-alt"></i> Login</button>
+        <button class="mobile-action-item" onclick="window.location.href='join.html'"><i class="fas fa-user-plus"></i> Register</button>
+        <button class="mobile-action-item" id="mobile-rtl-toggle"><i class="fas fa-exchange-alt"></i> RTL</button>
+        <button class="mobile-action-item" id="mobile-theme-toggle"><i class="fas fa-sun" id="mobile-theme-icon"></i> Theme</button>
+    </div>
+</div>
+
+<!-- ============================================================
+     PAGE HERO — GALLERY
+============================================================ -->
+<section class="page-hero">
+    <div class="page-hero-bg">
+        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2070&auto=format&fit=crop" alt="Float therapy water surface">
+    </div>
+    <div class="container">
+        <div class="page-hero-content">
+            <span class="label" style="margin-bottom: 1.25rem;">Gallery</span>
+            <h1>
+                A visual<br>
+                <em>deep breath.</em>
+            </h1>
+            <p>
+                Step inside LUMA. Every image here is from our actual float suites, lounge, and quiet spaces — designed for stillness, silence, and the slow return to yourself.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     GALLERY GRID
+============================================================ -->
+<section class="gallery-section">
+    <div class="container">
+        <!-- Filter buttons -->
+        <div class="gallery-filter reveal" id="gallery-filter">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="tanks">Float Tanks</button>
+            <button class="filter-btn" data-filter="lounge">Lounge</button>
+            <button class="filter-btn" data-filter="details">Details</button>
+            <button class="filter-btn" data-filter="rituals">Rituals</button>
+        </div>
+
+        <!-- Grid -->
+        <div class="gallery-grid" id="gallery-grid">
+
+            <!-- 1 -->
+            <div class="gallery-item reveal" data-category="tanks">
+                <img src="images/g1.webp" alt="Float tank water surface with epsom salt">
+                <div class="zoom-icon"><i class="fas fa-expand"></i></div>
+                <div class="overlay">
+                    <div class="cat">Float Tanks</div>
+                    <h3>The Still Surface</h3>
+                    <p>500kg of Epsom salt · 35.0°C</p>
+                </div>
+            </div>
+
+            <!-- 2 -->
+            <div class="gallery-item reveal" data-category="lounge">
+                <img src="images/g2.webp" alt="Spa lounge with water detail">
+                <div class="zoom-icon"><i class="fas fa-expand"></i></div>
+                <div class="overlay">
+                    <div class="cat">Lounge</div>
+                    <h3>Quiet Arrival</h3>
+                    <p>Tea · Silence · Soft light</p>
+                </div>
+            </div>
+
+            <!-- 3 -->
+            <div class="gallery-item reveal" data-category="details">
+                <img src="images/g3.webp" alt="Water surface texture">
+                <div class="zoom-icon"><i class="fas fa-expand"></i></div>
+                <div class="overlay">
+                    <div class="cat">Details</div>
+                    <h3>Zero Gravity</h3>
+                    <p>Skin-receptor neutral water</p>
+                </div>
+            </div>
+
+            <!-- 4 -->
+            <div class="gallery-item reveal" data-category="rituals">
+                <img src="images/g4.webp" alt="Spa ritual with water and stones">
+                <div class="zoom-icon"><i class="fas fa-expand"></i></div>
+                <div class="overlay">
+                    <div class="cat">Rituals</div>
+                    <h3>Post-Float Tea</h3>
+                    <p>Herbal blend · Magnesium rinse</p>
+                </div>
+            </div>
+
+            <!-- 5 -->
+            <div class="gallery-item reveal" data-category="tanks">
+                <img src="images/g5.webp" alt="Float tank interior light">
+                <div class="zoom-icon"><i class="fas fa-expand"></i></div>
+                <div class="overlay">
+                    <div class="cat">Float Tanks</div>
+                    <h3>Private Suite</h3>
+                    <p>Soundproof · Lightproof · Yours</p>
+                </div>
+            </div>
+
+            <!-- 6 -->
+            <div class="gallery-item reveal" data-category="lounge">
+                <img src="images/g6.webp" alt="Calm water detail in spa">
+                <div class="zoom-icon"><i class="fas fa-expand"></i></div>
+                <div class="overlay">
+                    <div class="cat">Lounge</div>
+                    <h3>Silent Return</h3>
+                    <p>No rush · No mirrors · No noise</p>
+                </div>
+            </div>
+
+            <!-- 7 -->
+            <div class="gallery-item reveal" data-category="details">
+                <img src="images/g7.webp" alt="Epsom salt texture in water">
+                <div class="zoom-icon"><i class="fas fa-expand"></i></div>
+                <div class="overlay">
+                    <div class="cat">Details</div>
+                    <h3>Mineral Density</h3>
+                    <p>Pharmaceutical-grade Epsom</p>
+                </div>
+            </div>
+
+            <!-- 8 -->
+            <div class="gallery-item reveal" data-category="rituals">
+                <img src="images/g8.webp" alt="Water surface with reflections">
+                <div class="zoom-icon"><i class="fas fa-expand"></i></div>
+                <div class="overlay">
+                    <div class="cat">Rituals</div>
+                    <h3>Breathwork Guide</h3>
+                    <p>Optional in-tank audio</p>
+                </div>
+            </div>
+
+            <!-- 9 -->
+            <div class="gallery-item reveal" data-category="tanks">
+                <img src="images/g9.webp" alt="Float tank water close-up">
+                <div class="zoom-icon"><i class="fas fa-expand"></i></div>
+                <div class="overlay">
+                    <div class="cat">Float Tanks</div>
+                    <h3>Skin Temperature</h3>
+                    <p>35.0°C · Perfect neutrality</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-inline reveal">
+            <h3>Ready to float? <em>Book your session.</em></h3>
+            <a href="pricing.html" class="btn-primary">
+                <i class="fas fa-calendar-check"></i> Book Your Float
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     LIGHTBOX
+============================================================ -->
+<div class="lightbox" id="lightbox">
+    <div class="lightbox-inner">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close lightbox"><i class="fas fa-times"></i></button>
+        <button class="lightbox-nav prev" id="lightbox-prev" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+        <img src="" alt="Gallery image enlarged" id="lightbox-img">
+        <button class="lightbox-nav next" id="lightbox-next" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+        <div class="lightbox-caption">
+            <div class="cat" id="lightbox-cat"></div>
+            <h3 id="lightbox-title"></h3>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-logo-block">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"><i class="fas fa-water"></i></div>
+                    <div>
+                        <div class="logo-text">LUMA<span>FLOAT</span></div>
+                        <span class="logo-tagline">FLOAT THERAPY & SPA</span>
+                    </div>
+                </a>
+                <p style="color: var(--white-muted); margin-top: 1rem; font-size: 0.9rem; max-width: 260px; font-weight: 300;">A sensory deprivation spa built for the modern nervous system. Zero gravity. Zero noise. Zero pressure.</p>
+            </div>
+            <div>
+                <h3 class="footer-heading">Quick links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="footer-heading">Support</h3>
+                <ul class="footer-links">
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="footer-heading">Stay Updated</h3>
+                <input class="footer-input" placeholder="Your email address">
+                <button class="footer-btn">Subscribe</button>
+                <div class="footer-socials">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <i class="fas fa-copyright"></i> 2025 LUMA Float Therapy — Midnight Void · Mineral White · Float Aqua. All rights reserved.
+        </div>
+    </div>
+</footer>
+
+<button id="scroll-top" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+
+<script>
+    (function() {
+        const htmlEl = document.documentElement;
+        const desktopThemeBtn = document.getElementById('desktop-theme-toggle');
+        const mobileThemeBtn = document.getElementById('mobile-theme-toggle');
+        const desktopIcon = document.getElementById('desktop-theme-icon');
+        const mobileIcon = document.getElementById('mobile-theme-icon');
+        const desktopRtl = document.getElementById('desktop-rtl-toggle');
+        const mobileRtl = document.getElementById('mobile-rtl-toggle');
+
+        /* Load theme — default dark */
+        let savedTheme = localStorage.getItem('luma-theme') || 'dark';
+        htmlEl.setAttribute('data-theme', savedTheme);
+        updateIcons(savedTheme);
+
+        function updateIcons(theme) {
+            const iconClass = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            if (desktopIcon) desktopIcon.className = iconClass;
+            if (mobileIcon) mobileIcon.className = iconClass;
+        }
+
+        function toggleTheme() {
+            let currentTheme = htmlEl.getAttribute('data-theme');
+            let newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            htmlEl.setAttribute('data-theme', newTheme);
+            localStorage.setItem('luma-theme', newTheme);
+            updateIcons(newTheme);
+        }
+
+        if (desktopThemeBtn) desktopThemeBtn.addEventListener('click', toggleTheme);
+        if (mobileThemeBtn) mobileThemeBtn.addEventListener('click', toggleTheme);
+
+        function toggleRtl() {
+            let dir = htmlEl.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl';
+            htmlEl.setAttribute('dir', dir);
+            localStorage.setItem('luma-direction', dir);
+        }
+        if (desktopRtl) desktopRtl.addEventListener('click', toggleRtl);
+        if (mobileRtl) mobileRtl.addEventListener('click', toggleRtl);
+
+        /* Restore direction */
+        const savedDir = localStorage.getItem('luma-direction') || 'ltr';
+        htmlEl.setAttribute('dir', savedDir);
+
+        window.toggleDesktopDropdown = function(id) {
+            document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+            document.getElementById(id)?.classList.toggle('active');
+        };
+        window.toggleMobileDropdown = function(id) {
+            document.getElementById(id)?.classList.toggle('active');
+        };
+
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        if (menuBtn) menuBtn.addEventListener('click', () => mobileMenu.classList.add('active'));
+        if (closeBtn) closeBtn.addEventListener('click', () => mobileMenu.classList.remove('active'));
+        if (mobileMenu) mobileMenu.addEventListener('click', (e) => { if (e.target === mobileMenu) mobileMenu.classList.remove('active'); });
+
+        const scrollBtn = document.getElementById('scroll-top');
+        window.addEventListener('scroll', () => { if(scrollBtn) scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none'; });
+        if (scrollBtn) scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        window.addEventListener('resize', () => { if (window.innerWidth >= 1280 && mobileMenu) mobileMenu.classList.remove('active'); });
+
+        /* Reveal on scroll */
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+        reveals.forEach(el => observer.observe(el));
+
+        /* ---------- GALLERY FILTER ---------- */
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+
+                galleryItems.forEach(item => {
+                    const category = item.dataset.category;
+                    if (filter === 'all' || category === filter) {
+                        item.style.display = '';
+                        // Trigger reveal animation again
+                        item.classList.remove('visible');
+                        setTimeout(() => item.classList.add('visible'), 10);
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        /* ---------- LIGHTBOX ---------- */
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCat = document.getElementById('lightbox-cat');
+        const lightboxTitle = document.getElementById('lightbox-title');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const lightboxPrev = document.getElementById('lightbox-prev');
+        const lightboxNext = document.getElementById('lightbox-next');
+
+        let currentItems = [];
+        let currentIndex = 0;
+
+        function getVisibleItems() {
+            return Array.from(document.querySelectorAll('.gallery-item')).filter(
+                item => item.style.display !== 'none'
+            );
+        }
+
+        function openLightbox(index) {
+            currentItems = getVisibleItems();
+            if (currentItems.length === 0) return;
+            currentIndex = index;
+            updateLightbox();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function updateLightbox() {
+            const item = currentItems[currentIndex];
+            if (!item) return;
+            const img = item.querySelector('img');
+            const cat = item.querySelector('.overlay .cat');
+            const title = item.querySelector('.overlay h3');
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightboxCat.textContent = cat ? cat.textContent : '';
+            lightboxTitle.textContent = title ? title.textContent : '';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function nextImage() {
+            if (currentItems.length === 0) return;
+            currentIndex = (currentIndex + 1) % currentItems.length;
+            updateLightbox();
+        }
+
+        function prevImage() {
+            if (currentItems.length === 0) return;
+            currentIndex = (currentIndex - 1 + currentItems.length) % currentItems.length;
+            updateLightbox();
+        }
+
+        // Attach click to gallery items
+        document.querySelectorAll('.gallery-item').forEach((item, idx) => {
+            item.addEventListener('click', () => {
+                const visible = getVisibleItems();
+                const visibleIndex = visible.indexOf(item);
+                if (visibleIndex !== -1) openLightbox(visibleIndex);
+            });
+        });
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxPrev.addEventListener('click', (e) => { e.stopPropagation(); prevImage(); });
+        lightboxNext.addEventListener('click', (e) => { e.stopPropagation(); nextImage(); });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') nextImage();
+            if (e.key === 'ArrowLeft') prevImage();
+        });
+
+        /* Smooth anchor with offset for fixed nav */
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    const offsetTop = target.getBoundingClientRect().top + window.pageYOffset - 100;
+                    window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                }
+            });
+        });
+    })();
+</script>
+</body>
+</html>

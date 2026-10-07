@@ -1,0 +1,1927 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LUMA Float Therapy & Sensory Deprivation Spa – Service Details. Deep dive into each of our sensory experiences.">
+    <title>LUMA | Service Details — Float Therapy & Sensory Deprivation Spa</title>
+    <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌊</text></svg>" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..900&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================================
+           LUMA FLOAT SPA — COLOR THEME (same as index)
+           Midnight Void #0F172A  (70%) - dominant background
+           Mineral White #F8FAFC  (20%) - typography & borders
+           Float Aqua    #06B6D4  (10%) - actions & accents
+        ============================================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --void: #0F172A;
+            --void-deep: #0A111F;
+            --void-soft: #1A2439;
+            --white: #F8FAFC;
+            --white-muted: #CBD5E1;
+            --white-dim: #94A3B8;
+            --aqua: #06B6D4;
+            --aqua-glow: rgba(6, 182, 212, 0.15);
+            --aqua-border: rgba(6, 182, 212, 0.35);
+            --border-line: rgba(248, 250, 252, 0.08);
+            --border-line-strong: rgba(248, 250, 252, 0.15);
+        }
+        [data-theme="light"] {
+            --void: #F8FAFC;
+            --void-deep: #F1F5F9;
+            --void-soft: #FFFFFF;
+            --white: #0F172A;
+            --white-muted: #334155;
+            --white-dim: #64748B;
+            --aqua: #0891B2;
+            --aqua-glow: rgba(6, 182, 212, 0.12);
+            --aqua-border: rgba(6, 182, 212, 0.4);
+            --border-line: rgba(15, 23, 42, 0.08);
+            --border-line-strong: rgba(15, 23, 42, 0.15);
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--void);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            transition: background-color 0.4s, color 0.4s;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+            color: var(--white);
+        }
+        a { text-decoration: none; color: inherit; }
+        img { display: block; max-width: 100%; }
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        .label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--aqua);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .label::before {
+            content: '';
+            width: 1.75rem;
+            height: 1px;
+            background: var(--aqua);
+        }
+        .display-title {
+            font-size: 2.75rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        @media (min-width: 768px) { .display-title { font-size: 3.75rem; } }
+        @media (min-width: 1024px) { .display-title { font-size: 4.25rem; } }
+
+        /* ============================================================
+           STICKY NAVBAR (same as index)
+        ============================================================ */
+        .navbar-container {
+            background-color: rgba(15, 23, 42, 0.92);
+            border-bottom: 1px solid var(--aqua-border);
+            padding: 0.75rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(6, 182, 212, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        [data-theme="light"] .navbar-container {
+            background-color: rgba(248, 250, 252, 0.92);
+        }
+        .navbar-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: opacity 0.2s;
+        }
+        .logo:hover { opacity: 0.85; }
+        .logo-icon {
+            width: 3rem;
+            height: 3rem;
+            background-color: var(--void-soft);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--aqua);
+        }
+        .logo-icon i { color: var(--aqua); font-size: 1.5rem; }
+        .logo-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--white);
+            letter-spacing: 0.12em;
+            line-height: 1;
+        }
+        .logo-text span { color: var(--aqua); }
+        .logo-tagline {
+            font-size: 0.6rem;
+            color: var(--white-dim);
+            display: block;
+            margin-top: 2px;
+            font-weight: 500;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+        }
+        .desktop-nav { display: none; align-items: center; gap: 0.15rem; }
+        .nav-link {
+            color: var(--white-muted);
+            padding: 0.5rem 0.8rem;
+            transition: 0.2s;
+            font-weight: 500;
+            font-size: 0.88rem;
+            cursor: pointer;
+            border-radius: 30px;
+            letter-spacing: 0.02em;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+        .nav-link:hover {
+            color: var(--aqua);
+        }
+        .nav-link.active {
+            color: var(--aqua);
+            font-weight: 600;
+        }
+        .dropdown { position: relative; }
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--void-soft);
+            border: 1px solid var(--aqua-border);
+            border-radius: 16px;
+            min-width: 210px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: 0.3s;
+            z-index: 1000;
+            box-shadow: 0 15px 30px rgba(6, 182, 212, 0.15);
+            overflow: hidden;
+            padding: 0.4rem;
+        }
+        .dropdown:hover .dropdown-menu,
+        .dropdown.active .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.7rem 1rem;
+            color: var(--white-muted);
+            transition: 0.2s;
+            font-weight: 400;
+            font-size: 0.88rem;
+            border-radius: 10px;
+        }
+        .dropdown-item i {
+            color: var(--aqua);
+            width: 1.1rem;
+            font-size: 0.85rem;
+        }
+        .dropdown-item:hover {
+            background-color: var(--aqua-glow);
+            color: var(--aqua);
+        }
+        .dropdown-arrow { font-size: 0.65rem; transition: 0.2s; }
+        .dropdown:hover .dropdown-arrow { transform: rotate(180deg); }
+        .navbar-right-desktop { display: none; align-items: center; gap: 0.6rem; }
+        .icon-btn {
+            width: 2.5rem;
+            height: 2.5rem;
+            background-color: transparent;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white-muted);
+            border: 1px solid var(--border-line-strong);
+            cursor: pointer;
+            transition: 0.2s;
+            font-family: inherit;
+        }
+        .icon-btn:hover {
+            border-color: var(--aqua);
+            color: var(--aqua);
+            background: var(--aqua-glow);
+        }
+        .login-btn {
+            background-color: var(--aqua);
+            color: var(--void);
+            padding: 0.55rem 1.15rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 0.78rem;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: 0.2s;
+            border: 1px solid var(--aqua);
+        }
+        .login-btn:hover {
+            background-color: transparent;
+            color: var(--aqua);
+            box-shadow: 0 0 20px var(--aqua-glow);
+        }
+        .mobile-menu-btn {
+            display: flex;
+            color: var(--white);
+            font-size: 1.4rem;
+            background: transparent;
+            border: 1px solid var(--border-line-strong);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .mobile-menu-btn:hover { border-color: var(--aqua); color: var(--aqua); }
+
+        /* Mobile menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--void-deep);
+            z-index: 9999;
+            overflow-y: auto;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        .mobile-menu.active { transform: translateX(0); }
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--aqua-border);
+        }
+        .mobile-menu-close {
+            color: var(--white);
+            font-size: 1.5rem;
+            background: none;
+            border: 1px solid var(--border-line-strong);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .mobile-menu-close:hover { border-color: var(--aqua); color: var(--aqua); }
+        .mobile-menu-items { padding: 1.5rem; }
+        .mobile-menu-item {
+            display: flex;
+            align-items: center;
+            padding: 1.1rem 0;
+            color: var(--white);
+            font-size: 1.25rem;
+            font-weight: 500;
+            font-family: 'Cormorant Garamond', serif;
+            border-bottom: 1px solid var(--border-line);
+        }
+        .mobile-menu-item i { color: var(--aqua); margin-right: 1rem; width: 1.75rem; font-size: 1rem; }
+        .mobile-dropdown { border-bottom: 1px solid var(--border-line); }
+        .mobile-dropdown-btn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.25rem;
+            font-family: 'Cormorant Garamond', serif;
+            padding: 1.1rem 0;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        .mobile-dropdown-btn i:first-child { color: var(--aqua); margin-right: 1rem; font-family: 'Inter', sans-serif; font-size: 1rem; }
+        .mobile-dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: var(--void-soft);
+            border-radius: 12px;
+        }
+        .mobile-dropdown-content.active { max-height: 220px; padding: 0.5rem 0; }
+        .mobile-dropdown-content a {
+            display: block;
+            padding: 0.75rem 1.5rem 0.75rem 3rem;
+            color: var(--white-muted);
+            font-weight: 400;
+            font-size: 0.95rem;
+        }
+        .mobile-dropdown-content a:hover { background-color: var(--aqua-glow); color: var(--aqua); }
+        .mobile-action-item {
+            display: flex;
+            align-items: center;
+            padding: 1.1rem 0;
+            color: var(--white);
+            font-size: 1rem;
+            background: transparent;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+            border-bottom: 1px solid var(--border-line);
+            font-weight: 500;
+            font-family: inherit;
+        }
+        .mobile-action-item i { color: var(--aqua); margin-right: 1rem; font-size: 1rem; }
+        .mobile-separator { margin: 1rem 0; border-top: 1px solid var(--aqua-border); }
+
+        /* ============================================================
+           PAGE HERO — SERVICE DETAILS (CENTERED, DYNAMIC)
+        ============================================================ */
+        .page-hero {
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 140px;
+            padding-bottom: 4rem;
+            overflow: hidden;
+            background: var(--void);
+            border-bottom: 1px solid var(--border-line);
+        }
+        .page-hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+        .page-hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.28;
+        }
+        .page-hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(15,23,42,0.55) 0%, rgba(15,23,42,0.95) 80%);
+        }
+        [data-theme="light"] .page-hero-bg::after {
+            background: radial-gradient(circle at 50% 50%, rgba(248,250,252,0.55) 0%, rgba(248,250,252,0.95) 80%);
+        }
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 820px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .page-hero-content .label {
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        .page-hero h1 {
+            font-size: 2.75rem;
+            font-weight: 500;
+            line-height: 1.1;
+            margin-bottom: 1.25rem;
+        }
+        @media (min-width: 768px) { .page-hero h1 { font-size: 4.25rem; } }
+        .page-hero h1 em {
+            font-style: italic;
+            color: var(--aqua);
+            font-weight: 400;
+        }
+        .page-hero p {
+            font-size: 1.15rem;
+            color: var(--white-muted);
+            max-width: 640px;
+            font-weight: 300;
+            margin: 0 auto 1.5rem;
+        }
+        .hero-meta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.25rem;
+            justify-content: center;
+            margin-top: 0.75rem;
+        }
+        .hero-meta-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--white-muted);
+            background: rgba(15,23,42,0.6);
+            border: 1px solid var(--border-line-strong);
+            padding: 0.5rem 1.15rem;
+            border-radius: 9999px;
+            backdrop-filter: blur(8px);
+        }
+        .hero-meta-item i {
+            color: var(--aqua);
+            font-size: 0.85rem;
+        }
+
+        /* ============================================================
+           SECTION
+        ============================================================ */
+        .section {
+            padding: 6rem 0;
+            position: relative;
+        }
+        .section-alt { background: var(--void-deep); }
+        .section-head {
+            max-width: 720px;
+            margin-bottom: 3.5rem;
+        }
+        .section-head.center {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+        .section-head p {
+            color: var(--white-muted);
+            font-size: 1.05rem;
+            margin-top: 1.25rem;
+            font-weight: 300;
+        }
+
+        /* ============================================================
+           OVERVIEW SPLIT
+        ============================================================ */
+        .split {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        @media (min-width: 1024px) { .split { grid-template-columns: 1fr 1fr; gap: 5rem; } }
+        .split-img {
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+            aspect-ratio: 4 / 3;
+            border: 1px solid var(--border-line-strong);
+        }
+        .split-img img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 1.2s ease;
+        }
+        .split-img:hover img { transform: scale(1.04); }
+        .split-img::after {
+            content: '';
+            position: absolute; inset: 0;
+            background: linear-gradient(180deg, transparent 55%, rgba(15,23,42,0.5) 100%);
+        }
+        [data-theme="light"] .split-img::after {
+            background: linear-gradient(180deg, transparent 55%, rgba(15,23,42,0.2) 100%);
+        }
+        .split-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+        @media (min-width: 768px) { .split-text h2 { font-size: 3rem; } }
+        .split-text p {
+            color: var(--white-muted);
+            font-size: 1.05rem;
+            margin-bottom: 1.25rem;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+        .feature-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-line);
+            color: var(--white-muted);
+            font-weight: 300;
+        }
+        .feature-list li:last-child { border-bottom: none; }
+        .feature-list i {
+            color: var(--aqua);
+            font-size: 0.9rem;
+            margin-top: 0.4rem;
+            flex-shrink: 0;
+        }
+
+        /* ============================================================
+           BENEFITS GRID
+        ============================================================ */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        @media (min-width: 640px) { .benefits-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 1024px) { .benefits-grid { grid-template-columns: repeat(3, 1fr); } }
+        .benefit-card {
+            padding: 2.25rem 1.85rem;
+            background: var(--void-soft);
+            border: 1px solid var(--border-line);
+            border-radius: 4px;
+            transition: 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--aqua);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+        .benefit-card:hover {
+            border-color: var(--aqua-border);
+            transform: translateY(-4px);
+            background: var(--void);
+        }
+        .benefit-card:hover::before { transform: scaleX(1); }
+        .benefit-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            border: 1px solid var(--aqua-border);
+            background: var(--aqua-glow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--aqua);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+        .benefit-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.7rem;
+            font-weight: 500;
+        }
+        .benefit-card p {
+            color: var(--white-muted);
+            font-size: 0.92rem;
+            font-weight: 300;
+            line-height: 1.65;
+        }
+
+        /* ============================================================
+           PROCESS STEPS
+        ============================================================ */
+        .process-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .process-step {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 2rem;
+            padding: 2.25rem 0;
+            border-bottom: 1px solid var(--border-line);
+            transition: 0.3s;
+        }
+        .process-step:last-child { border-bottom: none; }
+        .process-step:hover .process-num {
+            color: var(--aqua);
+            border-color: var(--aqua);
+        }
+        .process-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.25rem;
+            font-weight: 500;
+            color: var(--white-dim);
+            width: 80px;
+            height: 80px;
+            border: 1px solid var(--border-line-strong);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.4s;
+            line-height: 1;
+        }
+        @media (max-width: 640px) {
+            .process-step { grid-template-columns: 60px 1fr; gap: 1.25rem; }
+            .process-num { width: 60px; height: 60px; font-size: 1.6rem; }
+        }
+        .process-body h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        .process-body p {
+            color: var(--white-muted);
+            font-size: 0.98rem;
+            font-weight: 300;
+            max-width: 600px;
+        }
+
+        /* ============================================================
+           PRICING / BOOKING CARD
+        ============================================================ */
+        .booking-card {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            padding: 3rem;
+            background: var(--void-soft);
+            border: 1px solid var(--aqua-border);
+            border-radius: 4px;
+            align-items: center;
+        }
+        @media (min-width: 1024px) {
+            .booking-card { grid-template-columns: 1.4fr 1fr; gap: 4rem; padding: 3.5rem; }
+        }
+        .booking-card h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .booking-card p {
+            color: var(--white-muted);
+            font-size: 1.05rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        .booking-price {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .booking-price .currency {
+            font-size: 1.4rem;
+            color: var(--aqua);
+            font-weight: 500;
+        }
+        .booking-price .num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            font-weight: 600;
+            color: var(--white);
+            line-height: 1;
+        }
+        .booking-price .per {
+            color: var(--white-dim);
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+        .booking-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        .booking-features li {
+            display: flex;
+            gap: 0.85rem;
+            padding: 0.6rem 0;
+            color: var(--white-muted);
+            font-size: 0.92rem;
+            font-weight: 300;
+            border-bottom: 1px solid var(--border-line);
+        }
+        .booking-features li:last-child { border-bottom: none; }
+        .booking-features i {
+            color: var(--aqua);
+            font-size: 0.8rem;
+            margin-top: 0.35rem;
+            flex-shrink: 0;
+        }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.7rem;
+            background: var(--aqua);
+            color: var(--void);
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            border: 1px solid var(--aqua);
+            transition: 0.3s;
+            cursor: pointer;
+            font-family: inherit;
+            white-space: nowrap;
+            width: 100%;
+        }
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--aqua);
+            box-shadow: 0 0 32px var(--aqua-glow);
+        }
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.7rem;
+            background: transparent;
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            border: 1px solid var(--border-line-strong);
+            transition: 0.3s;
+            cursor: pointer;
+            font-family: inherit;
+            white-space: nowrap;
+            width: 100%;
+            margin-top: 0.75rem;
+        }
+        .btn-secondary:hover {
+            border-color: var(--aqua);
+            color: var(--aqua);
+        }
+
+        /* ============================================================
+           FAQ MINI
+        ============================================================ */
+        .faq-mini {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
+        }
+        @media (min-width: 768px) { .faq-mini { grid-template-columns: repeat(2, 1fr); } }
+        .faq-mini-item {
+            padding: 1.75rem;
+            background: var(--void-soft);
+            border: 1px solid var(--border-line);
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+        .faq-mini-item:hover {
+            border-color: var(--aqua-border);
+        }
+        .faq-mini-item h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+        }
+        .faq-mini-item h3 i {
+            color: var(--aqua);
+            font-size: 0.9rem;
+        }
+        .faq-mini-item p {
+            font-size: 0.9rem;
+            color: var(--white-muted);
+            font-weight: 300;
+            line-height: 1.65;
+        }
+
+        /* ============================================================
+           OTHER SERVICES
+        ============================================================ */
+        .other-services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
+        }
+        @media (min-width: 640px) { .other-services-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 1024px) { .other-services-grid { grid-template-columns: repeat(3, 1fr); } }
+        .other-service-card {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 1.75rem;
+            background: var(--void-soft);
+            border: 1px solid var(--border-line);
+            border-radius: 4px;
+            transition: 0.35s;
+        }
+        .other-service-card:hover {
+            border-color: var(--aqua-border);
+            transform: translateY(-3px);
+        }
+        .other-service-card .icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 1px solid var(--aqua-border);
+            background: var(--aqua-glow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--aqua);
+            font-size: 1rem;
+        }
+        .other-service-card h4 {
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+        .other-service-card p {
+            font-size: 0.88rem;
+            color: var(--white-muted);
+            font-weight: 300;
+            line-height: 1.6;
+            flex: 1;
+        }
+        .other-service-card .link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--aqua);
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            transition: 0.2s;
+        }
+        .other-service-card .link:hover {
+            gap: 0.75rem;
+        }
+
+        /* ============================================================
+           CTA INLINE
+        ============================================================ */
+        .cta-inline {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            padding: 3rem 2.5rem;
+            background: var(--void-soft);
+            border: 1px solid var(--aqua-border);
+            border-radius: 4px;
+            margin-top: 4rem;
+        }
+        .cta-inline h3 {
+            font-size: 2rem;
+            font-weight: 500;
+        }
+        .cta-inline h3 em {
+            font-style: italic;
+            color: var(--aqua);
+        }
+        .cta-inline .btn-primary {
+            width: auto;
+        }
+
+        /* ============================================================
+           FOOTER
+        ============================================================ */
+        .footer {
+            background-color: var(--void);
+            color: var(--white);
+            padding: 4rem 0 2rem 0;
+            border-top: 1px solid var(--aqua-border);
+        }
+        .footer-grid {
+            display: grid;
+            gap: 2.5rem;
+            grid-template-columns: 1fr;
+            margin-bottom: 3rem;
+        }
+        @media (min-width:768px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr 1.5fr; } }
+        .footer-logo-block {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .footer .logo { margin-bottom: 0.5rem; }
+        .footer-heading {
+            color: var(--aqua);
+            margin-bottom: 1.25rem;
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            font-family: 'Inter', sans-serif;
+        }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 0.75rem; }
+        .footer-links a {
+            color: var(--white-muted);
+            transition: 0.2s;
+            font-size: 0.9rem;
+            font-weight: 300;
+        }
+        .footer-links a:hover {
+            color: var(--aqua);
+            padding-left: 4px;
+        }
+        .footer-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: 9999px;
+            border: 1px solid var(--border-line-strong);
+            background: var(--void-soft);
+            color: var(--white);
+            margin-bottom: 0.75rem;
+            font-weight: 300;
+            font-family: inherit;
+            font-size: 0.9rem;
+            outline: none;
+            transition: 0.3s;
+        }
+        .footer-input::placeholder { color: var(--white-dim); }
+        .footer-input:focus {
+            border-color: var(--aqua);
+            box-shadow: 0 0 0 3px var(--aqua-glow);
+        }
+        .footer-btn {
+            width: 100%;
+            background-color: var(--aqua);
+            color: var(--void);
+            padding: 0.75rem 1rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            border: 1px solid var(--aqua);
+            cursor: pointer;
+            transition: 0.2s;
+            font-family: inherit;
+            font-size: 0.82rem;
+            letter-spacing: 0.08em;
+        }
+        .footer-btn:hover {
+            background: transparent;
+            color: var(--aqua);
+        }
+        .footer-socials {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+        }
+        .footer-socials a {
+            color: var(--aqua);
+            font-size: 1.25rem;
+            transition: 0.2s;
+        }
+        .footer-socials a:hover { color: var(--white); transform: translateY(-2px); }
+        .copyright {
+            border-top: 1px solid var(--border-line);
+            padding-top: 1.5rem;
+            text-align: center;
+            color: var(--white-dim);
+            font-size: 0.85rem;
+            font-weight: 300;
+        }
+
+        #scroll-top {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            width: 3rem;
+            height: 3rem;
+            background-color: var(--aqua);
+            color: var(--void);
+            border-radius: 50%;
+            border: 1px solid var(--aqua);
+            cursor: pointer;
+            display: none;
+            z-index: 100;
+            transition: 0.3s;
+            font-size: 1rem;
+        }
+        #scroll-top:hover {
+            background: transparent;
+            color: var(--aqua);
+            box-shadow: 0 0 20px var(--aqua-glow);
+        }
+
+        @media (min-width: 1280px) {
+            .desktop-nav { display: flex; }
+            .navbar-right-desktop { display: flex; }
+            .mobile-menu-btn { display: none; }
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.9s ease, transform 0.9s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Not-found state */
+        .not-found {
+            display: none;
+            text-align: center;
+            padding: 6rem 0;
+        }
+        .not-found.show { display: block; }
+        .not-found i {
+            font-size: 3rem;
+            color: var(--aqua);
+            margin-bottom: 1.5rem;
+        }
+        .not-found h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .not-found p {
+            color: var(--white-muted);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+        .dynamic-content { display: block; }
+        .dynamic-content.hidden { display: none; }
+    </style>
+</head>
+<body>
+
+<!-- ============================================================
+     STICKY NAVBAR
+============================================================ -->
+<nav class="navbar-container">
+    <div class="container navbar-flex">
+        <a href="index.html" class="logo">
+            <div class="logo-icon"><i class="fas fa-water"></i></div>
+            <div>
+                <div class="logo-text">LUMA<span>FLOAT</span></div>
+                <span class="logo-tagline">FLOAT THERAPY & SPA</span>
+            </div>
+        </a>
+        <div class="desktop-nav">
+            <div class="dropdown" id="home-dropdown">
+                <span class="nav-link" onclick="toggleDesktopDropdown('home-dropdown')">Home <i class="fas fa-chevron-down dropdown-arrow"></i></span>
+                <div class="dropdown-menu">
+                    <a href="index.html" class="dropdown-item"><i class="fas fa-house"></i> Home 1</a>
+                    <a href="home2.html" class="dropdown-item"><i class="fas fa-house-chimney"></i> Home 2</a>
+                </div>
+            </div>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="services.html" class="nav-link active">Services</a>
+            <a href="pricing.html" class="nav-link">Pricing</a>
+            <a href="gallery.html" class="nav-link">Gallery</a>
+            <a href="faq.html" class="nav-link">FAQ</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <div class="dropdown" id="dashboard-dropdown">
+                <span class="nav-link" onclick="toggleDesktopDropdown('dashboard-dropdown')">Dashboard <i class="fas fa-chevron-down dropdown-arrow"></i></span>
+                <div class="dropdown-menu">
+                    <a href="client-dashboard.html" class="dropdown-item"><i class="fas fa-user"></i> Client Dashboard</a>
+                    <a href="admin-dashboard.html" class="dropdown-item"><i class="fas fa-shield-halved"></i> Admin Dashboard</a>
+                </div>
+            </div>
+        </div>
+        <div class="navbar-right-desktop">
+            <button class="icon-btn" id="desktop-theme-toggle" title="Toggle theme"><i class="fas fa-sun" id="desktop-theme-icon"></i></button>
+            <button class="icon-btn" id="desktop-rtl-toggle" title="Toggle RTL"><i class="fas fa-exchange-alt"></i></button>
+            <a href="login.html" class="login-btn"><i class="fas fa-user"></i> Login</a>
+            <a href="join.html" class="login-btn">Register</a>
+        </div>
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+    </div>
+</nav>
+
+<!-- Mobile menu -->
+<div id="mobile-menu" class="mobile-menu">
+    <div class="mobile-menu-header">
+        <a href="index.html" class="logo">
+            <div class="logo-icon"><i class="fas fa-water"></i></div>
+            <div>
+                <div class="logo-text">LUMA<span>FLOAT</span></div>
+                <span class="logo-tagline">FLOAT THERAPY & SPA</span>
+            </div>
+        </a>
+        <button class="mobile-menu-close" id="close-mobile-menu" aria-label="Close menu"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="mobile-menu-items">
+        <div class="mobile-dropdown">
+            <button class="mobile-dropdown-btn" onclick="toggleMobileDropdown('home-mobile')">
+                <span><i class="fas fa-home"></i> Home</span> <i class="fas fa-chevron-down"></i>
+            </button>
+            <div id="home-mobile" class="mobile-dropdown-content">
+                <a href="index.html">Home 1</a> <a href="home2.html">Home 2</a>
+            </div>
+        </div>
+        <a href="about.html" class="mobile-menu-item"><i class="fas fa-users"></i> About</a>
+        <a href="services.html" class="mobile-menu-item"><i class="fas fa-spa"></i> Services</a>
+        <a href="pricing.html" class="mobile-menu-item"><i class="fas fa-tag"></i> Pricing</a>
+        <a href="gallery.html" class="mobile-menu-item"><i class="fas fa-image"></i> Gallery</a>
+        <a href="faq.html" class="mobile-menu-item"><i class="fas fa-question-circle"></i> FAQ</a>
+        <a href="contact.html" class="mobile-menu-item"><i class="fas fa-envelope"></i> Contact</a>
+        <div class="mobile-dropdown">
+            <button class="mobile-dropdown-btn" onclick="toggleMobileDropdown('dashboard-mobile')">
+                <span><i class="fas fa-gauge"></i> Dashboard</span> <i class="fas fa-chevron-down"></i>
+            </button>
+            <div id="dashboard-mobile" class="mobile-dropdown-content">
+                <a href="client-dashboard.html">Client Dashboard</a>
+                <a href="admin-dashboard.html">Admin Dashboard</a>
+            </div>
+        </div>
+        <div class="mobile-separator"></div>
+        <button class="mobile-action-item" onclick="window.location.href='login.html'"><i class="fas fa-sign-in-alt"></i> Login</button>
+        <button class="mobile-action-item" onclick="window.location.href='join.html'"><i class="fas fa-user-plus"></i> Register</button>
+        <button class="mobile-action-item" id="mobile-rtl-toggle"><i class="fas fa-exchange-alt"></i> RTL</button>
+        <button class="mobile-action-item" id="mobile-theme-toggle"><i class="fas fa-sun" id="mobile-theme-icon"></i> Theme</button>
+    </div>
+</div>
+
+<!-- ============================================================
+     DYNAMIC CONTENT
+============================================================ -->
+<div id="dynamic-wrapper" class="dynamic-content">
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <div class="page-hero-bg">
+            <img id="hero-img" src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2070&auto=format&fit=crop" alt="Service hero image">
+        </div>
+        <div class="container">
+            <div class="page-hero-content">
+                <span class="label" id="hero-label">Service</span>
+                <h1 id="hero-title">Service Title</h1>
+                <p id="hero-desc">Service description goes here.</p>
+                <div class="hero-meta-row" id="hero-meta"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OVERVIEW -->
+    <section class="section">
+        <div class="container">
+            <div class="split">
+                <div class="split-img reveal">
+                    <img id="overview-img" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=2070&auto=format&fit=crop" alt="Service overview image">
+                </div>
+                <div class="split-text reveal">
+                    <span class="label" id="overview-label">Overview</span>
+                    <h2 id="overview-title" style="margin-top: 1.25rem;">Overview title</h2>
+                    <p id="overview-p1">Paragraph one.</p>
+                    <p id="overview-p2">Paragraph two.</p>
+                    <ul class="feature-list" id="overview-features"></ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-head center reveal">
+                <span class="label" style="justify-content:center;">Benefits</span>
+                <h2 class="display-title" style="margin-top: 1.25rem;" id="benefits-title">What this gives you.</h2>
+                <p id="benefits-desc">Benefits description.</p>
+            </div>
+            <div class="benefits-grid" id="benefits-grid"></div>
+        </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="section">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="label">The Experience</span>
+                <h2 class="display-title" style="margin-top: 1.25rem;" id="process-title">What happens<br>when you arrive.</h2>
+                <p id="process-desc">Process description.</p>
+            </div>
+            <div class="process-list" id="process-list"></div>
+        </div>
+    </section>
+
+    <!-- BOOKING -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="booking-card reveal">
+                <div>
+                    <span class="label">Book This Service</span>
+                    <h2 id="booking-title" style="margin-top: 1.25rem;">Ready when you are.</h2>
+                    <p id="booking-desc">Booking description.</p>
+                    <div class="booking-price">
+                        <span class="currency">$</span>
+                        <span class="num" id="booking-price">00</span>
+                        <span class="per" id="booking-per">/ session</span>
+                    </div>
+                    <ul class="booking-features" id="booking-features"></ul>
+                </div>
+                <div>
+                    <a href="pricing.html" class="btn-primary">
+                        <i class="fas fa-calendar-check"></i> Book Now
+                    </a>
+                    <a href="contact.html" class="btn-secondary">
+                        <i class="fas fa-envelope"></i> Ask a Question
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+        <div class="container">
+            <div class="section-head center reveal">
+                <span class="label" style="justify-content:center;">Common Questions</span>
+                <h2 class="display-title" style="margin-top: 1.25rem;">Before you book.</h2>
+            </div>
+            <div class="faq-mini" id="faq-grid"></div>
+        </div>
+    </section>
+
+    <!-- OTHER SERVICES -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-head center reveal">
+                <span class="label" style="justify-content:center;">Explore More</span>
+                <h2 class="display-title" style="margin-top: 1.25rem;">Other services<br>at LUMA.</h2>
+            </div>
+            <div class="other-services-grid" id="other-services-grid"></div>
+
+            <div class="cta-inline reveal">
+                <h3>Not sure where to start? <em>We'll help you choose.</em></h3>
+                <a href="contact.html" class="btn-primary">
+                    <i class="fas fa-envelope"></i> Talk to Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<!-- NOT FOUND -->
+<div class="not-found" id="not-found">
+    <i class="fas fa-water"></i>
+    <h2>Service not found.</h2>
+    <p>We couldn't find that service. It may have been moved or renamed.</p>
+    <a href="services.html" class="btn-primary" style="display: inline-flex; width: auto;">
+        <i class="fas fa-arrow-left"></i> Back to Services
+    </a>
+</div>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-logo-block">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"><i class="fas fa-water"></i></div>
+                    <div>
+                        <div class="logo-text">LUMA<span>FLOAT</span></div>
+                        <span class="logo-tagline">FLOAT THERAPY & SPA</span>
+                    </div>
+                </a>
+                <p style="color: var(--white-muted); margin-top: 1rem; font-size: 0.9rem; max-width: 260px; font-weight: 300;">A sensory deprivation spa built for the modern nervous system. Zero gravity. Zero noise. Zero pressure.</p>
+            </div>
+            <div>
+                <h3 class="footer-heading">Quick links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="footer-heading">Support</h3>
+                <ul class="footer-links">
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="footer-heading">Stay Updated</h3>
+                <input class="footer-input" placeholder="Your email address">
+                <button class="footer-btn">Subscribe</button>
+                <div class="footer-socials">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <i class="fas fa-copyright"></i> 2025 LUMA Float Therapy — Midnight Void · Mineral White · Float Aqua. All rights reserved.
+        </div>
+    </div>
+</footer>
+
+<button id="scroll-top" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+
+<script>
+/* ============================================================
+   SERVICE DATA — drives the dynamic content
+============================================================ */
+const SERVICES = {
+    "float-therapy": {
+        label: "01 — Float Therapy",
+        title: "Float Therapy",
+        titleHtml: "Zero gravity.<br><em>Total silence.</em>",
+        desc: "Lie back in a shallow pool of skin-temperature water saturated with 500kg of pharmaceutical-grade Epsom salt. The water supports you completely — no pressure, no gravity, no sound.",
+        heroImg: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=2070&auto=format&fit=crop",
+        overviewImg: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2070&auto=format&fit=crop",
+        heroMeta: [
+            { icon: "fas fa-clock", text: "60 or 90 min" },
+            { icon: "fas fa-water", text: "500kg Epsom salt" },
+            { icon: "fas fa-temperature-half", text: "35.0°C" }
+        ],
+        overviewTitle: "An hour where nothing is asked of you.",
+        overviewP1: "You lie back in a shallow pool of skin-temperature water saturated with 500kg of pharmaceutical-grade Epsom salt. The water supports you completely — no pressure, no gravity, no sound.",
+        overviewP2: "Lights off. Sound off. Distraction off. What's left is your own internal rhythm — and the space to finally hear it.",
+        overviewFeatures: [
+            "Zero-gravity weightlessness removes all pressure from joints and muscles",
+            "Sensory input is reduced to near-zero, giving your nervous system a break",
+            "Magnesium-rich Epsom salt is absorbed through the skin and relaxes the body",
+            "Brainwave activity slows into theta state — the same state as deep meditation"
+        ],
+        benefitsTitle: "Therapy for the mind, the body, and the noise.",
+        benefitsDesc: "Floating isn't a trend. It's a clinically studied intervention for stress, chronic pain, and cognitive overload — practiced in silence.",
+        benefits: [
+            { icon: "fas fa-brain", title: "Mental Clarity", text: "Reduced sensory input allows the brain to enter theta state — the same brainwave pattern found in deep meditation and pre-sleep." },
+            { icon: "fas fa-heart-pulse", title: "Physical Recovery", text: "Muscular tension releases within minutes. Blood flow improves. Epsom salt reduces inflammation." },
+            { icon: "fas fa-moon", title: "Deep Sleep", text: "Floating triggers a parasympathetic response that lasts for hours after your session." },
+            { icon: "fas fa-wind", title: "Chronic Pain Relief", text: "The elimination of gravity means no compression of the spine or joints." },
+            { icon: "fas fa-leaf", title: "Hormonal Balance", text: "Studies show floating lowers cortisol and adrenaline while raising endorphins and dopamine." },
+            { icon: "fas fa-spa", title: "Meditative Depth", text: "Regular floaters report faster access to meditative states and deeper breathwork." }
+        ],
+        processTitle: "What happens<br>when you arrive.",
+        processDesc: "Every session is designed to slow you down — from the moment you step inside LUMA, to the moment you float out.",
+        process: [
+            { tag: "Arrival", title: "Check in. Slow down.", text: "You're welcomed into our quiet lounge with a cup of herbal tea. Phones stay in the locker." },
+            { tag: "Preparation", title: "Shower & settle in.", text: "Private changing rooms with showers, robes, and towels. A quick pre-float rinse keeps the tank water pristine." },
+            { tag: "The Float", title: "60 or 90 minutes of nothing.", text: "Step into your private float suite. The tank lid is entirely optional. Music fades out after 10 minutes." },
+            { tag: "Integration", title: "Return slowly.", text: "After your float, a soft chime signals the end. Post-float shower, then a slow return to the lounge." }
+        ],
+        bookingTitle: "Ready to float?",
+        bookingDesc: "Book your first float today. New floaters get $20 off their first session with code FIRSTFLOAT.",
+        price: "59",
+        per: "/ session",
+        bookingFeatures: [
+            "Private float suite",
+            "15 min guided orientation",
+            "Towels, robe & amenities",
+            "Post-float herbal tea"
+        ],
+        faq: [
+            { q: "What if I can't relax?", a: "The tank lid is never closed unless you want it to be. You can float with the lid open and get out at any time." },
+            { q: "How long is a session?", a: "Standard sessions are 60 or 90 minutes in the tank. We recommend 90 minutes for the full experience." },
+            { q: "Do I need to bring anything?", a: "Just yourself. We provide towels, robes, earplugs, shower amenities, and post-float tea." },
+            { q: "Is the water clean?", a: "The water is fully filtered three times between every session, treated with UV sterilization, and tested daily." }
+        ]
+    },
+    "sensory-deprivation": {
+        label: "02 — Sensory Deprivation",
+        title: "Sensory Deprivation",
+        titleHtml: "The art of<br><em>nothing at all.</em>",
+        desc: "Our float suites are fully soundproof and lightproof — designed to reduce external sensory input to near-zero. In this state, your brain enters theta waves.",
+        heroImg: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2070&auto=format&fit=crop",
+        overviewImg: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=2070&auto=format&fit=crop",
+        heroMeta: [
+            { icon: "fas fa-brain", text: "Theta state" },
+            { icon: "fas fa-volume-xmark", text: "Soundproof" },
+            { icon: "fas fa-lightbulb", text: "Lightproof" }
+        ],
+        overviewTitle: "The deepest rest your nervous system can experience while awake.",
+        overviewP1: "Our float suites are fully soundproof and lightproof — designed to reduce external sensory input to near-zero. In this state, your brain enters theta waves, the same pattern found in deep meditation.",
+        overviewP2: "This is the deepest rest your nervous system can experience while awake. Anxiety drops. Focus returns. The mind finally quiets.",
+        overviewFeatures: [
+            "Complete elimination of external light and sound",
+            "Theta brainwave state within 20 minutes",
+            "Reduced cortisol and adrenaline",
+            "A profound sense of calm and clarity"
+        ],
+        benefitsTitle: "A reset for the overstimulated mind.",
+        benefitsDesc: "When the outside world disappears, the inside world becomes clearer.",
+        benefits: [
+            { icon: "fas fa-brain", title: "Theta State", text: "Your brain naturally slows into theta waves — the same state as deep meditation." },
+            { icon: "fas fa-volume-xmark", title: "Total Silence", text: "Soundproof suites eliminate all external noise, allowing deep mental rest." },
+            { icon: "fas fa-lightbulb", title: "Total Darkness", text: "Lightproof design removes visual input, reducing cognitive load." },
+            { icon: "fas fa-heart-pulse", title: "Lower Cortisol", text: "Studies show sensory deprivation reduces stress hormones significantly." },
+            { icon: "fas fa-moon", title: "Improved Sleep", text: "Many clients report the best sleep of their month after a session." },
+            { icon: "fas fa-spa", title: "Mental Clarity", text: "Without distraction, the mind finds focus and calm." }
+        ],
+        processTitle: "Your journey<br>into stillness.",
+        processDesc: "A carefully designed sequence that gently removes the world around you.",
+        process: [
+            { tag: "Arrival", title: "Leave the world behind.", text: "Phones go in lockers. You're welcomed with tea and silence." },
+            { tag: "Preparation", title: "Shower & prepare.", text: "A quick rinse helps your skin absorb the magnesium." },
+            { tag: "The Float", title: "Enter the void.", text: "Step into your suite. Lights fade. Sound stops. Time disappears." },
+            { tag: "Return", title: "Come back slowly.", text: "A soft chime signals the end. Tea and quiet await." }
+        ],
+        bookingTitle: "Experience the void.",
+        bookingDesc: "Sensory deprivation is included in every float session. Book your private suite today.",
+        price: "59",
+        per: "/ session",
+        bookingFeatures: [
+            "Fully soundproof suite",
+            "Lightproof tank",
+            "Theta state access",
+            "Post-float integration"
+        ],
+        faq: [
+            { q: "What is sensory deprivation?", a: "It's the reduction of external sensory input to near-zero — no light, no sound, no gravity." },
+            { q: "Is it safe?", a: "Yes, for most people. We recommend consulting a doctor if you have epilepsy or severe claustrophobia." },
+            { q: "How long does it take?", a: "Most people enter theta state within 20 minutes. Sessions are 60 or 90 minutes." },
+            { q: "Will I be bored?", a: "Boredom is the opposite of what happens. Your mind naturally slows and enters a meditative state." }
+        ]
+    },
+    "breathwork": {
+        label: "03 — Breathwork & Meditation",
+        title: "Breathwork & Meditation",
+        titleHtml: "Breathe deeper.<br><em>Sink further.</em>",
+        desc: "Optional in-tank audio guides you through pranayama and body-scan meditations designed specifically for the float environment.",
+        heroImg: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=2070&auto=format&fit=crop",
+        overviewImg: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2070&auto=format&fit=crop",
+        heroMeta: [
+            { icon: "fas fa-headphones", text: "In-tank audio" },
+            { icon: "fas fa-wind", text: "Pranayama" },
+            { icon: "fas fa-spa", text: "Body scan" }
+        ],
+        overviewTitle: "Let your breath lead the way.",
+        overviewP1: "Optional in-tank audio guides you through pranayama and body-scan meditations designed specifically for the float environment. Led by Elena, our certified breathwork specialist.",
+        overviewP2: "Regular floaters report faster access to meditative states, deeper breathwork, and a stronger ability to sit with discomfort — on and off the mat.",
+        overviewFeatures: [
+            "Guided pranayama audio in the tank",
+            "Body-scan meditation for deep relaxation",
+            "Certified breathwork specialist guidance",
+            "Faster access to meditative states"
+        ],
+        benefitsTitle: "Breathe your way to stillness.",
+        benefitsDesc: "Conscious breathing is the fastest way to shift your nervous system into rest.",
+        benefits: [
+            { icon: "fas fa-wind", title: "Deeper Breath", text: "Learn to breathe fully and slowly, activating the parasympathetic response." },
+            { icon: "fas fa-brain", title: "Mental Quiet", text: "Breathwork naturally quiets the mind and reduces mental chatter." },
+            { icon: "fas fa-heart-pulse", title: "Lower Heart Rate", text: "Slow breathing lowers heart rate and blood pressure." },
+            { icon: "fas fa-spa", title: "Meditative Depth", text: "Regular practice deepens your ability to meditate on and off the mat." },
+            { icon: "fas fa-moon", title: "Better Sleep", text: "Breathwork before sleep improves sleep quality." },
+            { icon: "fas fa-leaf", title: "Stress Relief", text: "Conscious breathing reduces cortisol and anxiety." }
+        ],
+        processTitle: "A guided journey<br>inward.",
+        processDesc: "Elena's voice and carefully chosen audio guide you through a deep meditative experience.",
+        process: [
+            { tag: "Arrival", title: "Settle in.", text: "You're welcomed with tea and a brief check-in about your experience level." },
+            { tag: "Preparation", title: "Choose your audio.", text: "Select a guided breathwork or body-scan track for your session." },
+            { tag: "The Float", title: "Breathe & sink.", text: "Elena's voice guides you through pranayama and meditation as you float." },
+            { tag: "Return", title: "Integration.", text: "Post-float tea and a few moments of quiet reflection." }
+        ],
+        bookingTitle: "Add breathwork to your float.",
+        bookingDesc: "Guided breathwork is available as an add-on to any float session for $12.",
+        price: "12",
+        per: "/ add-on",
+        bookingFeatures: [
+            "In-tank guided audio",
+            "Pranayama session",
+            "Body-scan meditation",
+            "Certified specialist"
+        ],
+        faq: [
+            { q: "Do I have to use the audio?", a: "No, it's entirely optional. Many floaters prefer silence." },
+            { q: "Is breathwork for beginners?", a: "Yes. The guided audio is designed for all levels, including complete beginners." },
+            { q: "How long is the audio?", a: "Tracks range from 10 to 30 minutes. You can stop at any time." },
+            { q: "Can I bring my own audio?", a: "We provide curated tracks. Personal audio is not supported in the tank." }
+        ]
+    },
+    "massage": {
+        label: "04 — Post-Float Massage",
+        title: "Post-Float Massage",
+        titleHtml: "Extend the<br><em>stillness.</em>",
+        desc: "A 30-minute magnesium oil massage immediately after your float. The oil absorbs through the skin while your muscles are still in their most relaxed state.",
+        heroImg: "https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?q=80&w=2070&auto=format&fit=crop",
+        overviewImg: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2070&auto=format&fit=crop",
+        heroMeta: [
+            { icon: "fas fa-clock", text: "30 min" },
+            { icon: "fas fa-hand-holding-heart", text: "Magnesium oil" },
+            { icon: "fas fa-heart-pulse", text: "Recovery" }
+        ],
+        overviewTitle: "The deepest recovery available.",
+        overviewP1: "A 30-minute magnesium oil massage immediately after your float. The oil absorbs through the skin while your muscles are still in their most relaxed state — the deepest recovery available.",
+        overviewP2: "Perfect for athletes, chronic pain sufferers, or anyone who wants to extend the benefits of their float long after they leave the tank.",
+        overviewFeatures: [
+            "30-minute magnesium oil massage",
+            "Absorbs through skin for deep recovery",
+            "Muscles already in their most relaxed state",
+            "Perfect for athletes and chronic pain"
+        ],
+        benefitsTitle: "Recovery that goes deeper.",
+        benefitsDesc: "Because your muscles are already fully relaxed post-float, the massage reaches deeper than usual.",
+        benefits: [
+            { icon: "fas fa-hand-holding-heart", title: "Magnesium Absorption", text: "Magnesium oil absorbs through the skin, relaxing muscles and reducing inflammation." },
+            { icon: "fas fa-heart-pulse", title: "Improved Circulation", text: "Massage increases blood flow and speeds recovery." },
+            { icon: "fas fa-wind", title: "Tension Release", text: "Muscles that are already relaxed respond more deeply to massage." },
+            { icon: "fas fa-moon", title: "Better Sleep", text: "Magnesium and massage together promote deep, restorative sleep." },
+            { icon: "fas fa-leaf", title: "Pain Relief", text: "Ideal for chronic pain, fibromyalgia, and post-workout soreness." },
+            { icon: "fas fa-spa", title: "Total Relaxation", text: "The combination of float + massage is the ultimate reset." }
+        ],
+        processTitle: "Your recovery<br>sequence.",
+        processDesc: "Float first, massage second — in that order, for maximum benefit.",
+        process: [
+            { tag: "Float", title: "Complete your float.", text: "90 minutes in zero gravity relaxes every muscle in your body." },
+            { tag: "Transition", title: "Shower & settle.", text: "A quick rinse, then onto the massage table." },
+            { tag: "Massage", title: "30 minutes of magnesium.", text: "Our therapist works the magnesium oil into your muscles." },
+            { tag: "Rest", title: "Tea & integration.", text: "Return to the lounge for tea and quiet rest." }
+        ],
+        bookingTitle: "Add a massage to your float.",
+        bookingDesc: "Post-float massage is available as an add-on to any Signature Float for $65.",
+        price: "65",
+        per: "/ add-on",
+        bookingFeatures: [
+            "30-minute massage",
+            "Magnesium oil",
+            "Post-float timing",
+            "Certified therapist"
+        ],
+        faq: [
+            { q: "When is the massage?", a: "Immediately after your float, while your muscles are still fully relaxed." },
+            { q: "Do I need to book in advance?", a: "Yes, we recommend booking at least 48 hours ahead." },
+            { q: "Is it suitable for injuries?", a: "Please inform us of any injuries. Our therapist will adapt the massage." },
+            { q: "Can I combine it with any float?", a: "Yes, it's available as an add-on to any session." }
+        ]
+    },
+    "tea-ceremony": {
+        label: "05 — Herbal Tea Ceremony",
+        title: "Herbal Tea Ceremony",
+        titleHtml: "A slow return<br><em>to the world.</em>",
+        desc: "After your float, join us in the lounge for a guided tea ceremony featuring adaptogenic blends selected to extend the parasympathetic response.",
+        heroImg: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?q=80&w=2070&auto=format&fit=crop",
+        overviewImg: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2070&auto=format&fit=crop",
+        heroMeta: [
+            { icon: "fas fa-mug-hot", text: "Adaptogenic" },
+            { icon: "fas fa-leaf", text: "Herbal blends" },
+            { icon: "fas fa-clock", text: "20 min" }
+        ],
+        overviewTitle: "Sip slowly. Speak little. Return gently.",
+        overviewP1: "After your float, join us in the lounge for a guided tea ceremony featuring adaptogenic blends selected to extend the parasympathetic response.",
+        overviewP2: "This ritual is included with every Signature Float and available as an add-on for Discovery sessions.",
+        overviewFeatures: [
+            "Guided tea ceremony in the lounge",
+            "Adaptogenic herbal blends",
+            "Extends the parasympathetic response",
+            "Included with Signature Float"
+        ],
+        benefitsTitle: "The ritual of return.",
+        benefitsDesc: "The way you come back matters as much as the float itself.",
+        benefits: [
+            { icon: "fas fa-mug-hot", title: "Adaptogenic Herbs", text: "Blends selected to support the nervous system and extend relaxation." },
+            { icon: "fas fa-leaf", title: "Mindful Ritual", text: "A slow, guided ceremony that eases you back into the world." },
+            { icon: "fas fa-spa", title: "Extended Calm", text: "The parasympathetic response continues long after the float ends." },
+            { icon: "fas fa-moon", title: "Better Sleep", text: "Adaptogens like ashwagandha and reishi support deep sleep." },
+            { icon: "fas fa-heart-pulse", title: "Lower Stress", text: "Herbal blends reduce cortisol and promote calm." },
+            { icon: "fas fa-users", title: "Community", text: "Shared quietly with other floaters in the lounge." }
+        ],
+        processTitle: "The ceremony<br>of return.",
+        processDesc: "A gentle, guided ritual that eases you back into the world.",
+        process: [
+            { tag: "Float", title: "Complete your float.", text: "Shower and change at your own pace." },
+            { tag: "Lounge", title: "Enter the tea lounge.", text: "Sit comfortably. The room is dim and quiet." },
+            { tag: "Ceremony", title: "Guided tea ritual.", text: "Your host guides you through a slow, mindful tea ceremony." },
+            { tag: "Rest", title: "Sit quietly.", text: "Stay as long as you need. No rush to leave." }
+        ],
+        bookingTitle: "Add the tea ceremony.",
+        bookingDesc: "The herbal tea ceremony is included with every Signature Float and available as an add-on for $18.",
+        price: "18",
+        per: "/ add-on",
+        bookingFeatures: [
+            "Guided tea ceremony",
+            "Adaptogenic blends",
+            "20-minute ritual",
+            "Included with Signature"
+        ],
+        faq: [
+            { q: "Is the tea caffeinated?", a: "No, all blends are caffeine-free and chosen for relaxation." },
+            { q: "Can I skip the ceremony?", a: "Yes, it's entirely optional. You're welcome to simply rest." },
+            { q: "Is it included in my float?", a: "It's included with Signature Floats and available as an add-on for Discovery." },
+            { q: "Are there dietary restrictions?", a: "Please let us know of any allergies. We offer caffeine-free, dairy-free options." }
+        ]
+    },
+    "group-floats": {
+        label: "06 — Private Group Floats",
+        title: "Private Group Floats",
+        titleHtml: "Share the silence<br><em>with your people.</em>",
+        desc: "Book the entire spa for your team, your friends, or your family. 4–8 guests, each with their own private float suite, plus exclusive use of the lounge.",
+        heroImg: "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?q=80&w=2070&auto=format&fit=crop",
+        overviewImg: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2070&auto=format&fit=crop",
+        heroMeta: [
+            { icon: "fas fa-users", text: "4–8 guests" },
+            { icon: "fas fa-clock", text: "2–3 hours" },
+            { icon: "fas fa-gift", text: "Custom packages" }
+        ],
+        overviewTitle: "A shared experience of stillness.",
+        overviewP1: "Book the entire spa for your team, your friends, or your family. 4–8 guests, each with their own private float suite, plus exclusive use of the lounge and tea bar.",
+        overviewP2: "Perfect for corporate wellness days, retreats, birthdays, or any group that needs to disconnect together. Custom packages available.",
+        overviewFeatures: [
+            "Exclusive use of the entire spa",
+            "Private float suite for each guest",
+            "Lounge and tea bar access",
+            "Custom packages available"
+        ],
+        benefitsTitle: "Disconnect together.",
+        benefitsDesc: "A shared experience of stillness that your group will remember.",
+        benefits: [
+            { icon: "fas fa-users", title: "Team Wellness", text: "The perfect corporate wellness day — no phones, no meetings." },
+            { icon: "fas fa-heart-pulse", title: "Shared Calm", text: "Experience deep rest together and return to the world refreshed." },
+            { icon: "fas fa-gift", title: "Special Occasions", text: "Birthdays, retreats, or just because — custom packages available." },
+            { icon: "fas fa-spa", title: "Private Space", text: "The entire spa is yours for the duration of your booking." },
+            { icon: "fas fa-mug-hot", title: "Tea & Lounge", text: "Exclusive access to our lounge and tea bar throughout." },
+            { icon: "fas fa-clock", title: "Flexible Timing", text: "2–3 hour bookings, tailored to your group's needs." }
+        ],
+        processTitle: "Your group<br>experience.",
+        processDesc: "A seamless, private experience designed for connection and calm.",
+        process: [
+            { tag: "Arrival", title: "Private welcome.", text: "Your group is welcomed exclusively. Phones go in lockers." },
+            { tag: "Orientation", title: "Brief orientation.", text: "A short welcome and explanation of the float process." },
+            { tag: "The Floats", title: "Everyone floats.", text: "Each guest has their own private suite for a 60-minute float." },
+            { tag: "Integration", title: "Tea & connection.", text: "Post-float tea in the lounge, shared quietly together." }
+        ],
+        bookingTitle: "Book your group.",
+        bookingDesc: "Private group floats start at $450 for 4 guests. Contact us for custom packages.",
+        price: "450",
+        per: "/ group",
+        bookingFeatures: [
+            "4–8 guests",
+            "Private suites for all",
+            "Exclusive lounge access",
+            "Custom timing"
+        ],
+        faq: [
+            { q: "How many guests can join?", a: "Our private group bookings accommodate 4–8 guests comfortably." },
+            { q: "How long is the booking?", a: "Typically 2–3 hours, including arrival, float, and integration time." },
+            { q: "Can we customize the experience?", a: "Yes, we offer custom packages including catering and extended time." },
+            { q: "Do you offer corporate rates?", a: "Yes, we offer special rates for corporate and team bookings. Contact us." }
+        ]
+    }
+};
+
+/* ============================================================
+   DYNAMIC RENDERING
+============================================================ */
+(function() {
+    const params = new URLSearchParams(window.location.search);
+    const serviceKey = params.get('service');
+    const data = SERVICES[serviceKey];
+
+    const wrapper = document.getElementById('dynamic-wrapper');
+    const notFound = document.getElementById('not-found');
+
+    if (!data) {
+        wrapper.classList.add('hidden');
+        notFound.classList.add('show');
+        document.title = "LUMA | Service Not Found";
+        return;
+    }
+
+    // Update page title
+    document.title = `LUMA | ${data.title} — Float Therapy & Spa`;
+
+    // Hero
+    document.getElementById('hero-img').src = data.heroImg;
+    document.getElementById('hero-img').alt = data.title + " hero image";
+    document.getElementById('hero-label').textContent = data.label;
+    document.getElementById('hero-title').innerHTML = data.titleHtml;
+    document.getElementById('hero-desc').textContent = data.desc;
+
+    // Hero meta
+    const heroMetaContainer = document.getElementById('hero-meta');
+    heroMetaContainer.innerHTML = '';
+    data.heroMeta.forEach(item => {
+        const span = document.createElement('span');
+        span.className = 'hero-meta-item';
+        span.innerHTML = `<i class="${item.icon}"></i> ${item.text}`;
+        heroMetaContainer.appendChild(span);
+    });
+
+    // Overview
+    document.getElementById('overview-img').src = data.overviewImg;
+    document.getElementById('overview-img').alt = data.title + " overview";
+    document.getElementById('overview-label').textContent = data.label;
+    document.getElementById('overview-title').textContent = data.overviewTitle;
+    document.getElementById('overview-p1').textContent = data.overviewP1;
+    document.getElementById('overview-p2').textContent = data.overviewP2;
+
+    const featureList = document.getElementById('overview-features');
+    featureList.innerHTML = '';
+    data.overviewFeatures.forEach(f => {
+        const li = document.createElement('li');
+        li.innerHTML = `<i class="fas fa-circle"></i> ${f}`;
+        featureList.appendChild(li);
+    });
+
+    // Benefits
+    document.getElementById('benefits-title').textContent = data.benefitsTitle;
+    document.getElementById('benefits-desc').textContent = data.benefitsDesc;
+
+    const benefitsGrid = document.getElementById('benefits-grid');
+    benefitsGrid.innerHTML = '';
+    data.benefits.forEach(b => {
+        const card = document.createElement('div');
+        card.className = 'benefit-card reveal';
+        card.innerHTML = `
+            <div class="benefit-icon"><i class="${b.icon}"></i></div>
+            <h3>${b.title}</h3>
+            <p>${b.text}</p>
+        `;
+        benefitsGrid.appendChild(card);
+    });
+
+    // Process
+    document.getElementById('process-title').innerHTML = data.processTitle;
+    document.getElementById('process-desc').textContent = data.processDesc;
+
+    const processList = document.getElementById('process-list');
+    processList.innerHTML = '';
+    data.process.forEach((step, i) => {
+        const div = document.createElement('div');
+        div.className = 'process-step reveal';
+        div.innerHTML = `
+            <div class="process-num">${String(i + 1).padStart(2, '0')}</div>
+            <div class="process-body">
+                <span class="tag" style="display:inline-block; font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--aqua); margin-bottom:0.5rem; font-weight:600;">${step.tag}</span>
+                <h3>${step.title}</h3>
+                <p>${step.text}</p>
+            </div>
+        `;
+        processList.appendChild(div);
+    });
+
+    // Booking
+    document.getElementById('booking-title').textContent = data.bookingTitle;
+    document.getElementById('booking-desc').textContent = data.bookingDesc;
+    document.getElementById('booking-price').textContent = data.price;
+    document.getElementById('booking-per').textContent = data.per;
+
+    const bookingFeatures = document.getElementById('booking-features');
+    bookingFeatures.innerHTML = '';
+    data.bookingFeatures.forEach(f => {
+        const li = document.createElement('li');
+        li.innerHTML = `<i class="fas fa-check"></i> ${f}`;
+        bookingFeatures.appendChild(li);
+    });
+
+    // FAQ
+    const faqGrid = document.getElementById('faq-grid');
+    faqGrid.innerHTML = '';
+    data.faq.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'faq-mini-item reveal';
+        div.innerHTML = `
+            <h3><i class="fas fa-question-circle"></i> ${item.q}</h3>
+            <p>${item.a}</p>
+        `;
+        faqGrid.appendChild(div);
+    });
+
+    // Other services (exclude current)
+    const otherGrid = document.getElementById('other-services-grid');
+    otherGrid.innerHTML = '';
+    Object.entries(SERVICES).forEach(([key, s]) => {
+        if (key === serviceKey) return;
+        const card = document.createElement('div');
+        card.className = 'other-service-card reveal';
+        card.innerHTML = `
+            <div class="icon"><i class="fas fa-spa"></i></div>
+            <h4>${s.title}</h4>
+            <p>${s.desc.substring(0, 100)}...</p>
+            <a href="service-details.html?service=${key}" class="link">
+                View Details <i class="fas fa-arrow-right"></i>
+            </a>
+        `;
+        otherGrid.appendChild(card);
+    });
+
+    /* ============================================================
+       INITIALIZE UI (theme, nav, reveal)
+    ============================================================ */
+    const htmlEl = document.documentElement;
+    const desktopThemeBtn = document.getElementById('desktop-theme-toggle');
+    const mobileThemeBtn = document.getElementById('mobile-theme-toggle');
+    const desktopIcon = document.getElementById('desktop-theme-icon');
+    const mobileIcon = document.getElementById('mobile-theme-icon');
+    const desktopRtl = document.getElementById('desktop-rtl-toggle');
+    const mobileRtl = document.getElementById('mobile-rtl-toggle');
+
+    let savedTheme = localStorage.getItem('luma-theme') || 'dark';
+    htmlEl.setAttribute('data-theme', savedTheme);
+    updateIcons(savedTheme);
+
+    function updateIcons(theme) {
+        const iconClass = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        if (desktopIcon) desktopIcon.className = iconClass;
+        if (mobileIcon) mobileIcon.className = iconClass;
+    }
+
+    function toggleTheme() {
+        let currentTheme = htmlEl.getAttribute('data-theme');
+        let newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        htmlEl.setAttribute('data-theme', newTheme);
+        localStorage.setItem('luma-theme', newTheme);
+        updateIcons(newTheme);
+    }
+
+    if (desktopThemeBtn) desktopThemeBtn.addEventListener('click', toggleTheme);
+    if (mobileThemeBtn) mobileThemeBtn.addEventListener('click', toggleTheme);
+
+    function toggleRtl() {
+        let dir = htmlEl.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl';
+        htmlEl.setAttribute('dir', dir);
+        localStorage.setItem('luma-direction', dir);
+    }
+    if (desktopRtl) desktopRtl.addEventListener('click', toggleRtl);
+    if (mobileRtl) mobileRtl.addEventListener('click', toggleRtl);
+
+    const savedDir = localStorage.getItem('luma-direction') || 'ltr';
+    htmlEl.setAttribute('dir', savedDir);
+
+    window.toggleDesktopDropdown = function(id) {
+        document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+        document.getElementById(id)?.classList.toggle('active');
+    };
+    window.toggleMobileDropdown = function(id) {
+        document.getElementById(id)?.classList.toggle('active');
+    };
+
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeBtn = document.getElementById('close-mobile-menu');
+    if (menuBtn) menuBtn.addEventListener('click', () => mobileMenu.classList.add('active'));
+    if (closeBtn) closeBtn.addEventListener('click', () => mobileMenu.classList.remove('active'));
+    if (mobileMenu) mobileMenu.addEventListener('click', (e) => { if (e.target === mobileMenu) mobileMenu.classList.remove('active'); });
+
+    const scrollBtn = document.getElementById('scroll-top');
+    window.addEventListener('scroll', () => { if(scrollBtn) scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none'; });
+    if (scrollBtn) scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    window.addEventListener('resize', () => { if (window.innerWidth >= 1280 && mobileMenu) mobileMenu.classList.remove('active'); });
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    reveals.forEach(el => observer.observe(el));
+
+    // Smooth anchor
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                const offsetTop = target.getBoundingClientRect().top + window.pageYOffset - 100;
+                window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+            }
+        });
+    });
+
+    // Mark navbar Services as active
+    document.querySelectorAll('.nav-link').forEach(link => {
+        if (link.getAttribute('href') === 'services.html') {
+            link.classList.add('active');
+        }
+    });
+})();
+</script>
+</body>
+</html>

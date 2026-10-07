@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LUMA Float Therapy & Sensory Deprivation Spa – Frequently Asked Questions. Everything you need to know before your first float.">
+    <title>LUMA | FAQ — Float Therapy & Sensory Deprivation Spa</title>
+    <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌊</text></svg>" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..900&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================================
+           LUMA FLOAT SPA — COLOR THEME (same as index)
+           Midnight Void #0F172A  (70%) - dominant background
+           Mineral White #F8FAFC  (20%) - typography & borders
+           Float Aqua    #06B6D4  (10%) - actions & accents
+        ============================================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --void: #0F172A;
+            --void-deep: #0A111F;
+            --void-soft: #1A2439;
+            --white: #F8FAFC;
+            --white-muted: #CBD5E1;
+            --white-dim: #94A3B8;
+            --aqua: #06B6D4;
+            --aqua-glow: rgba(6, 182, 212, 0.15);
+            --aqua-border: rgba(6, 182, 212, 0.35);
+            --border-line: rgba(248, 250, 252, 0.08);
+            --border-line-strong: rgba(248, 250, 252, 0.15);
+        }
+        [data-theme="light"] {
+            --void: #F8FAFC;
+            --void-deep: #F1F5F9;
+            --void-soft: #FFFFFF;
+            --white: #0F172A;
+            --white-muted: #334155;
+            --white-dim: #64748B;
+            --aqua: #0891B2;
+            --aqua-glow: rgba(6, 182, 212, 0.12);
+            --aqua-border: rgba(6, 182, 212, 0.4);
+            --border-line: rgba(15, 23, 42, 0.08);
+            --border-line-strong: rgba(15, 23, 42, 0.15);
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--void);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            transition: background-color 0.4s, color 0.4s;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+            color: var(--white);
+        }
+        a { text-decoration: none; color: inherit; }
+        img { display: block; max-width: 100%; }
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        .label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--aqua);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .label::before {
+            content: '';
+            width: 1.75rem;
+            height: 1px;
+            background: var(--aqua);
+        }
+        .display-title {
+            font-size: 2.75rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        @media (min-width: 768px) { .display-title { font-size: 3.75rem; } }
+        @media (min-width: 1024px) { .display-title { font-size: 4.25rem; } }
+
+        /* ============================================================
+           STICKY NAVBAR (same as index)
+        ============================================================ */
+        .navbar-container {
+            background-color: rgba(15, 23, 42, 0.92);
+            border-bottom: 1px solid var(--aqua-border);
+            padding: 0.75rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(6, 182, 212, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        [data-theme="light"] .navbar-container {
+            background-color: rgba(248, 250, 252, 0.92);
+        }
+        .navbar-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: opacity 0.2s;
+        }
+        .logo:hover { opacity: 0.85; }
+        .logo-icon {
+            width: 3rem;
+            height: 3rem;
+            background-color: var(--void-soft);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--aqua);
+        }
+        .logo-icon i { color: var(--aqua); font-size: 1.5rem; }
+        .logo-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--white);
+            letter-spacing: 0.12em;
+            line-height: 1;
+        }
+        .logo-text span { color: var(--aqua); }
+        .logo-tagline {
+            font-size: 0.6rem;
+            color: var(--white-dim);
+            display: block;
+            margin-top: 2px;
+            font-weight: 500;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+        }
+        .desktop-nav { display: none; align-items: center; gap: 0.15rem; }
+        .nav-link {
+            color: var(--white-muted);
+            padding: 0.5rem 0.8rem;
+            transition: 0.2s;
+            font-weight: 500;
+            font-size: 0.88rem;
+            cursor: pointer;
+            border-radius: 30px;
+            letter-spacing: 0.02em;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+        .nav-link:hover {
+            color: var(--aqua);
+        }
+        .nav-link.active {
+            color: var(--aqua);
+            font-weight: 600;
+        }
+        .dropdown { position: relative; }
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--void-soft);
+            border: 1px solid var(--aqua-border);
+            border-radius: 16px;
+            min-width: 210px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: 0.3s;
+            z-index: 1000;
+            box-shadow: 0 15px 30px rgba(6, 182, 212, 0.15);
+            overflow: hidden;
+            padding: 0.4rem;
+        }
+        .dropdown:hover .dropdown-menu,
+        .dropdown.active .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.7rem 1rem;
+            color: var(--white-muted);
+            transition: 0.2s;
+            font-weight: 400;
+            font-size: 0.88rem;
+            border-radius: 10px;
+        }
+        .dropdown-item i {
+            color: var(--aqua);
+            width: 1.1rem;
+            font-size: 0.85rem;
+        }
+        .dropdown-item:hover {
+            background-color: var(--aqua-glow);
+            color: var(--aqua);
+        }
+        .dropdown-arrow { font-size: 0.65rem; transition: 0.2s; }
+        .dropdown:hover .dropdown-arrow { transform: rotate(180deg); }
+        .navbar-right-desktop { display: none; align-items: center; gap: 0.6rem; }
+        .icon-btn {
+            width: 2.5rem;
+            height: 2.5rem;
+            background-color: transparent;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white-muted);
+            border: 1px solid var(--border-line-strong);
+            cursor: pointer;
+            transition: 0.2s;
+            font-family: inherit;
+        }
+        .icon-btn:hover {
+            border-color: var(--aqua);
+            color: var(--aqua);
+            background: var(--aqua-glow);
+        }
+        .login-btn {
+            background-color: var(--aqua);
+            color: var(--void);
+            padding: 0.55rem 1.15rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 0.78rem;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: 0.2s;
+            border: 1px solid var(--aqua);
+        }
+        .login-btn:hover {
+            background-color: transparent;
+            color: var(--aqua);
+            box-shadow: 0 0 20px var(--aqua-glow);
+        }
+        .mobile-menu-btn {
+            display: flex;
+            color: var(--white);
+            font-size: 1.4rem;
+            background: transparent;
+            border: 1px solid var(--border-line-strong);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .mobile-menu-btn:hover { border-color: var(--aqua); color: var(--aqua); }
+
+        /* Mobile menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--void-deep);
+            z-index: 9999;
+            overflow-y: auto;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        .mobile-menu.active { transform: translateX(0); }
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--aqua-border);
+        }
+        .mobile-menu-close {
+            color: var(--white);
+            font-size: 1.5rem;
+            background: none;
+            border: 1px solid var(--border-line-strong);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .mobile-menu-close:hover { border-color: var(--aqua); color: var(--aqua); }
+        .mobile-menu-items { padding: 1.5rem; }
+        .mobile-menu-item {
+            display: flex;
+            align-items: center;
+            padding: 1.1rem 0;
+            color: var(--white);
+            font-size: 1.25rem;
+            font-weight: 500;
+            font-family: 'Cormorant Garamond', serif;
+            border-bottom: 1px solid var(--border-line);
+        }
+        .mobile-menu-item i { color: var(--aqua); margin-right: 1rem; width: 1.75rem; font-size: 1rem; }
+        .mobile-dropdown { border-bottom: 1px solid var(--border-line); }
+        .mobile-dropdown-btn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.25rem;
+            font-family: 'Cormorant Garamond', serif;
+            padding: 1.1rem 0;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        .mobile-dropdown-btn i:first-child { color: var(--aqua); margin-right: 1rem; font-family: 'Inter', sans-serif; font-size: 1rem; }
+        .mobile-dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: var(--void-soft);
+            border-radius: 12px;
+        }
+        .mobile-dropdown-content.active { max-height: 220px; padding: 0.5rem 0; }
+        .mobile-dropdown-content a {
+            display: block;
+            padding: 0.75rem 1.5rem 0.75rem 3rem;
+            color: var(--white-muted);
+            font-weight: 400;
+            font-size: 0.95rem;
+        }
+        .mobile-dropdown-content a:hover { background-color: var(--aqua-glow); color: var(--aqua); }
+        .mobile-action-item {
+            display: flex;
+            align-items: center;
+            padding: 1.1rem 0;
+            color: var(--white);
+            font-size: 1rem;
+            background: transparent;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+            border-bottom: 1px solid var(--border-line);
+            font-weight: 500;
+            font-family: inherit;
+        }
+        .mobile-action-item i { color: var(--aqua); margin-right: 1rem; font-size: 1rem; }
+        .mobile-separator { margin: 1rem 0; border-top: 1px solid var(--aqua-border); }
+
+        /* ============================================================
+           PAGE HERO — FAQ (CENTERED)
+        ============================================================ */
+        .page-hero {
+            position: relative;
+            min-height: 55vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 140px;
+            padding-bottom: 4rem;
+            overflow: hidden;
+            background: var(--void);
+            border-bottom: 1px solid var(--border-line);
+        }
+        .page-hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+        .page-hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.22;
+        }
+        .page-hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(15,23,42,0.6) 0%, rgba(15,23,42,0.95) 80%);
+        }
+        [data-theme="light"] .page-hero-bg::after {
+            background: radial-gradient(circle at 50% 50%, rgba(248,250,252,0.6) 0%, rgba(248,250,252,0.95) 80%);
+        }
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .page-hero-content .label {
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        .page-hero h1 {
+            font-size: 3rem;
+            font-weight: 500;
+            line-height: 1.1;
+            margin-bottom: 1.25rem;
+        }
+        @media (min-width: 768px) { .page-hero h1 { font-size: 4.5rem; } }
+        .page-hero h1 em {
+            font-style: italic;
+            color: var(--aqua);
+            font-weight: 400;
+        }
+        .page-hero p {
+            font-size: 1.15rem;
+            color: var(--white-muted);
+            max-width: 620px;
+            font-weight: 300;
+            margin: 0 auto;
+        }
+
+        /* ============================================================
+           SECTION
+        ============================================================ */
+        .section {
+            padding: 6rem 0;
+            position: relative;
+        }
+        .section-alt { background: var(--void-deep); }
+
+        /* ============================================================
+           FAQ ACCORDION
+        ============================================================ */
+        .faq-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+        @media (min-width: 1024px) {
+            .faq-layout {
+                grid-template-columns: 280px 1fr;
+                gap: 4rem;
+                align-items: start;
+            }
+        }
+
+        /* Sidebar / categories */
+        .faq-sidebar {
+            position: sticky;
+            top: 120px;
+        }
+        .faq-sidebar h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+        .faq-cat-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+        .faq-cat-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            width: 100%;
+            background: transparent;
+            border: 1px solid transparent;
+            color: var(--white-muted);
+            padding: 0.75rem 1rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.25s;
+            font-family: inherit;
+            text-align: left;
+        }
+        .faq-cat-btn i {
+            color: var(--aqua);
+            width: 1.1rem;
+            font-size: 0.9rem;
+        }
+        .faq-cat-btn:hover {
+            background: var(--aqua-glow);
+            color: var(--aqua);
+        }
+        .faq-cat-btn.active {
+            background: var(--aqua-glow);
+            border-color: var(--aqua-border);
+            color: var(--aqua);
+            font-weight: 600;
+        }
+
+        .faq-contact-mini {
+            margin-top: 2.5rem;
+            padding: 1.5rem;
+            background: var(--void-soft);
+            border: 1px solid var(--border-line);
+            border-radius: 4px;
+        }
+        .faq-contact-mini h4 {
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        .faq-contact-mini p {
+            font-size: 0.85rem;
+            color: var(--white-muted);
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+        .faq-contact-mini a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--aqua);
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+        .faq-contact-mini a:hover {
+            gap: 0.75rem;
+        }
+
+        /* FAQ list */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .faq-item {
+            background: var(--void-soft);
+            border: 1px solid var(--border-line);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: border-color 0.35s, background 0.35s;
+        }
+        .faq-item:hover {
+            border-color: var(--aqua-border);
+        }
+        .faq-item.open {
+            border-color: var(--aqua);
+            background: linear-gradient(180deg, rgba(6,182,212,0.05) 0%, var(--void-soft) 100%);
+        }
+        .faq-question {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            width: 100%;
+            padding: 1.5rem 1.75rem;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            font-family: inherit;
+            color: var(--white);
+            transition: 0.2s;
+        }
+        .faq-question:hover {
+            color: var(--aqua);
+        }
+        .faq-question h3 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            line-height: 1.35;
+            color: inherit;
+        }
+        @media (min-width: 768px) {
+            .faq-question h3 { font-size: 1.4rem; }
+        }
+        .faq-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 1px solid var(--border-line-strong);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--aqua);
+            font-size: 0.75rem;
+            flex-shrink: 0;
+            transition: transform 0.35s ease, border-color 0.35s, background 0.35s;
+        }
+        .faq-item.open .faq-icon {
+            transform: rotate(45deg);
+            border-color: var(--aqua);
+            background: var(--aqua-glow);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .faq-answer-inner {
+            padding: 0 1.75rem 1.75rem 1.75rem;
+            color: var(--white-muted);
+            font-size: 0.98rem;
+            font-weight: 300;
+            line-height: 1.7;
+            border-top: 1px solid var(--border-line);
+            padding-top: 1.25rem;
+            margin-top: 0;
+        }
+        .faq-answer-inner strong {
+            color: var(--white);
+            font-weight: 500;
+        }
+        .faq-answer-inner a {
+            color: var(--aqua);
+            border-bottom: 1px solid var(--aqua-border);
+            transition: 0.2s;
+        }
+        .faq-answer-inner a:hover {
+            border-color: var(--aqua);
+        }
+        .faq-answer-inner ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        .faq-answer-inner ul li {
+            display: flex;
+            gap: 0.75rem;
+            padding: 0.4rem 0;
+        }
+        .faq-answer-inner ul li i {
+            color: var(--aqua);
+            font-size: 0.7rem;
+            margin-top: 0.45rem;
+            flex-shrink: 0;
+        }
+
+        /* ============================================================
+           CTA INLINE
+        ============================================================ */
+        .cta-inline {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            padding: 3rem 2.5rem;
+            background: var(--void-soft);
+            border: 1px solid var(--aqua-border);
+            border-radius: 4px;
+            margin-top: 4rem;
+        }
+        .cta-inline h3 {
+            font-size: 2rem;
+            font-weight: 500;
+        }
+        .cta-inline h3 em {
+            font-style: italic;
+            color: var(--aqua);
+        }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            background: var(--aqua);
+            color: var(--void);
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            border: 1px solid var(--aqua);
+            transition: 0.3s;
+            cursor: pointer;
+            font-family: inherit;
+            white-space: nowrap;
+        }
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--aqua);
+            box-shadow: 0 0 32px var(--aqua-glow);
+        }
+
+        /* ============================================================
+           FOOTER
+        ============================================================ */
+        .footer {
+            background-color: var(--void);
+            color: var(--white);
+            padding: 4rem 0 2rem 0;
+            border-top: 1px solid var(--aqua-border);
+        }
+        .footer-grid {
+            display: grid;
+            gap: 2.5rem;
+            grid-template-columns: 1fr;
+            margin-bottom: 3rem;
+        }
+        @media (min-width:768px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr 1.5fr; } }
+        .footer-logo-block {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .footer .logo { margin-bottom: 0.5rem; }
+        .footer-heading {
+            color: var(--aqua);
+            margin-bottom: 1.25rem;
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            font-family: 'Inter', sans-serif;
+        }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 0.75rem; }
+        .footer-links a {
+            color: var(--white-muted);
+            transition: 0.2s;
+            font-size: 0.9rem;
+            font-weight: 300;
+        }
+        .footer-links a:hover {
+            color: var(--aqua);
+            padding-left: 4px;
+        }
+        .footer-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: 9999px;
+            border: 1px solid var(--border-line-strong);
+            background: var(--void-soft);
+            color: var(--white);
+            margin-bottom: 0.75rem;
+            font-weight: 300;
+            font-family: inherit;
+            font-size: 0.9rem;
+            outline: none;
+            transition: 0.3s;
+        }
+        .footer-input::placeholder { color: var(--white-dim); }
+        .footer-input:focus {
+            border-color: var(--aqua);
+            box-shadow: 0 0 0 3px var(--aqua-glow);
+        }
+        .footer-btn {
+            width: 100%;
+            background-color: var(--aqua);
+            color: var(--void);
+            padding: 0.75rem 1rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            border: 1px solid var(--aqua);
+            cursor: pointer;
+            transition: 0.2s;
+            font-family: inherit;
+            font-size: 0.82rem;
+            letter-spacing: 0.08em;
+        }
+        .footer-btn:hover {
+            background: transparent;
+            color: var(--aqua);
+        }
+        .footer-socials {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+        }
+        .footer-socials a {
+            color: var(--aqua);
+            font-size: 1.25rem;
+            transition: 0.2s;
+        }
+        .footer-socials a:hover { color: var(--white); transform: translateY(-2px); }
+        .copyright {
+            border-top: 1px solid var(--border-line);
+            padding-top: 1.5rem;
+            text-align: center;
+            color: var(--white-dim);
+            font-size: 0.85rem;
+            font-weight: 300;
+        }
+
+        #scroll-top {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            width: 3rem;
+            height: 3rem;
+            background-color: var(--aqua);
+            color: var(--void);
+            border-radius: 50%;
+            border: 1px solid var(--aqua);
+            cursor: pointer;
+            display: none;
+            z-index: 100;
+            transition: 0.3s;
+            font-size: 1rem;
+        }
+        #scroll-top:hover {
+            background: transparent;
+            color: var(--aqua);
+            box-shadow: 0 0 20px var(--aqua-glow);
+        }
+
+        @media (min-width: 1280px) {
+            .desktop-nav { display: flex; }
+            .navbar-right-desktop { display: flex; }
+            .mobile-menu-btn { display: none; }
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.9s ease, transform 0.9s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile sidebar adjustment */
+        @media (max-width: 1023px) {
+            .faq-sidebar {
+                position: static;
+            }
+            .faq-cat-list {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            .faq-cat-btn {
+                width: auto;
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+            .faq-contact-mini {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============================================================
+     STICKY NAVBAR
+============================================================ -->
+<nav class="navbar-container">
+    <div class="container navbar-flex">
+        <a href="index.html" class="logo">
+            <div class="logo-icon"><i class="fas fa-water"></i></div>
+            <div>
+                <div class="logo-text">LUMA<span>FLOAT</span></div>
+                <span class="logo-tagline">FLOAT THERAPY & SPA</span>
+            </div>
+        </a>
+        <div class="desktop-nav">
+            <div class="dropdown" id="home-dropdown">
+                <span class="nav-link" onclick="toggleDesktopDropdown('home-dropdown')">Home <i class="fas fa-chevron-down dropdown-arrow"></i></span>
+                <div class="dropdown-menu">
+                    <a href="index.html" class="dropdown-item"><i class="fas fa-house"></i> Home 1</a>
+                    <a href="home2.html" class="dropdown-item"><i class="fas fa-house-chimney"></i> Home 2</a>
+                </div>
+            </div>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="services.html" class="nav-link">Services</a>
+            <a href="pricing.html" class="nav-link">Pricing</a>
+            <a href="gallery.html" class="nav-link">Gallery</a>
+            <a href="faq.html" class="nav-link active">FAQ</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <div class="dropdown" id="dashboard-dropdown">
+                <span class="nav-link" onclick="toggleDesktopDropdown('dashboard-dropdown')">Dashboard <i class="fas fa-chevron-down dropdown-arrow"></i></span>
+                <div class="dropdown-menu">
+                    <a href="client-dashboard.html" class="dropdown-item"><i class="fas fa-user"></i> Client Dashboard</a>
+                    <a href="admin-dashboard.html" class="dropdown-item"><i class="fas fa-shield-halved"></i> Admin Dashboard</a>
+                </div>
+            </div>
+        </div>
+        <div class="navbar-right-desktop">
+            <button class="icon-btn" id="desktop-theme-toggle" title="Toggle theme"><i class="fas fa-sun" id="desktop-theme-icon"></i></button>
+            <button class="icon-btn" id="desktop-rtl-toggle" title="Toggle RTL"><i class="fas fa-exchange-alt"></i></button>
+            <a href="login.html" class="login-btn"><i class="fas fa-user"></i> Login</a>
+            <a href="join.html" class="login-btn">Register</a>
+        </div>
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+    </div>
+</nav>
+
+<!-- Mobile menu -->
+<div id="mobile-menu" class="mobile-menu">
+    <div class="mobile-menu-header">
+        <a href="index.html" class="logo">
+            <div class="logo-icon"><i class="fas fa-water"></i></div>
+            <div>
+                <div class="logo-text">LUMA<span>FLOAT</span></div>
+                <span class="logo-tagline">FLOAT THERAPY & SPA</span>
+            </div>
+        </a>
+        <button class="mobile-menu-close" id="close-mobile-menu" aria-label="Close menu"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="mobile-menu-items">
+        <div class="mobile-dropdown">
+            <button class="mobile-dropdown-btn" onclick="toggleMobileDropdown('home-mobile')">
+                <span><i class="fas fa-home"></i> Home</span> <i class="fas fa-chevron-down"></i>
+            </button>
+            <div id="home-mobile" class="mobile-dropdown-content">
+                <a href="index.html">Home 1</a> <a href="home2.html">Home 2</a>
+            </div>
+        </div>
+        <a href="about.html" class="mobile-menu-item"><i class="fas fa-users"></i> About</a>
+        <a href="services.html" class="mobile-menu-item"><i class="fas fa-spa"></i> Services</a>
+        <a href="pricing.html" class="mobile-menu-item"><i class="fas fa-tag"></i> Pricing</a>
+        <a href="gallery.html" class="mobile-menu-item"><i class="fas fa-image"></i> Gallery</a>
+        <a href="faq.html" class="mobile-menu-item"><i class="fas fa-question-circle"></i> FAQ</a>
+        <a href="contact.html" class="mobile-menu-item"><i class="fas fa-envelope"></i> Contact</a>
+        <div class="mobile-dropdown">
+            <button class="mobile-dropdown-btn" onclick="toggleMobileDropdown('dashboard-mobile')">
+                <span><i class="fas fa-gauge"></i> Dashboard</span> <i class="fas fa-chevron-down"></i>
+            </button>
+            <div id="dashboard-mobile" class="mobile-dropdown-content">
+                <a href="client-dashboard.html">Client Dashboard</a>
+                <a href="admin-dashboard.html">Admin Dashboard</a>
+            </div>
+        </div>
+        <div class="mobile-separator"></div>
+        <button class="mobile-action-item" onclick="window.location.href='login.html'"><i class="fas fa-sign-in-alt"></i> Login</button>
+        <button class="mobile-action-item" onclick="window.location.href='join.html'"><i class="fas fa-user-plus"></i> Register</button>
+        <button class="mobile-action-item" id="mobile-rtl-toggle"><i class="fas fa-exchange-alt"></i> RTL</button>
+        <button class="mobile-action-item" id="mobile-theme-toggle"><i class="fas fa-sun" id="mobile-theme-icon"></i> Theme</button>
+    </div>
+</div>
+
+<!-- ============================================================
+     PAGE HERO — FAQ (CENTERED)
+============================================================ -->
+<section class="page-hero">
+    <div class="page-hero-bg">
+        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2070&auto=format&fit=crop" alt="Float therapy water surface">
+    </div>
+    <div class="container">
+        <div class="page-hero-content">
+            <span class="label">Frequently Asked</span>
+            <h1>
+                Everything you<br>
+                <em>wanted to know.</em>
+            </h1>
+            <p>
+                New to floating? Nervous about the tank? Curious about the science? We've answered the most common questions below. If yours isn't here, just reach out.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     FAQ SECTION
+============================================================ -->
+<section class="section">
+    <div class="container">
+        <div class="faq-layout">
+
+            <!-- Sidebar -->
+            <aside class="faq-sidebar reveal">
+                <h3>Browse by topic</h3>
+                <ul class="faq-cat-list" id="faq-cat-list">
+                    <li><button class="faq-cat-btn active" data-cat="all"><i class="fas fa-th-large"></i> All Questions</button></li>
+                    <li><button class="faq-cat-btn" data-cat="first"><i class="fas fa-star"></i> First Float</button></li>
+                    <li><button class="faq-cat-btn" data-cat="science"><i class="fas fa-flask"></i> The Science</button></li>
+                    <li><button class="faq-cat-btn" data-cat="practical"><i class="fas fa-clipboard-list"></i> Practical</button></li>
+                    <li><button class="faq-cat-btn" data-cat="health"><i class="fas fa-heart-pulse"></i> Health & Safety</button></li>
+                    <li><button class="faq-cat-btn" data-cat="membership"><i class="fas fa-id-card"></i> Membership</button></li>
+                </ul>
+
+                <div class="faq-contact-mini">
+                    <h4>Still have questions?</h4>
+                    <p>Our team is happy to help. Reach out anytime.</p>
+                    <a href="contact.html">Contact us <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </aside>
+
+            <!-- FAQ List -->
+            <div class="faq-list" id="faq-list">
+
+                <!-- FIRST FLOAT -->
+                <div class="faq-item reveal" data-category="first">
+                    <button class="faq-question">
+                        <h3>I've never floated before. What should I expect?</h3>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Your first visit includes a 15-minute orientation where a float guide walks you through everything. You'll shower, step into your private suite, and lie back in the water. The tank lid is entirely optional — you can leave it open the whole time. Most first-timers find the first 10 minutes are about settling in, and the rest is pure stillness. You are always in control.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal" data-category="first">
+                    <button class="faq-question">
+                        <h3>What if I can't relax or I feel claustrophobic?</h3>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Claustrophobia is common, which is why <strong>the tank lid is never closed unless you want it to be</strong>. You can float with the lid fully open, partially open, or closed. You can also get out at any time — the door is never locked. Many people find that once they're floating, the feeling of spaciousness in zero gravity actually eases anxiety. If you do feel uncomfortable, simply sit up and take a breath. Our team is nearby if you need anything.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal" data-category="first">
+                    <button class="faq-question">
+                        <h3>Do I need to bring anything?</h3>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Just yourself. We provide towels, robes, earplugs, shower amenities, and post-float tea. We recommend avoiding caffeine for a few hours before your float and not shaving immediately before (the salt water can sting freshly shaved skin). If you have long hair, we provide hair ties. Contact lenses should be removed before floating.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SCIENCE -->
+                <div class="faq-item reveal" data-category="science">
+                    <button class="faq-question">
+                        <h3>How does floating actually work?</h3>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            The tank contains about 10 inches of water saturated with 500kg of pharmaceutical-grade Epsom salt (magnesium sulfate). This creates a solution so dense that you float effortlessly on the surface — no muscle tension required. The water is heated to <strong>35.0°C</strong>, which is skin-receptor neutral, meaning your body can't tell where it ends and the water begins. Combined with the elimination of light, sound, and gravity, your nervous system enters a deep state of rest.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal" data-category="science">
+                    <button class="faq-question">
+                        <h3>What does the science say about floatation therapy?</h3>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Floatation therapy (also called REST — Restricted Environmental Stimulation Therapy) has been studied for decades. Research shows it can:
+                            <ul>
+                                <li><i class="fas fa-circle"></i> Reduce cortisol and adrenaline levels</li>
+                                <li><i class="fas fa-circle"></i> Increase dopamine and endorphins</li>
+                                <li><i class="fas fa-circle"></i> Lower blood pressure and heart rate</li>
+                                <li><i class="fas fa-circle"></i> Improve sleep quality and reduce insomnia</li>
+                                <li><i class="fas fa-circle"></i> Reduce chronic pain, especially fibromyalgia and back pain</li>
+                                <li><i class="fas fa-circle"></i> Support meditation depth and creativity</li>
+                            </ul>
+                            It's used by athletes, artists, therapists, and anyone looking to reset their nervous system.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal" data-category="science">
+                    <button class="faq-question">
+                        <h3>What is the "theta state" everyone talks about?</h3>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Theta brainwaves (4–8 Hz) are associated with deep meditation, REM sleep, and the hypnagogic state between wakefulness and sleep. In the tank, with no external sensory input, your brain naturally slows into theta within about 20 minutes. This is why floaters often describe vivid imagery, sudden clarity, or a profound sense of calm. It's the same brainwave state experienced by advanced meditators.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRACTICAL -->
+                <div class="faq-item reveal" data-category="practical">
+                    <button class="faq-question">
+                        <h3>How long is a float session?</h3>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Our standard sessions are <strong>60 or 90 minutes</strong> in the tank. We recommend 90 minutes for the full experience — the first 20–30 minutes are often spent settling in, and the deepest states come after. Your appointment also includes time before and after for showering, changing, and lounging. Most clients spend about 2 hours total with us.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal" data-category="practical">
+                    <button class="faq-question">
+                        <h3>Can I float if I'm pregnant?</h3>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Yes — floating is often deeply relieving during pregnancy because it removes all pressure from the spine and joints. However, we ask that you consult your healthcare provider first, especially in the first trimester. We recommend floating after 12 weeks and always with your doctor's approval. Our team will help you find the most comfortable position.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal" data-category="practical">
+                    <button class="faq-question">
+                        <h3>What should I wear in the tank?</h3>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Most people float nude — it's the most comfortable and allows full skin contact with the magnesium-rich water. But you're welcome to wear a swimsuit if that feels better. Whatever you choose, it should be clean and free of lotions or oils. We provide robes and towels for before and after.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal" data-category="practical">
+                    <button class="faq-question">
+                        <h3>Will I be bored? What do I do for 90 minutes?</h3>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Boredom is the opposite of what happens. Without sensory input, your mind naturally slows and enters a meditative state. Many floaters lose track of time entirely. Some use the time for breathwork, visualization, or simply rest. Others fall asleep — which is completely fine and common. You'll be surprised how quickly 90 minutes passes when nothing is asking for your attention.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HEALTH & SAFETY -->
+                <div class="faq-item reveal" data-category="health">
+                    <button class="faq-question">
+                        <h3>Is the water clean? How is it sanitized?</h3>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Absolutely. The high salt concentration makes the water naturally hostile to bacteria, but we go further: the water is fully filtered <strong>three times between every session</strong>, treated with UV sterilization, and tested for pH and sanitizer levels multiple times daily. We follow the same standards as medical spa facilities. You can request a water quality report at any time.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal" data-category="health">
+                    <button class="faq-question">
+                        <h3>Are there any conditions that make floating unsafe?</h3>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Floating is safe for most people, but we recommend consulting a doctor if you have:
+                            <ul>
+                                <li><i class="fas fa-circle"></i> Open wounds, recent tattoos, or skin infections</li>
+                                <li><i class="fas fa-circle"></i> Epilepsy or seizure disorders</li>
+                                <li><i class="fas fa-circle"></i> Severe claustrophobia or psychosis</li>
+                                <li><i class="fas fa-circle"></i> Incontinence or certain kidney conditions</li>
+                                <li><i class="fas fa-circle"></i> Recently dyed hair (color can bleed into the water)</li>
+                            </ul>
+                            If you're unsure, just ask. We'd rather you skip a session than have a bad experience.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal" data-category="health">
+                    <button class="faq-question">
+                        <h3>Will the Epsom salt dry out my skin or hair?</h3>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Quite the opposite — magnesium sulfate is absorbed through the skin and is known to soften it. Many floaters notice their skin feels softer for days after. We do recommend rinsing thoroughly after your float and using the magnesium-infused rinse we provide. For hair, a post-float rinse and mild shampoo is all you need. The salt does not damage hair, but it can leave it feeling a little stiff if not rinsed.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MEMBERSHIP -->
+                <div class="faq-item reveal" data-category="membership">
+                    <button class="faq-question">
+                        <h3>How does "The Reset" membership work?</h3>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            The Reset is our monthly membership: <strong>4 × 90-minute Signature Floats for $249/month</strong>. You get priority booking, 15% off retail and extras, and unused floats roll over for one month. You can pause or cancel anytime with no fees. It's designed for people who float regularly and want the deep benefits of a consistent practice.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal" data-category="membership">
+                    <button class="faq-question">
+                        <h3>Can I gift a float to someone else?</h3>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Yes! Gift cards are available for single floats, packages, and memberships. You can purchase them at the front desk or over the phone. We'll send a beautiful digital gift card with your message, and the recipient can book whenever they're ready. Gift cards never expire.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal" data-category="membership">
+                    <button class="faq-question">
+                        <h3>What's your cancellation policy?</h3>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            We ask for at least <strong>24 hours' notice</strong> to cancel or reschedule without charge. Cancellations within 24 hours are charged 50% of the session fee. No-shows are charged in full. We understand life happens — if you're sick or have an emergency, just call us and we'll work with you.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-inline reveal">
+            <h3>Still curious? <em>Try it for yourself.</em></h3>
+            <a href="pricing.html" class="btn-primary">
+                <i class="fas fa-calendar-check"></i> Book Your First Float
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-logo-block">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"><i class="fas fa-water"></i></div>
+                    <div>
+                        <div class="logo-text">LUMA<span>FLOAT</span></div>
+                        <span class="logo-tagline">FLOAT THERAPY & SPA</span>
+                    </div>
+                </a>
+                <p style="color: var(--white-muted); margin-top: 1rem; font-size: 0.9rem; max-width: 260px; font-weight: 300;">A sensory deprivation spa built for the modern nervous system. Zero gravity. Zero noise. Zero pressure.</p>
+            </div>
+            <div>
+                <h3 class="footer-heading">Quick links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="footer-heading">Support</h3>
+                <ul class="footer-links">
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="footer-heading">Stay Updated</h3>
+                <input class="footer-input" placeholder="Your email address">
+                <button class="footer-btn">Subscribe</button>
+                <div class="footer-socials">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <i class="fas fa-copyright"></i> 2025 LUMA Float Therapy — Midnight Void · Mineral White · Float Aqua. All rights reserved.
+        </div>
+    </div>
+</footer>
+
+<button id="scroll-top" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+
+<script>
+    (function() {
+        const htmlEl = document.documentElement;
+        const desktopThemeBtn = document.getElementById('desktop-theme-toggle');
+        const mobileThemeBtn = document.getElementById('mobile-theme-toggle');
+        const desktopIcon = document.getElementById('desktop-theme-icon');
+        const mobileIcon = document.getElementById('mobile-theme-icon');
+        const desktopRtl = document.getElementById('desktop-rtl-toggle');
+        const mobileRtl = document.getElementById('mobile-rtl-toggle');
+
+        /* Load theme — default dark */
+        let savedTheme = localStorage.getItem('luma-theme') || 'dark';
+        htmlEl.setAttribute('data-theme', savedTheme);
+        updateIcons(savedTheme);
+
+        function updateIcons(theme) {
+            const iconClass = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            if (desktopIcon) desktopIcon.className = iconClass;
+            if (mobileIcon) mobileIcon.className = iconClass;
+        }
+
+        function toggleTheme() {
+            let currentTheme = htmlEl.getAttribute('data-theme');
+            let newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            htmlEl.setAttribute('data-theme', newTheme);
+            localStorage.setItem('luma-theme', newTheme);
+            updateIcons(newTheme);
+        }
+
+        if (desktopThemeBtn) desktopThemeBtn.addEventListener('click', toggleTheme);
+        if (mobileThemeBtn) mobileThemeBtn.addEventListener('click', toggleTheme);
+
+        function toggleRtl() {
+            let dir = htmlEl.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl';
+            htmlEl.setAttribute('dir', dir);
+            localStorage.setItem('luma-direction', dir);
+        }
+        if (desktopRtl) desktopRtl.addEventListener('click', toggleRtl);
+        if (mobileRtl) mobileRtl.addEventListener('click', toggleRtl);
+
+        /* Restore direction */
+        const savedDir = localStorage.getItem('luma-direction') || 'ltr';
+        htmlEl.setAttribute('dir', savedDir);
+
+        window.toggleDesktopDropdown = function(id) {
+            document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+            document.getElementById(id)?.classList.toggle('active');
+        };
+        window.toggleMobileDropdown = function(id) {
+            document.getElementById(id)?.classList.toggle('active');
+        };
+
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        if (menuBtn) menuBtn.addEventListener('click', () => mobileMenu.classList.add('active'));
+        if (closeBtn) closeBtn.addEventListener('click', () => mobileMenu.classList.remove('active'));
+        if (mobileMenu) mobileMenu.addEventListener('click', (e) => { if (e.target === mobileMenu) mobileMenu.classList.remove('active'); });
+
+        const scrollBtn = document.getElementById('scroll-top');
+        window.addEventListener('scroll', () => { if(scrollBtn) scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none'; });
+        if (scrollBtn) scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        window.addEventListener('resize', () => { if (window.innerWidth >= 1280 && mobileMenu) mobileMenu.classList.remove('active'); });
+
+        /* Reveal on scroll */
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+        reveals.forEach(el => observer.observe(el));
+
+        /* ---------- FAQ ACCORDION ---------- */
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+
+            question.addEventListener('click', () => {
+                const isOpen = item.classList.contains('open');
+
+                // Close all other items
+                faqItems.forEach(other => {
+                    if (other !== item) {
+                        other.classList.remove('open');
+                        other.querySelector('.faq-answer').style.maxHeight = null;
+                    }
+                });
+
+                // Toggle current item
+                if (isOpen) {
+                    item.classList.remove('open');
+                    answer.style.maxHeight = null;
+                } else {
+                    item.classList.add('open');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                }
+            });
+        });
+
+        /* Open first item by default */
+        if (faqItems.length > 0) {
+            const first = faqItems[0];
+            first.classList.add('open');
+            const firstAnswer = first.querySelector('.faq-answer');
+            // Small delay to ensure layout is ready
+            setTimeout(() => {
+                firstAnswer.style.maxHeight = firstAnswer.scrollHeight + 'px';
+            }, 100);
+        }
+
+        /* ---------- FAQ CATEGORY FILTER ---------- */
+        const catButtons = document.querySelectorAll('.faq-cat-btn');
+        catButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                catButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const cat = btn.dataset.cat;
+
+                // Close all open items first
+                faqItems.forEach(item => {
+                    item.classList.remove('open');
+                    item.querySelector('.faq-answer').style.maxHeight = null;
+                });
+
+                faqItems.forEach(item => {
+                    if (cat === 'all' || item.dataset.category === cat) {
+                        item.style.display = '';
+                        item.classList.remove('visible');
+                        setTimeout(() => item.classList.add('visible'), 10);
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+
+                // Re-open first visible item
+                const firstVisible = Array.from(faqItems).find(item => item.style.display !== 'none');
+                if (firstVisible) {
+                    firstVisible.classList.add('open');
+                    const ans = firstVisible.querySelector('.faq-answer');
+                    setTimeout(() => {
+                        ans.style.maxHeight = ans.scrollHeight + 'px';
+                    }, 50);
+                }
+            });
+        });
+
+        /* Recalculate max-height on window resize for open items */
+        window.addEventListener('resize', () => {
+            document.querySelectorAll('.faq-item.open .faq-answer').forEach(ans => {
+                ans.style.maxHeight = ans.scrollHeight + 'px';
+            });
+        });
+
+        /* Smooth anchor with offset for fixed nav */
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    const offsetTop = target.getBoundingClientRect().top + window.pageYOffset - 100;
+                    window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                }
+            });
+        });
+    })();
+</script>
+</body>
+</html>

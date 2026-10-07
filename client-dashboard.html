@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LUMA Float Therapy & Sensory Deprivation Spa – Client Dashboard.">
+  <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌊</text></svg>" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..900&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>LUMA | Client Dashboard — Float Therapy & Sensory Deprivation Spa</title>
+
+  <!-- ✅ Tailwind via official CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* ============================================================
+       LUMA FLOAT SPA — COLOR THEME (exact same as index.html)
+    ============================================================ */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root, html[data-theme='dark'] {
+      --void: #0F172A;
+      --void-deep: #0A111F;
+      --void-soft: #1A2439;
+      --white: #F8FAFC;
+      --white-muted: #CBD5E1;
+      --white-dim: #94A3B8;
+      --aqua: #06B6D4;
+      --aqua-glow: rgba(6, 182, 212, 0.15);
+      --aqua-border: rgba(6, 182, 212, 0.35);
+      --border-line: rgba(248, 250, 252, 0.08);
+      --border-line-strong: rgba(248, 250, 252, 0.15);
+    }
+    html[data-theme='light'] {
+      --void: #F8FAFC;
+      --void-deep: #F1F5F9;
+      --void-soft: #FFFFFF;
+      --white: #0F172A;
+      --white-muted: #334155;
+      --white-dim: #64748B;
+      --aqua: #0891B2;
+      --aqua-glow: rgba(6, 182, 212, 0.12);
+      --aqua-border: rgba(6, 182, 212, 0.4);
+      --border-line: rgba(15, 23, 42, 0.08);
+      --border-line-strong: rgba(15, 23, 42, 0.15);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--void);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color 0.4s, color 0.4s;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--white);
+    }
+    p { font-weight: 300; }
+    a { text-decoration: none; color: inherit; }
+    .text-aqua { color: var(--aqua); }
+
+    /* ============================================================
+       NAVBAR — same as index.html
+    ============================================================ */
+    .navbar-container {
+      background-color: rgba(15, 23, 42, 0.92);
+      border-bottom: 1px solid var(--aqua-border);
+      padding: 0.75rem 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(6, 182, 212, 0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+    [data-theme="light"] .navbar-container {
+      background-color: rgba(248, 250, 252, 0.92);
+    }
+    .navbar-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .navbar-container .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      transition: opacity 0.2s;
+    }
+    .logo:hover { opacity: 0.85; }
+    .logo-icon {
+      width: 3rem;
+      height: 3rem;
+      background-color: var(--void-soft);
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--aqua);
+    }
+    .logo-icon i { color: var(--aqua); font-size: 1.5rem; }
+    .logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: 0.12em;
+      line-height: 1;
+    }
+    .logo-text span { color: var(--aqua); }
+    .logo-tagline {
+      font-size: 0.6rem;
+      color: var(--white-dim);
+      display: block;
+      margin-top: 2px;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+    }
+    .navbar-right-desktop {
+      display: none;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .icon-btn {
+      width: 2.5rem;
+      height: 2.5rem;
+      background-color: transparent;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white-muted);
+      border: 1px solid var(--border-line-strong);
+      cursor: pointer;
+      transition: 0.2s;
+      font-family: inherit;
+    }
+    .icon-btn:hover {
+      border-color: var(--aqua);
+      color: var(--aqua);
+      background: var(--aqua-glow);
+    }
+    .user-chip {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.35rem 0.5rem 0.35rem 0.35rem;
+      border-radius: 9999px;
+      border: 1px solid var(--border-line-strong);
+      background: var(--void-soft);
+    }
+    .user-chip .avatar {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #06B6D4 0%, #0891B2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.75rem;
+      font-family: 'Inter', sans-serif;
+    }
+    .user-chip .name {
+      font-size: 0.82rem;
+      font-weight: 500;
+      line-height: 1;
+      color: var(--white);
+    }
+    .user-chip .role {
+      font-size: 0.62rem;
+      color: var(--white-dim);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      line-height: 1;
+      margin-top: 0.2rem;
+    }
+    .mobile-menu-btn {
+      display: flex;
+      color: var(--white);
+      font-size: 1.4rem;
+      background: transparent;
+      border: 1px solid var(--border-line-strong);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .mobile-menu-btn:hover { border-color: var(--aqua); color: var(--aqua); }
+
+    @media (min-width: 1024px) {
+      .navbar-right-desktop { display: flex; }
+      .mobile-menu-btn { display: none; }
+    }
+
+    /* Mobile menu overlay */
+    #mobile-overlay {
+      background: rgba(10, 17, 31, 0.7);
+      backdrop-filter: blur(6px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      position: fixed;
+      inset: 0;
+      z-index: 55;
+    }
+    #mobile-overlay.active { opacity: 1; pointer-events: auto; }
+
+    /* ============================================================
+       DASHBOARD CARD
+    ============================================================ */
+    .dashboard-card {
+      background-color: var(--void-soft);
+      border: 1px solid var(--border-line);
+      border-radius: 6px;
+      transition: all 0.35s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .dashboard-card:hover {
+      border-color: var(--aqua-border);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px -12px rgba(6, 182, 212, 0.2);
+    }
+    .dashboard-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--aqua);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s ease;
+    }
+    .dashboard-card:hover::before { transform: scaleX(1); }
+
+    /* ============================================================
+       SIDEBAR LINKS
+    ============================================================ */
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.85rem 1rem;
+      border-radius: 10px;
+      color: var(--white-muted);
+      transition: all 0.25s ease;
+      font-weight: 500;
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+    .sidebar-link:hover {
+      background: var(--aqua-glow);
+      color: var(--aqua);
+      border-color: var(--aqua-border);
+    }
+    .sidebar-link.active {
+      background: var(--aqua-glow);
+      color: var(--aqua);
+      border-color: var(--aqua);
+      font-weight: 600;
+    }
+    .sidebar-link.active svg,
+    .sidebar-link:hover svg {
+      color: var(--aqua);
+      stroke: var(--aqua);
+    }
+
+    /* ============================================================
+       BADGES
+    ============================================================ */
+    .badge-aqua {
+      background: var(--aqua-glow);
+      color: var(--aqua);
+      border: 1px solid var(--aqua-border);
+      font-weight: 600;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      display: inline-block;
+    }
+    .badge-success {
+      background: rgba(34, 197, 94, 0.12);
+      color: #4ADE80;
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      font-weight: 600;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      display: inline-block;
+    }
+    .badge-warning {
+      background: rgba(234, 179, 8, 0.12);
+      color: #FACC15;
+      border: 1px solid rgba(234, 179, 8, 0.3);
+      font-weight: 600;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      display: inline-block;
+    }
+    html[data-theme='light'] .badge-success { color: #16A34A; }
+    html[data-theme='light'] .badge-warning { color: #CA8A04; }
+
+    /* ============================================================
+       BUTTONS
+    ============================================================ */
+    .btn-accent {
+      background: var(--aqua);
+      color: var(--void);
+      transition: all 0.3s ease;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      border: 1px solid var(--aqua);
+      border-radius: 9999px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .btn-accent:hover {
+      background: transparent;
+      color: var(--aqua);
+      box-shadow: 0 0 24px var(--aqua-glow);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid var(--border-line-strong);
+      border-radius: 9999px;
+      transition: all 0.25s ease;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .btn-outline:hover {
+      border-color: var(--aqua);
+      color: var(--aqua);
+      background: var(--aqua-glow);
+    }
+    .logout-btn {
+      background-color: rgba(239, 68, 68, 0.12) !important;
+      color: #F87171 !important;
+      border: 1px solid rgba(239, 68, 68, 0.3) !important;
+      justify-content: center;
+      margin-top: 1rem !important;
+      border-radius: 10px;
+    }
+    .logout-btn:hover {
+      background: #EF4444 !important;
+      color: white !important;
+      transform: translateY(-1px);
+    }
+    .logout-btn svg { stroke: currentColor !important; }
+
+    /* ============================================================
+       PROGRESS BAR
+    ============================================================ */
+    .progress-bar {
+      height: 6px;
+      border-radius: 9999px;
+      background: var(--border-line-strong);
+      overflow: hidden;
+    }
+    .progress-bar > div {
+      height: 100%;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, #06B6D4, #0891B2);
+      transition: width 0.6s ease;
+    }
+
+    /* ============================================================
+       TABLES
+    ============================================================ */
+    .dash-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    .dash-table thead th {
+      text-align: left;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white-dim);
+      font-weight: 600;
+      padding: 0.75rem 0.5rem;
+      border-bottom: 1px solid var(--border-line);
+      font-family: 'Inter', sans-serif;
+    }
+    .dash-table tbody td {
+      padding: 1rem 0.5rem;
+      border-bottom: 1px solid var(--border-line);
+      color: var(--white-muted);
+      font-weight: 300;
+    }
+    .dash-table tbody tr:hover td {
+      background: var(--aqua-glow);
+      color: var(--white);
+    }
+    .dash-table tbody tr:last-child td { border-bottom: none; }
+
+    /* ============================================================
+       FORM INPUTS
+    ============================================================ */
+    .form-input {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      background: var(--void);
+      border: 1px solid var(--border-line-strong);
+      border-radius: 10px;
+      color: var(--white);
+      font-family: inherit;
+      font-size: 0.92rem;
+      font-weight: 300;
+      outline: none;
+      transition: 0.3s;
+    }
+    .form-input::placeholder { color: var(--white-dim); }
+    .form-input:focus {
+      border-color: var(--aqua);
+      box-shadow: 0 0 0 3px var(--aqua-glow);
+    }
+    .form-label {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white-dim);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    /* RTL support */
+    html[dir="rtl"] .sidebar-link { flex-direction: row-reverse; }
+
+    /* Hidden sections */
+    .admin-section.hidden { display: none; }
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- ============================================================
+       NAVBAR — same structure as index.html
+  ============================================================ -->
+  <nav class="navbar-container">
+    <div class="container navbar-flex">
+
+      <!-- Left: mobile menu + logo -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button id="mobile-menu-toggle" class="mobile-menu-btn lg:hidden" aria-label="Open menu">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <a href="index.html" class="logo">
+          <div class="logo-icon"><i class="fas fa-water"></i></div>
+          <div>
+            <div class="logo-text">LUMA<span>FLOAT</span></div>
+            <span class="logo-tagline">FLOAT THERAPY & SPA</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Right: same as index (theme, rtl, user chip) -->
+      <div class="navbar-right-desktop">
+        <button class="icon-btn" id="desktop-theme-toggle" title="Toggle theme">
+          <i class="fas fa-sun" id="desktop-theme-icon"></i>
+        </button>
+        <button class="icon-btn" id="desktop-rtl-toggle" title="Toggle RTL">
+          <i class="fas fa-exchange-alt"></i>
+        </button>
+
+        <!-- User chip (replaces Login/Register since this is dashboard) -->
+        <div class="user-chip">
+          <div class="avatar">JD</div>
+          <div class="hidden sm:block">
+            <div class="name">Jane Doe</div>
+            <div class="role">Floater</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </nav>
+
+  <div id="mobile-overlay" class="lg:hidden"></div>
+
+  <!-- ============================================================
+       MAIN LAYOUT
+  ============================================================ -->
+  <div class="flex min-h-screen pt-[73px]">
+
+    <!-- SIDEBAR -->
+    <aside id="sidebar" class="fixed top-0 lg:top-[73px] left-0 w-72 lg:w-64 h-full lg:h-[calc(100vh-73px)] z-[60] transform -translate-x-full lg:translate-x-0 transition-transform duration-300 overflow-y-auto shrink-0 border-r" style="background-color: var(--void); border-color: var(--border-line);">
+      <div class="p-5">
+        <div class="flex lg:hidden justify-between items-center mb-6">
+          <span class="font-bold" style="color: var(--aqua); font-family: 'Cormorant Garamond', serif; font-size: 1.25rem;">Menu</span>
+          <button id="close-sidebar" class="p-2 rounded-lg" style="color: var(--white-muted);">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+
+        <nav class="flex flex-col gap-1">
+          <p class="text-xs uppercase tracking-wider font-bold px-3 mb-2" style="color: var(--white-dim);">My Float Space</p>
+
+          <a href="#" data-section="overview" class="sidebar-link active">
+            <i class="fas fa-gauge w-5 text-center"></i>
+            <span>Overview</span>
+          </a>
+
+          <a href="#" data-section="bookings" class="sidebar-link">
+            <i class="fas fa-calendar-plus w-5 text-center"></i>
+            <span>My Bookings</span>
+            <span class="ml-auto badge-aqua">2</span>
+          </a>
+
+          <a href="#" data-section="history" class="sidebar-link">
+            <i class="fas fa-clock-rotate-left w-5 text-center"></i>
+            <span>Float History</span>
+          </a>
+
+          <a href="#" data-section="membership" class="sidebar-link">
+            <i class="fas fa-spa w-5 text-center"></i>
+            <span>Membership</span>
+          </a>
+
+          <a href="#" data-section="profile" class="sidebar-link">
+            <i class="fas fa-user w-5 text-center"></i>
+            <span>Profile</span>
+          </a>
+
+          <a href="#" id="logoutBtn" class="sidebar-link logout-btn !py-2 !px-3 gap-2">
+            <i class="fas fa-sign-out-alt w-5 text-center"></i>
+            <span class="font-medium">Logout</span>
+          </a>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-1 min-w-0 space-y-6 lg:ml-64 px-4 sm:px-6 lg:px-8 py-6">
+
+      <!-- ============================================================
+           SECTION: OVERVIEW
+      ============================================================ -->
+      <div id="overview" class="admin-section">
+        <div class="mb-8">
+          <span class="text-xs uppercase tracking-widest font-semibold" style="color: var(--aqua); letter-spacing: 0.25em;">Welcome back</span>
+          <h1 class="text-3xl md:text-4xl font-serif font-medium mt-2">Jane, your next float awaits.</h1>
+          <p class="mt-2 max-w-xl" style="color: var(--white-muted);">Track your floats, manage your membership, and continue your journey into deep rest — all in one quiet place.</p>
+        </div>
+
+        <!-- Stat cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div class="dashboard-card p-6">
+            <div class="flex items-start justify-between">
+              <div>
+                <p class="text-xs uppercase tracking-wider font-semibold" style="color: var(--white-dim); letter-spacing: 0.15em;">Floats Taken</p>
+                <p class="text-4xl font-serif font-semibold mt-2" style="color: var(--aqua);">14</p>
+                <p class="text-xs mt-2" style="color: #4ADE80;">↑ 3 this month</p>
+              </div>
+              <div class="w-11 h-11 rounded-full flex items-center justify-center" style="background: var(--aqua-glow); border: 1px solid var(--aqua-border); color: var(--aqua);">
+                <i class="fas fa-water text-lg"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="dashboard-card p-6">
+            <div class="flex items-start justify-between">
+              <div>
+                <p class="text-xs uppercase tracking-wider font-semibold" style="color: var(--white-dim); letter-spacing: 0.15em;">Total Minutes</p>
+                <p class="text-4xl font-serif font-semibold mt-2" style="color: var(--aqua);">1,260</p>
+                <p class="text-xs mt-2" style="color: var(--white-dim);">21 hours of stillness</p>
+              </div>
+              <div class="w-11 h-11 rounded-full flex items-center justify-center" style="background: var(--aqua-glow); border: 1px solid var(--aqua-border); color: var(--aqua);">
+                <i class="fas fa-clock text-lg"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="dashboard-card p-6">
+            <div class="flex items-start justify-between">
+              <div>
+                <p class="text-xs uppercase tracking-wider font-semibold" style="color: var(--white-dim); letter-spacing: 0.15em;">Next Float</p>
+                <p class="text-xl font-serif font-medium mt-2">May 24, 2026</p>
+                <p class="text-xs mt-2" style="color: var(--aqua);">2:00 PM · 90 min</p>
+              </div>
+              <div class="w-11 h-11 rounded-full flex items-center justify-center" style="background: var(--aqua-glow); border: 1px solid var(--aqua-border); color: var(--aqua);">
+                <i class="fas fa-calendar-check text-lg"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="dashboard-card p-6">
+            <div class="flex items-start justify-between">
+              <div>
+                <p class="text-xs uppercase tracking-wider font-semibold" style="color: var(--white-dim); letter-spacing: 0.15em;">Membership</p>
+                <p class="text-xl font-serif font-medium mt-2">The Reset</p>
+                <p class="text-xs mt-2" style="color: #4ADE80;">2 of 4 floats used</p>
+              </div>
+              <div class="w-11 h-11 rounded-full flex items-center justify-center" style="background: var(--aqua-glow); border: 1px solid var(--aqua-border); color: var(--aqua);">
+                <i class="fas fa-spa text-lg"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick actions -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-5">
+          <a href="#bookings" onclick="activateSection('bookings'); return false;" class="dashboard-card p-6 flex flex-col items-center text-center">
+            <div class="w-14 h-14 rounded-full flex items-center justify-center mb-4" style="background: var(--aqua-glow); border: 1px solid var(--aqua-border); color: var(--aqua);">
+              <i class="fas fa-calendar-plus text-xl"></i>
+            </div>
+            <h3 class="font-serif text-lg font-medium mb-1">Book New Float</h3>
+            <p class="text-xs" style="color: var(--white-dim);">Reserve your next session</p>
+          </a>
+
+          <a href="#history" onclick="activateSection('history'); return false;" class="dashboard-card p-6 flex flex-col items-center text-center">
+            <div class="w-14 h-14 rounded-full flex items-center justify-center mb-4" style="background: var(--aqua-glow); border: 1px solid var(--aqua-border); color: var(--aqua);">
+              <i class="fas fa-clock-rotate-left text-xl"></i>
+            </div>
+            <h3 class="font-serif text-lg font-medium mb-1">Float History</h3>
+            <p class="text-xs" style="color: var(--white-dim);">See all your past sessions</p>
+          </a>
+
+          <a href="contact.html" class="dashboard-card p-6 flex flex-col items-center text-center">
+            <div class="w-14 h-14 rounded-full flex items-center justify-center mb-4" style="background: var(--aqua-glow); border: 1px solid var(--aqua-border); color: var(--aqua);">
+              <i class="fas fa-headset text-xl"></i>
+            </div>
+            <h3 class="font-serif text-lg font-medium mb-1">Support</h3>
+            <p class="text-xs" style="color: var(--white-dim);">Talk to our float team</p>
+          </a>
+        </div>
+
+        <!-- Recent activity + progress -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-5">
+          <div class="dashboard-card p-6 lg:col-span-2">
+            <div class="flex justify-between items-center mb-5">
+              <h3 class="font-serif text-xl font-medium">Recent Floats</h3>
+              <a href="#history" onclick="activateSection('history'); return false;" class="text-xs font-semibold" style="color: var(--aqua); letter-spacing: 0.1em;">VIEW ALL →</a>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Ref</th>
+                    <th>Date</th>
+                    <th>Duration</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="font-mono font-semibold" style="color: var(--aqua);">#LFA-1032</td>
+                    <td>May 18, 2026</td>
+                    <td>90 min</td>
+                    <td>Signature Float</td>
+                    <td><span class="badge-success">Completed</span></td>
+                  </tr>
+                  <tr>
+                    <td class="font-mono font-semibold" style="color: var(--aqua);">#LFA-1024</td>
+                    <td>May 11, 2026</td>
+                    <td>90 min</td>
+                    <td>Signature Float</td>
+                    <td><span class="badge-success">Completed</span></td>
+                  </tr>
+                  <tr>
+                    <td class="font-mono font-semibold" style="color: var(--aqua);">#LFA-1018</td>
+                    <td>May 4, 2026</td>
+                    <td>60 min</td>
+                    <td>Discovery Float</td>
+                    <td><span class="badge-success">Completed</span></td>
+                  </tr>
+                  <tr>
+                    <td class="font-mono font-semibold" style="color: var(--aqua);">#LFA-1009</td>
+                    <td>Apr 27, 2026</td>
+                    <td>90 min</td>
+                    <td>Signature Float</td>
+                    <td><span class="badge-success">Completed</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="dashboard-card p-6">
+            <h3 class="font-serif text-xl font-medium mb-5">Your Reset Progress</h3>
+            <div class="space-y-5">
+              <div>
+                <div class="flex justify-between text-sm mb-2">
+                  <span style="color: var(--white-muted);">Monthly Floats</span>
+                  <span class="font-semibold" style="color: var(--aqua);">2 / 4</span>
+                </div>
+                <div class="progress-bar"><div style="width: 50%;"></div></div>
+              </div>
+              <div>
+                <div class="flex justify-between text-sm mb-2">
+                  <span style="color: var(--white-muted);">Minutes This Month</span>
+                  <span class="font-semibold" style="color: var(--aqua);">180 / 360</span>
+                </div>
+                <div class="progress-bar"><div style="width: 50%;"></div></div>
+              </div>
+              <div>
+                <div class="flex justify-between text-sm mb-2">
+                  <span style="color: var(--white-muted);">Streak</span>
+                  <span class="font-semibold" style="color: var(--aqua);">4 weeks</span>
+                </div>
+                <div class="progress-bar"><div style="width: 80%;"></div></div>
+              </div>
+            </div>
+
+            <div class="mt-6 p-4 rounded-xl" style="background: var(--aqua-glow); border: 1px solid var(--aqua-border);">
+              <p class="text-xs" style="color: var(--white-muted);">Next milestone</p>
+              <p class="font-serif text-lg font-medium mt-1">10 Signature Floats</p>
+              <p class="text-xs mt-1" style="color: var(--aqua);">4 to go — unlock a free guest pass</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================
+           SECTION: MY BOOKINGS
+      ============================================================ -->
+      <div id="bookings" class="admin-section hidden">
+        <div class="dashboard-card p-6">
+          <div class="flex items-start gap-3 mb-6">
+            <div class="w-11 h-11 rounded-full flex items-center justify-center" style="background: var(--aqua-glow); border: 1px solid var(--aqua-border); color: var(--aqua);">
+              <i class="fas fa-calendar-plus"></i>
+            </div>
+            <div>
+              <h2 class="font-serif text-2xl font-medium">Book a New Float</h2>
+              <p class="text-sm mt-1" style="color: var(--white-muted);">Choose your session and preferred time. We'll handle the silence.</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div>
+              <label class="form-label">Full Name</label>
+              <input type="text" class="form-input" value="Jane Doe">
+            </div>
+            <div>
+              <label class="form-label">Email Address</label>
+              <input type="email" class="form-input" value="jane@lumafloat.com">
+            </div>
+            <div>
+              <label class="form-label">Float Type</label>
+              <select class="form-input">
+                <option selected>Signature Float · 90 min</option>
+                <option>Discovery Float · 60 min</option>
+                <option>The Reset Membership · 4 × 90 min</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label">Preferred Date</label>
+              <input type="date" class="form-input" value="2026-05-24">
+            </div>
+            <div>
+              <label class="form-label">Preferred Time</label>
+              <select class="form-input">
+                <option>09:00 AM</option>
+                <option>11:00 AM</option>
+                <option>01:00 PM</option>
+                <option selected>02:00 PM</option>
+                <option>04:00 PM</option>
+                <option>06:00 PM</option>
+                <option>08:00 PM</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label">Add-ons</label>
+              <select class="form-input">
+                <option>None</option>
+                <option>Guided Breathwork · +$12</option>
+                <option>Post-Float Massage · +$65</option>
+                <option>Herbal Tea Ceremony · +$18</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="mt-5">
+            <label class="form-label">Notes for our Team (optional)</label>
+            <textarea class="form-input" rows="3" placeholder="Anything we should know before your float?"></textarea>
+          </div>
+
+          <div class="flex flex-wrap gap-3 mt-6">
+            <button class="btn-accent px-7 py-3">Confirm Booking</button>
+            <button class="btn-outline px-7 py-3">Save for Later</button>
+          </div>
+        </div>
+
+        <div class="dashboard-card p-6 mt-5">
+          <h3 class="font-serif text-xl font-medium mb-5">Upcoming Floats</h3>
+          <div class="space-y-3">
+            <div class="flex flex-wrap items-center justify-between gap-3 p-4 rounded-xl" style="background: var(--void); border: 1px solid var(--border-line);">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: var(--aqua-glow); border: 1px solid var(--aqua-border); color: var(--aqua);">
+                  <i class="fas fa-water"></i>
+                </div>
+                <div>
+                  <p class="font-serif text-lg font-medium">Signature Float</p>
+                  <p class="text-xs" style="color: var(--white-dim);">May 24, 2026 · 2:00 PM · 90 min</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="badge-aqua">Confirmed</span>
+                <button class="btn-outline px-4 py-2 text-xs">Reschedule</button>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-between gap-3 p-4 rounded-xl" style="background: var(--void); border: 1px solid var(--border-line);">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: var(--aqua-glow); border: 1px solid var(--aqua-border); color: var(--aqua);">
+                  <i class="fas fa-spa"></i>
+                </div>
+                <div>
+                  <p class="font-serif text-lg font-medium">Signature Float + Tea Ceremony</p>
+                  <p class="text-xs" style="color: var(--white-dim);">Jun 7, 2026 · 11:00 AM · 90 min</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="badge-warning">Pending</span>
+                <button class="btn-outline px-4 py-2 text-xs">Reschedule</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================
+           SECTION: FLOAT HISTORY
+      ============================================================ -->
+      <div id="history" class="admin-section hidden">
+        <div class="dashboard-card p-6">
+          <div class="flex items-start gap-3 mb-6">
+            <div class="w-11 h-11 rounded-full flex items-center justify-center" style="background: var(--aqua-glow); border: 1px solid var(--aqua-border); color: var(--aqua);">
+              <i class="fas fa-clock-rotate-left"></i>
+            </div>
+            <div>
+              <h2 class="font-serif text-2xl font-medium">Float History</h2>
+              <p class="text-sm mt-1" style="color: var(--white-muted);">A quiet log of every session you've taken with us.</p>
+            </div>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Ref #</th>
+                  <th>Date</th>
+                  <th>Type</th>
+                  <th>Duration</th>
+                  <th>Add-ons</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-mono font-semibold" style="color: var(--aqua);">#LFA-1032</td>
+                  <td>May 18, 2026</td>
+                  <td>Signature Float</td>
+                  <td>90 min</td>
+                  <td>—</td>
+                  <td><span class="badge-success">Completed</span></td>
+                </tr>
+                <tr>
+                  <td class="font-mono font-semibold" style="color: var(--aqua);">#LFA-1024</td>
+                  <td>May 11, 2026</td>
+                  <td>Signature Float</td>
+                  <td>90 min</td>
+                  <td>Breathwork</td>
+                  <td><span class="badge-success">Completed</span></td>
+                </tr>
+                <tr>
+                  <td class="font-mono font-semibold" style="color: var(--aqua);">#LFA-1018</td>
+                  <td>May 4, 2026</td>
+                  <td>Discovery Float</td>
+                  <td>60 min</td>
+                  <td>—</td>
+                  <td><span class="badge-success">Completed</span></td>
+                </tr>
+                <tr>
+                  <td class="font-mono font-semibold" style="color: var(--aqua);">#LFA-1009</td>
+                  <td>Apr 27, 2026</td>
+                  <td>Signature Float</td>
+                  <td>90 min</td>
+                  <td>Massage</td>
+                  <td><span class="badge-success">Completed</span></td>
+                </tr>
+                <tr>
+                  <td class="font-mono font-semibold" style="color: var(--aqua);">#LFA-0998</td>
+                  <td>Apr 20, 2026</td>
+                  <td>Signature Float</td>
+                  <td>90 min</td>
+                  <td>—</td>
+                  <td><span class="badge-success">Completed</span></td>
+                </tr>
+                <tr>
+                  <td class="font-mono font-semibold" style="color: var(--aqua);">#LFA-0982</td>
+                  <td>Apr 13, 2026</td>
+                  <td>Discovery Float</td>
+                  <td>60 min</td>
+                  <td>Tea Ceremony</td>
+                  <td><span class="badge-success">Completed</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="flex flex-wrap justify-between items-center gap-4 mt-6 pt-6" style="border-top: 1px solid var(--border-line);">
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              <div>
+                <p class="text-xs uppercase tracking-wider" style="color: var(--white-dim); letter-spacing: 0.15em;">Total Floats</p>
+                <p class="font-serif text-2xl font-semibold mt-1" style="color: var(--aqua);">14</p>
+              </div>
+              <div>
+                <p class="text-xs uppercase tracking-wider" style="color: var(--white-dim); letter-spacing: 0.15em;">Total Minutes</p>
+                <p class="font-serif text-2xl font-semibold mt-1" style="color: var(--aqua);">1,260</p>
+              </div>
+              <div>
+                <p class="text-xs uppercase tracking-wider" style="color: var(--white-dim); letter-spacing: 0.15em;">First Float</p>
+                <p class="font-serif text-lg font-medium mt-1">Jan 12, 2026</p>
+              </div>
+              <div>
+                <p class="text-xs uppercase tracking-wider" style="color: var(--white-dim); letter-spacing: 0.15em;">Avg. Duration</p>
+                <p class="font-serif text-lg font-medium mt-1">82 min</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================
+           SECTION: MEMBERSHIP
+      ============================================================ -->
+      <div id="membership" class="admin-section hidden">
+        <div class="dashboard-card p-6">
+          <div class="flex items-start justify-between flex-wrap gap-4 mb-6">
+            <div class="flex items-start gap-3">
+              <div class="w-11 h-11 rounded-full flex items-center justify-center" style="background: var(--aqua-glow); border: 1px solid var(--aqua-border); color: var(--aqua);">
+                <i class="fas fa-spa"></i>
+              </div>
+              <div>
+                <h2 class="font-serif text-2xl font-medium">The Reset</h2>
+                <p class="text-sm mt-1" style="color: var(--white-muted);">Your monthly membership · 4 Signature Floats / month</p>
+              </div>
+            </div>
+            <span class="badge-aqua">Active</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div class="p-5 rounded-xl" style="background: var(--void); border: 1px solid var(--border-line);">
+              <p class="text-xs uppercase tracking-wider" style="color: var(--white-dim); letter-spacing: 0.15em;">Next Billing Date</p>
+              <p class="font-serif text-2xl font-medium mt-2">Jun 1, 2026</p>
+              <p class="text-sm mt-2" style="color: var(--white-muted);">$249 / month · billed monthly</p>
+            </div>
+            <div class="p-5 rounded-xl" style="background: var(--void); border: 1px solid var(--border-line);">
+              <p class="text-xs uppercase tracking-wider" style="color: var(--white-dim); letter-spacing: 0.15em;">Floats Remaining This Month</p>
+              <p class="font-serif text-2xl font-medium mt-2" style="color: var(--aqua);">2 of 4</p>
+              <div class="progress-bar mt-3"><div style="width: 50%;"></div></div>
+            </div>
+          </div>
+
+          <div class="mt-6">
+            <h3 class="font-serif text-lg font-medium mb-4">Membership Benefits</h3>
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <li class="flex items-center gap-3 text-sm" style="color: var(--white-muted);">
+                <i class="fas fa-check" style="color: var(--aqua);"></i> 4 Signature Floats monthly
+              </li>
+              <li class="flex items-center gap-3 text-sm" style="color: var(--white-muted);">
+                <i class="fas fa-check" style="color: var(--aqua);"></i> Priority booking window
+              </li>
+              <li class="flex items-center gap-3 text-sm" style="color: var(--white-muted);">
+                <i class="fas fa-check" style="color: var(--aqua);"></i> 15% off retail & extras
+              </li>
+              <li class="flex items-center gap-3 text-sm" style="color: var(--white-muted);">
+                <i class="fas fa-check" style="color: var(--aqua);"></i> Rollover of unused floats
+              </li>
+              <li class="flex items-center gap-3 text-sm" style="color: var(--white-muted);">
+                <i class="fas fa-check" style="color: var(--aqua);"></i> Free guest pass each quarter
+              </li>
+              <li class="flex items-center gap-3 text-sm" style="color: var(--white-muted);">
+                <i class="fas fa-check" style="color: var(--aqua);"></i> Cancel anytime
+              </li>
+            </ul>
+          </div>
+
+          <div class="flex flex-wrap gap-3 mt-6">
+            <button class="btn-accent px-6 py-3">Manage Membership</button>
+            <button class="btn-outline px-6 py-3">Pause for a Month</button>
+          </div>
+        </div>
+
+        <div class="dashboard-card p-6 mt-5">
+          <h3 class="font-serif text-xl font-medium mb-5">Billing History</h3>
+          <div class="overflow-x-auto">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Invoice</th>
+                  <th>Date</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-mono font-semibold">INV-LFA-0526</td>
+                  <td>May 1, 2026</td>
+                  <td class="font-semibold">$249.00</td>
+                  <td><span class="badge-success">Paid</span></td>
+                  <td><button class="text-xs font-semibold" style="color: var(--aqua);">Download</button></td>
+                </tr>
+                <tr>
+                  <td class="font-mono font-semibold">INV-LFA-0426</td>
+                  <td>Apr 1, 2026</td>
+                  <td class="font-semibold">$249.00</td>
+                  <td><span class="badge-success">Paid</span></td>
+                  <td><button class="text-xs font-semibold" style="color: var(--aqua);">Download</button></td>
+                </tr>
+                <tr>
+                  <td class="font-mono font-semibold">INV-LFA-0326</td>
+                  <td>Mar 1, 2026</td>
+                  <td class="font-semibold">$249.00</td>
+                  <td><span class="badge-success">Paid</span></td>
+                  <td><button class="text-xs font-semibold" style="color: var(--aqua);">Download</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================
+           SECTION: PROFILE
+      ============================================================ -->
+      <div id="profile" class="admin-section hidden">
+        <div class="dashboard-card p-6">
+          <div class="flex items-start gap-3 mb-6">
+            <div class="w-11 h-11 rounded-full flex items-center justify-center" style="background: var(--aqua-glow); border: 1px solid var(--aqua-border); color: var(--aqua);">
+              <i class="fas fa-user"></i>
+            </div>
+            <div>
+              <h2 class="font-serif text-2xl font-medium">My Profile</h2>
+              <p class="text-sm mt-1" style="color: var(--white-muted);">Update your details and float preferences.</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div>
+              <label class="form-label">Full Name</label>
+              <input type="text" class="form-input" value="Jane Doe">
+            </div>
+            <div>
+              <label class="form-label">Email Address</label>
+              <input type="email" class="form-input" value="jane@lumafloat.com">
+            </div>
+            <div>
+              <label class="form-label">Phone</label>
+              <input type="tel" class="form-input" value="+45 33 123 456">
+            </div>
+            <div>
+              <label class="form-label">Preferred Float Duration</label>
+              <select class="form-input">
+                <option>60 min (Discovery)</option>
+                <option selected>90 min (Signature)</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label">Preferred Time of Day</label>
+              <select class="form-input">
+                <option>Morning</option>
+                <option selected>Afternoon</option>
+                <option>Evening</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label">Preferred Add-on</label>
+              <select class="form-input">
+                <option selected>None</option>
+                <option>Guided Breathwork</option>
+                <option>Post-Float Massage</option>
+                <option>Herbal Tea Ceremony</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="mt-5">
+            <label class="form-label">Anything we should know? (allergies, injuries, preferences)</label>
+            <textarea class="form-input" rows="3" placeholder="e.g. sensitive to sound, prefer lid open, etc."></textarea>
+          </div>
+
+          <div class="flex flex-wrap gap-3 mt-6">
+            <button class="btn-accent px-7 py-3">Update Profile</button>
+            <button class="btn-outline px-7 py-3">Change Password</button>
+          </div>
+        </div>
+
+        <div class="dashboard-card p-6 mt-5">
+          <h3 class="font-serif text-xl font-medium mb-5">Notification Preferences</h3>
+          <div class="space-y-3">
+            <label class="flex items-center justify-between gap-4 p-4 rounded-xl cursor-pointer" style="background: var(--void); border: 1px solid var(--border-line);">
+              <div>
+                <p class="font-medium text-sm">Booking Reminders</p>
+                <p class="text-xs mt-1" style="color: var(--white-dim);">Get reminded 24 hours before your float.</p>
+              </div>
+              <input type="checkbox" checked class="w-5 h-5 rounded" style="accent-color: var(--aqua);">
+            </label>
+            <label class="flex items-center justify-between gap-4 p-4 rounded-xl cursor-pointer" style="background: var(--void); border: 1px solid var(--border-line);">
+              <div>
+                <p class="font-medium text-sm">Monthly Newsletter</p>
+                <p class="text-xs mt-1" style="color: var(--white-dim);">Quiet updates, breathwork guides, and offers.</p>
+              </div>
+              <input type="checkbox" checked class="w-5 h-5 rounded" style="accent-color: var(--aqua);">
+            </label>
+            <label class="flex items-center justify-between gap-4 p-4 rounded-xl cursor-pointer" style="background: var(--void); border: 1px solid var(--border-line);">
+              <div>
+                <p class="font-medium text-sm">Membership Updates</p>
+                <p class="text-xs mt-1" style="color: var(--white-dim);">Billing reminders and float rollover alerts.</p>
+              </div>
+              <input type="checkbox" checked class="w-5 h-5 rounded" style="accent-color: var(--aqua);">
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="text-center text-xs border-t pt-8 pb-4" style="color: var(--white-dim); border-color: var(--border-line);">
+        <p>© 2026 LUMA Float Therapy — Midnight Void · Mineral White · Float Aqua</p>
+        <div class="flex justify-center gap-6 mt-4">
+          <a href="#" class="hover:text-aqua">Privacy</a>
+          <a href="#" class="hover:text-aqua">Terms</a>
+          <a href="contact.html" class="hover:text-aqua">Support</a>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      const html = document.documentElement;
+
+      /* ---------- THEME (same behavior as index.html) ---------- */
+      function updateThemeIcon(theme) {
+        const icon = document.getElementById('desktop-theme-icon');
+        if (!icon) return;
+        icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+      }
+
+      function setTheme(theme) {
+        html.setAttribute('data-theme', theme);
+        localStorage.setItem('luma-theme', theme);
+        updateThemeIcon(theme);
+      }
+
+      setTheme(localStorage.getItem('luma-theme') || 'dark');
+
+      document.getElementById('desktop-theme-toggle')?.addEventListener('click', () => {
+        const current = html.getAttribute('data-theme');
+        setTheme(current === 'dark' ? 'light' : 'dark');
+      });
+
+      /* ---------- DIRECTION (same behavior as index.html) ---------- */
+      function setDirection(dir) {
+        html.setAttribute('dir', dir);
+        localStorage.setItem('luma-direction', dir);
+      }
+      setDirection(localStorage.getItem('luma-direction') || 'ltr');
+
+      document.getElementById('desktop-rtl-toggle')?.addEventListener('click', () => {
+        const current = html.getAttribute('dir');
+        setDirection(current === 'rtl' ? 'ltr' : 'rtl');
+      });
+
+      /* ---------- MOBILE SIDEBAR ---------- */
+      const menuToggle = document.getElementById('mobile-menu-toggle');
+      const closeSidebar = document.getElementById('close-sidebar');
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('mobile-overlay');
+
+      function toggleMobile(open) {
+        sidebar.classList.toggle('-translate-x-full', !open);
+        overlay.classList.toggle('active', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+      }
+      menuToggle?.addEventListener('click', () => toggleMobile(true));
+      closeSidebar?.addEventListener('click', () => toggleMobile(false));
+      overlay?.addEventListener('click', () => toggleMobile(false));
+
+      /* ---------- SECTION NAVIGATION ---------- */
+      const sections = ['overview', 'bookings', 'history', 'membership', 'profile'];
+      const links = document.querySelectorAll('.sidebar-link');
+
+      window.activateSection = function (sectionId) {
+        sections.forEach(id => {
+          const el = document.getElementById(id);
+          if (el) el.classList.toggle('hidden', id !== sectionId);
+        });
+        links.forEach(link => {
+          link.classList.remove('active');
+          if (link.dataset.section === sectionId) link.classList.add('active');
+        });
+        if (window.innerWidth < 1024) toggleMobile(false);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
+
+      links.forEach(link => {
+        if (link.dataset.section) {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            activateSection(link.dataset.section);
+          });
+        }
+      });
+
+      /* ---------- LOGOUT ---------- */
+      document.getElementById('logoutBtn')?.addEventListener('click', function (e) {
+        e.preventDefault();
+        localStorage.clear();
+        sessionStorage.clear();
+        window.location.href = 'login.html';
+      });
+    })();
+  </script>
+</body>
+</html>

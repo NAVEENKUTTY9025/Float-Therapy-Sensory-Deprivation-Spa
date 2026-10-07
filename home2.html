@@ -1,0 +1,1710 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LUMA Float Therapy & Sensory Deprivation Spa – Home 2. A quieter way to reset your nervous system.">
+    <title>LUMA | Home 2 — Float Therapy & Sensory Deprivation Spa</title>
+    <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌊</text></svg>" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..900&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================================
+           LUMA FLOAT SPA — COLOR THEME (same as index)
+           Midnight Void #0F172A  (70%) - dominant background
+           Mineral White #F8FAFC  (20%) - typography & borders
+           Float Aqua    #06B6D4  (10%) - actions & accents
+        ============================================================ */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --void: #0F172A;
+            --void-deep: #0A111F;
+            --void-soft: #1A2439;
+            --white: #F8FAFC;
+            --white-muted: #CBD5E1;
+            --white-dim: #94A3B8;
+            --aqua: #06B6D4;
+            --aqua-glow: rgba(6, 182, 212, 0.15);
+            --aqua-border: rgba(6, 182, 212, 0.35);
+            --border-line: rgba(248, 250, 252, 0.08);
+            --border-line-strong: rgba(248, 250, 252, 0.15);
+        }
+        [data-theme="light"] {
+            --void: #F8FAFC;
+            --void-deep: #F1F5F9;
+            --void-soft: #FFFFFF;
+            --white: #0F172A;
+            --white-muted: #334155;
+            --white-dim: #64748B;
+            --aqua: #0891B2;
+            --aqua-glow: rgba(6, 182, 212, 0.12);
+            --aqua-border: rgba(6, 182, 212, 0.4);
+            --border-line: rgba(15, 23, 42, 0.08);
+            --border-line-strong: rgba(15, 23, 42, 0.15);
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--void);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            transition: background-color 0.4s, color 0.4s;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+            color: var(--white);
+        }
+        a { text-decoration: none; color: inherit; }
+        img { display: block; max-width: 100%; }
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        .label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--aqua);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .label::before {
+            content: '';
+            width: 1.75rem;
+            height: 1px;
+            background: var(--aqua);
+        }
+        .display-title {
+            font-size: 2.75rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        @media (min-width: 768px) { .display-title { font-size: 3.75rem; } }
+        @media (min-width: 1024px) { .display-title { font-size: 4.25rem; } }
+
+        /* ============================================================
+           STICKY NAVBAR
+        ============================================================ */
+        .navbar-container {
+            background-color: rgba(15, 23, 42, 0.92);
+            border-bottom: 1px solid var(--aqua-border);
+            padding: 0.75rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(6, 182, 212, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        [data-theme="light"] .navbar-container {
+            background-color: rgba(248, 250, 252, 0.92);
+        }
+        .navbar-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: opacity 0.2s;
+        }
+        .logo:hover { opacity: 0.85; }
+        .logo-icon {
+            width: 3rem;
+            height: 3rem;
+            background-color: var(--void-soft);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--aqua);
+        }
+        .logo-icon i { color: var(--aqua); font-size: 1.5rem; }
+        .logo-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--white);
+            letter-spacing: 0.12em;
+            line-height: 1;
+        }
+        .logo-text span { color: var(--aqua); }
+        .logo-tagline {
+            font-size: 0.6rem;
+            color: var(--white-dim);
+            display: block;
+            margin-top: 2px;
+            font-weight: 500;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+        }
+        .desktop-nav { display: none; align-items: center; gap: 0.15rem; }
+        .nav-link {
+            color: var(--white-muted);
+            padding: 0.5rem 0.8rem;
+            transition: 0.2s;
+            font-weight: 500;
+            font-size: 0.88rem;
+            cursor: pointer;
+            border-radius: 30px;
+            letter-spacing: 0.02em;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+        .nav-link:hover { color: var(--aqua); }
+        .nav-link.active { color: var(--aqua); font-weight: 600; }
+        .dropdown { position: relative; }
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--void-soft);
+            border: 1px solid var(--aqua-border);
+            border-radius: 16px;
+            min-width: 210px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: 0.3s;
+            z-index: 1000;
+            box-shadow: 0 15px 30px rgba(6, 182, 212, 0.15);
+            overflow: hidden;
+            padding: 0.4rem;
+        }
+        .dropdown:hover .dropdown-menu,
+        .dropdown.active .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.7rem 1rem;
+            color: var(--white-muted);
+            transition: 0.2s;
+            font-weight: 400;
+            font-size: 0.88rem;
+            border-radius: 10px;
+        }
+        .dropdown-item i { color: var(--aqua); width: 1.1rem; font-size: 0.85rem; }
+        .dropdown-item:hover { background-color: var(--aqua-glow); color: var(--aqua); }
+        .dropdown-arrow { font-size: 0.65rem; transition: 0.2s; }
+        .dropdown:hover .dropdown-arrow { transform: rotate(180deg); }
+        .navbar-right-desktop { display: none; align-items: center; gap: 0.6rem; }
+        .icon-btn {
+            width: 2.5rem;
+            height: 2.5rem;
+            background-color: transparent;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white-muted);
+            border: 1px solid var(--border-line-strong);
+            cursor: pointer;
+            transition: 0.2s;
+            font-family: inherit;
+        }
+        .icon-btn:hover { border-color: var(--aqua); color: var(--aqua); background: var(--aqua-glow); }
+        .login-btn {
+            background-color: var(--aqua);
+            color: var(--void);
+            padding: 0.55rem 1.15rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 0.78rem;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: 0.2s;
+            border: 1px solid var(--aqua);
+        }
+        .login-btn:hover { background-color: transparent; color: var(--aqua); box-shadow: 0 0 20px var(--aqua-glow); }
+        .mobile-menu-btn {
+            display: flex;
+            color: var(--white);
+            font-size: 1.4rem;
+            background: transparent;
+            border: 1px solid var(--border-line-strong);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .mobile-menu-btn:hover { border-color: var(--aqua); color: var(--aqua); }
+
+        /* Mobile menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--void-deep);
+            z-index: 9999;
+            overflow-y: auto;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        .mobile-menu.active { transform: translateX(0); }
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--aqua-border);
+        }
+        .mobile-menu-close {
+            color: var(--white);
+            font-size: 1.5rem;
+            background: none;
+            border: 1px solid var(--border-line-strong);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .mobile-menu-close:hover { border-color: var(--aqua); color: var(--aqua); }
+        .mobile-menu-items { padding: 1.5rem; }
+        .mobile-menu-item {
+            display: flex;
+            align-items: center;
+            padding: 1.1rem 0;
+            color: var(--white);
+            font-size: 1.25rem;
+            font-weight: 500;
+            font-family: 'Cormorant Garamond', serif;
+            border-bottom: 1px solid var(--border-line);
+        }
+        .mobile-menu-item i { color: var(--aqua); margin-right: 1rem; width: 1.75rem; font-size: 1rem; }
+        .mobile-dropdown { border-bottom: 1px solid var(--border-line); }
+        .mobile-dropdown-btn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.25rem;
+            font-family: 'Cormorant Garamond', serif;
+            padding: 1.1rem 0;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        .mobile-dropdown-btn i:first-child { color: var(--aqua); margin-right: 1rem; font-family: 'Inter', sans-serif; font-size: 1rem; }
+        .mobile-dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: var(--void-soft);
+            border-radius: 12px;
+        }
+        .mobile-dropdown-content.active { max-height: 220px; padding: 0.5rem 0; }
+        .mobile-dropdown-content a {
+            display: block;
+            padding: 0.75rem 1.5rem 0.75rem 3rem;
+            color: var(--white-muted);
+            font-weight: 400;
+            font-size: 0.95rem;
+        }
+        .mobile-dropdown-content a:hover { background-color: var(--aqua-glow); color: var(--aqua); }
+        .mobile-action-item {
+            display: flex;
+            align-items: center;
+            padding: 1.1rem 0;
+            color: var(--white);
+            font-size: 1rem;
+            background: transparent;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+            border-bottom: 1px solid var(--border-line);
+            font-weight: 500;
+            font-family: inherit;
+        }
+        .mobile-action-item i { color: var(--aqua); margin-right: 1rem; font-size: 1rem; }
+        .mobile-separator { margin: 1rem 0; border-top: 1px solid var(--aqua-border); }
+
+        /* ============================================================
+           SECTION 1 — SPLIT HERO (Different from index)
+        ============================================================ */
+        .hero-split {
+            position: relative;
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr;
+            align-items: center;
+            padding-top: 100px;
+            background: var(--void);
+            overflow: hidden;
+        }
+        @media (min-width: 1024px) {
+            .hero-split { grid-template-columns: 1fr 1fr; padding-top: 80px; }
+        }
+        .hero-split-left {
+            position: relative;
+            z-index: 2;
+            padding: 3rem 0 3rem 0;
+        }
+        @media (min-width: 1024px) {
+            .hero-split-left { padding: 4rem 2rem 4rem 0; }
+        }
+        .hero-split-right {
+            position: relative;
+            height: 60vh;
+            overflow: hidden;
+        }
+        @media (min-width: 1024px) {
+            .hero-split-right { height: 100vh; }
+        }
+        .hero-split-right img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+        }
+        .hero-split-right::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, var(--void) 0%, transparent 40%, transparent 100%);
+        }
+        @media (max-width: 1023px) {
+            .hero-split-right::after {
+                background: linear-gradient(180deg, var(--void) 0%, transparent 30%, transparent 100%);
+            }
+        }
+        .hero-split-left h1 {
+            font-size: 3rem;
+            font-weight: 500;
+            line-height: 1.05;
+            margin-bottom: 1.5rem;
+        }
+        @media (min-width: 768px) { .hero-split-left h1 { font-size: 4.5rem; } }
+        @media (min-width: 1280px) { .hero-split-left h1 { font-size: 5.5rem; } }
+        .hero-split-left h1 em {
+            font-style: italic;
+            color: var(--aqua);
+            font-weight: 400;
+        }
+        .hero-split-left p {
+            font-size: 1.1rem;
+            color: var(--white-muted);
+            max-width: 480px;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+        .hero-split-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            background: var(--aqua);
+            color: var(--void);
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            border: 1px solid var(--aqua);
+            transition: 0.3s;
+            cursor: pointer;
+            font-family: inherit;
+            white-space: nowrap;
+        }
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--aqua);
+            box-shadow: 0 0 32px var(--aqua-glow);
+        }
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            background: transparent;
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            border: 1px solid var(--border-line-strong);
+            transition: 0.3s;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .btn-ghost:hover { border-color: var(--aqua); color: var(--aqua); }
+        .hero-split-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-line);
+            max-width: 480px;
+        }
+        .hero-split-stat .num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--aqua);
+            line-height: 1;
+        }
+        .hero-split-stat .txt {
+            font-size: 0.68rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--white-dim);
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+
+        /* ============================================================
+           SECTION 2 — HORIZONTAL SERVICE SCROLL
+        ============================================================ */
+        .section { padding: 6rem 0; position: relative; }
+        .section-alt { background: var(--void-deep); }
+        .section-head { max-width: 720px; margin-bottom: 3.5rem; }
+        .section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
+        .section-head p { color: var(--white-muted); font-size: 1.05rem; margin-top: 1.25rem; font-weight: 300; }
+
+        .service-scroll-wrap {
+            position: relative;
+            overflow: hidden;
+            margin: 0 -1.5rem;
+            padding: 0 1.5rem;
+        }
+        .service-scroll {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 1.5rem;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: var(--aqua) var(--void-soft);
+        }
+        .service-scroll::-webkit-scrollbar { height: 6px; }
+        .service-scroll::-webkit-scrollbar-track { background: var(--void-soft); border-radius: 9999px; }
+        .service-scroll::-webkit-scrollbar-thumb { background: var(--aqua); border-radius: 9999px; }
+
+        .service-scroll-card {
+            flex: 0 0 320px;
+            scroll-snap-align: start;
+            background: var(--void-soft);
+            border: 1px solid var(--border-line);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: 0.35s;
+            display: flex;
+            flex-direction: column;
+        }
+        @media (min-width: 768px) { .service-scroll-card { flex: 0 0 380px; } }
+        .service-scroll-card:hover {
+            border-color: var(--aqua-border);
+            transform: translateY(-6px);
+        }
+        .service-scroll-card .img {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+        .service-scroll-card .img img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        .service-scroll-card:hover .img img { transform: scale(1.06); }
+        .service-scroll-card .img .num {
+            position: absolute;
+            top: 1rem; left: 1rem;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--aqua-border);
+            color: var(--aqua);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            padding: 0.35rem 0.8rem;
+            border-radius: 9999px;
+            font-family: 'Inter', sans-serif;
+        }
+        .service-scroll-card .body {
+            padding: 1.75rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .service-scroll-card h3 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+        }
+        .service-scroll-card p {
+            font-size: 0.88rem;
+            color: var(--white-muted);
+            font-weight: 300;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex: 1;
+        }
+        .service-scroll-card .link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--aqua);
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            transition: 0.2s;
+        }
+        .service-scroll-card .link:hover { gap: 0.75rem; }
+
+        .scroll-controls {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: flex-end;
+            margin-top: 1.5rem;
+        }
+        .scroll-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid var(--border-line-strong);
+            background: transparent;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.25s;
+            font-size: 0.9rem;
+        }
+        .scroll-btn:hover { border-color: var(--aqua); color: var(--aqua); background: var(--aqua-glow); }
+
+        /* ============================================================
+           SECTION 3 — BENEFITS TABS
+        ============================================================ */
+        .tabs-wrap {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+        }
+        @media (min-width: 1024px) {
+            .tabs-wrap { grid-template-columns: 340px 1fr; gap: 4rem; align-items: start; }
+        }
+        .tab-buttons {
+            display: flex;
+            flex-direction: row;
+            gap: 0.5rem;
+            overflow-x: auto;
+            padding-bottom: 1rem;
+            -webkit-overflow-scrolling: touch;
+        }
+        @media (min-width: 1024px) {
+            .tab-buttons { flex-direction: column; overflow-x: visible; padding-bottom: 0; }
+        }
+        .tab-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            padding: 1rem 1.25rem;
+            background: transparent;
+            border: 1px solid var(--border-line);
+            border-radius: 4px;
+            color: var(--white-muted);
+            font-size: 0.92rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.25s;
+            font-family: inherit;
+            text-align: left;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        @media (min-width: 1024px) {
+            .tab-btn { white-space: normal; width: 100%; }
+        }
+        .tab-btn i {
+            color: var(--aqua);
+            font-size: 1rem;
+            width: 1.25rem;
+            flex-shrink: 0;
+        }
+        .tab-btn:hover {
+            border-color: var(--aqua-border);
+            color: var(--white);
+        }
+        .tab-btn.active {
+            background: var(--aqua-glow);
+            border-color: var(--aqua);
+            color: var(--aqua);
+            font-weight: 600;
+        }
+        .tab-panels {
+            position: relative;
+            min-height: 380px;
+        }
+        .tab-panel {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        .tab-panel.active { display: block; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .tab-panel-inner {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        @media (min-width: 640px) {
+            .tab-panel-inner { grid-template-columns: 1fr 1fr; }
+        }
+        .tab-panel-img {
+            border-radius: 4px;
+            overflow: hidden;
+            aspect-ratio: 4 / 3;
+            border: 1px solid var(--border-line-strong);
+        }
+        .tab-panel-img img {
+            width: 100%; height: 100%; object-fit: cover;
+        }
+        .tab-panel-text h3 {
+            font-size: 2rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        .tab-panel-text p {
+            color: var(--white-muted);
+            font-size: 0.98rem;
+            font-weight: 300;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        .tab-panel-text ul {
+            list-style: none;
+            margin-top: 1.25rem;
+        }
+        .tab-panel-text ul li {
+            display: flex;
+            gap: 0.75rem;
+            padding: 0.5rem 0;
+            color: var(--white-muted);
+            font-size: 0.9rem;
+            font-weight: 300;
+        }
+        .tab-panel-text ul li i {
+            color: var(--aqua);
+            font-size: 0.75rem;
+            margin-top: 0.4rem;
+            flex-shrink: 0;
+        }
+
+        /* ============================================================
+           SECTION 4 — TIMELINE
+        ============================================================ */
+        .timeline {
+            position: relative;
+            max-width: 860px;
+            margin: 0 auto;
+            padding-left: 2rem;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--aqua), var(--aqua-border), transparent);
+        }
+        @media (min-width: 768px) {
+            .timeline { padding-left: 0; }
+            .timeline::before { left: 50%; transform: translateX(-50%); }
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 2rem;
+        }
+        .timeline-item:last-child { margin-bottom: 0; }
+        @media (min-width: 768px) {
+            .timeline-item {
+                width: 50%;
+                padding-left: 0;
+                padding-right: 3rem;
+                text-align: right;
+            }
+            .timeline-item:nth-child(even) {
+                margin-left: 50%;
+                padding-right: 0;
+                padding-left: 3rem;
+                text-align: left;
+            }
+        }
+        .timeline-dot {
+            position: absolute;
+            left: -2rem;
+            top: 0.25rem;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--aqua);
+            border: 3px solid var(--void);
+            box-shadow: 0 0 0 2px var(--aqua-border);
+            z-index: 1;
+        }
+        @media (min-width: 768px) {
+            .timeline-dot {
+                left: auto;
+                right: -8px;
+            }
+            .timeline-item:nth-child(even) .timeline-dot {
+                right: auto;
+                left: -8px;
+            }
+        }
+        .timeline-time {
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--aqua);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            font-family: 'Inter', sans-serif;
+        }
+        .timeline-item h3 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        .timeline-item p {
+            color: var(--white-muted);
+            font-size: 0.92rem;
+            font-weight: 300;
+            line-height: 1.65;
+        }
+
+        /* ============================================================
+           SECTION 5 — GALLERY STRIP
+        ============================================================ */
+        .gallery-strip {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+        }
+        @media (min-width: 768px) {
+            .gallery-strip { grid-template-columns: repeat(4, 1fr); }
+        }
+        .gallery-strip-item {
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+            aspect-ratio: 1 / 1;
+            border: 1px solid var(--border-line);
+            transition: 0.35s;
+            cursor: pointer;
+        }
+        .gallery-strip-item:hover {
+            border-color: var(--aqua-border);
+            transform: scale(1.02);
+        }
+        .gallery-strip-item img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        .gallery-strip-item:hover img { transform: scale(1.08); }
+        .gallery-strip-item .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 50%, rgba(15,23,42,0.85) 100%);
+            display: flex;
+            align-items: flex-end;
+            padding: 1.25rem;
+            opacity: 0;
+            transition: opacity 0.35s;
+        }
+        .gallery-strip-item:hover .overlay { opacity: 1; }
+        .gallery-strip-item .overlay span {
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--aqua);
+            font-weight: 600;
+        }
+
+        /* ============================================================
+           SECTION 6 — NEWSLETTER / CTA BAND
+        ============================================================ */
+        .newsletter-band {
+            position: relative;
+            padding: 6rem 0;
+            overflow: hidden;
+            background: var(--void-deep);
+            border-top: 1px solid var(--border-line);
+            border-bottom: 1px solid var(--border-line);
+        }
+        .newsletter-band-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+        .newsletter-band-bg img {
+            width: 100%; height: 100%; object-fit: cover;
+            opacity: 0.15;
+        }
+        .newsletter-band-bg::after {
+            content: '';
+            position: absolute; inset: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(15,23,42,0.8) 0%, rgba(15,23,42,0.98) 70%);
+        }
+        [data-theme="light"] .newsletter-band-bg::after {
+            background: radial-gradient(circle at 30% 50%, rgba(248,250,252,0.8) 0%, rgba(248,250,252,0.98) 70%);
+        }
+        .newsletter-inner {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        @media (min-width: 1024px) {
+            .newsletter-inner { grid-template-columns: 1.1fr 1fr; gap: 5rem; }
+        }
+        .newsletter-inner h2 {
+            font-size: 2.5rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+        @media (min-width: 768px) { .newsletter-inner h2 { font-size: 3.25rem; } }
+        .newsletter-inner h2 em { font-style: italic; color: var(--aqua); }
+        .newsletter-inner p {
+            color: var(--white-muted);
+            font-size: 1.05rem;
+            font-weight: 300;
+            max-width: 480px;
+            line-height: 1.7;
+        }
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        @media (min-width: 640px) {
+            .newsletter-form { flex-direction: row; gap: 0.75rem; }
+        }
+        .newsletter-form input {
+            flex: 1;
+            padding: 1rem 1.25rem;
+            border-radius: 9999px;
+            border: 1px solid var(--border-line-strong);
+            background: var(--void);
+            color: var(--white);
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 300;
+            outline: none;
+            transition: 0.3s;
+        }
+        .newsletter-form input::placeholder { color: var(--white-dim); }
+        .newsletter-form input:focus {
+            border-color: var(--aqua);
+            box-shadow: 0 0 0 3px var(--aqua-glow);
+        }
+        .newsletter-form button {
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            background: var(--aqua);
+            color: var(--void);
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            border: 1px solid var(--aqua);
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: inherit;
+            white-space: nowrap;
+        }
+        .newsletter-form button:hover {
+            background: transparent;
+            color: var(--aqua);
+            box-shadow: 0 0 24px var(--aqua-glow);
+        }
+        .newsletter-perks {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+        .newsletter-perk {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.82rem;
+            color: var(--white-muted);
+            font-weight: 400;
+        }
+        .newsletter-perk i { color: var(--aqua); font-size: 0.85rem; }
+        .form-success-msg {
+            display: none;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.85rem 1.25rem;
+            background: var(--aqua-glow);
+            border: 1px solid var(--aqua-border);
+            border-radius: 9999px;
+            color: var(--aqua);
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-top: 1rem;
+        }
+        .form-success-msg.show { display: flex; }
+
+        /* ============================================================
+           FOOTER
+        ============================================================ */
+        .footer {
+            background-color: var(--void);
+            color: var(--white);
+            padding: 4rem 0 2rem 0;
+            border-top: 1px solid var(--aqua-border);
+        }
+        .footer-grid {
+            display: grid;
+            gap: 2.5rem;
+            grid-template-columns: 1fr;
+            margin-bottom: 3rem;
+        }
+        @media (min-width:768px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr 1.5fr; } }
+        .footer-logo-block { display: flex; flex-direction: column; gap: 0.5rem; }
+        .footer .logo { margin-bottom: 0.5rem; }
+        .footer-heading {
+            color: var(--aqua);
+            margin-bottom: 1.25rem;
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            font-family: 'Inter', sans-serif;
+        }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 0.75rem; }
+        .footer-links a {
+            color: var(--white-muted);
+            transition: 0.2s;
+            font-size: 0.9rem;
+            font-weight: 300;
+        }
+        .footer-links a:hover { color: var(--aqua); padding-left: 4px; }
+        .footer-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: 9999px;
+            border: 1px solid var(--border-line-strong);
+            background: var(--void-soft);
+            color: var(--white);
+            margin-bottom: 0.75rem;
+            font-weight: 300;
+            font-family: inherit;
+            font-size: 0.9rem;
+            outline: none;
+            transition: 0.3s;
+        }
+        .footer-input::placeholder { color: var(--white-dim); }
+        .footer-input:focus { border-color: var(--aqua); box-shadow: 0 0 0 3px var(--aqua-glow); }
+        .footer-btn {
+            width: 100%;
+            background-color: var(--aqua);
+            color: var(--void);
+            padding: 0.75rem 1rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            border: 1px solid var(--aqua);
+            cursor: pointer;
+            transition: 0.2s;
+            font-family: inherit;
+            font-size: 0.82rem;
+            letter-spacing: 0.08em;
+        }
+        .footer-btn:hover { background: transparent; color: var(--aqua); }
+        .footer-socials { margin-top: 1.5rem; display: flex; gap: 1rem; }
+        .footer-socials a { color: var(--aqua); font-size: 1.25rem; transition: 0.2s; }
+        .footer-socials a:hover { color: var(--white); transform: translateY(-2px); }
+        .copyright {
+            border-top: 1px solid var(--border-line);
+            padding-top: 1.5rem;
+            text-align: center;
+            color: var(--white-dim);
+            font-size: 0.85rem;
+            font-weight: 300;
+        }
+
+        #scroll-top {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            width: 3rem;
+            height: 3rem;
+            background-color: var(--aqua);
+            color: var(--void);
+            border-radius: 50%;
+            border: 1px solid var(--aqua);
+            cursor: pointer;
+            display: none;
+            z-index: 100;
+            transition: 0.3s;
+            font-size: 1rem;
+        }
+        #scroll-top:hover { background: transparent; color: var(--aqua); box-shadow: 0 0 20px var(--aqua-glow); }
+
+        @media (min-width: 1280px) {
+            .desktop-nav { display: flex; }
+            .navbar-right-desktop { display: flex; }
+            .mobile-menu-btn { display: none; }
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.9s ease, transform 0.9s ease;
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+<!-- ============================================================
+     STICKY NAVBAR
+============================================================ -->
+<nav class="navbar-container">
+    <div class="container navbar-flex">
+        <a href="index.html" class="logo">
+            <div class="logo-icon"><i class="fas fa-water"></i></div>
+            <div>
+                <div class="logo-text">LUMA<span>FLOAT</span></div>
+                <span class="logo-tagline">FLOAT THERAPY & SPA</span>
+            </div>
+        </a>
+        <div class="desktop-nav">
+            <div class="dropdown" id="home-dropdown">
+                <span class="nav-link" onclick="toggleDesktopDropdown('home-dropdown')">Home <i class="fas fa-chevron-down dropdown-arrow"></i></span>
+                <div class="dropdown-menu">
+                    <a href="index.html" class="dropdown-item"><i class="fas fa-house"></i> Home 1</a>
+                    <a href="home2.html" class="dropdown-item"><i class="fas fa-house-chimney"></i> Home 2</a>
+                </div>
+            </div>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="services.html" class="nav-link">Services</a>
+            <a href="pricing.html" class="nav-link">Pricing</a>
+            <a href="gallery.html" class="nav-link">Gallery</a>
+            <a href="faq.html" class="nav-link">FAQ</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <div class="dropdown" id="dashboard-dropdown">
+                <span class="nav-link" onclick="toggleDesktopDropdown('dashboard-dropdown')">Dashboard <i class="fas fa-chevron-down dropdown-arrow"></i></span>
+                <div class="dropdown-menu">
+                    <a href="client-dashboard.html" class="dropdown-item"><i class="fas fa-user"></i> Client Dashboard</a>
+                    <a href="admin-dashboard.html" class="dropdown-item"><i class="fas fa-shield-halved"></i> Admin Dashboard</a>
+                </div>
+            </div>
+        </div>
+        <div class="navbar-right-desktop">
+            <button class="icon-btn" id="desktop-theme-toggle" title="Toggle theme"><i class="fas fa-sun" id="desktop-theme-icon"></i></button>
+            <button class="icon-btn" id="desktop-rtl-toggle" title="Toggle RTL"><i class="fas fa-exchange-alt"></i></button>
+            <a href="login.html" class="login-btn"><i class="fas fa-user"></i> Login</a>
+            <a href="join.html" class="login-btn">Register</a>
+        </div>
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+    </div>
+</nav>
+
+<!-- Mobile menu -->
+<div id="mobile-menu" class="mobile-menu">
+    <div class="mobile-menu-header">
+        <a href="index.html" class="logo">
+            <div class="logo-icon"><i class="fas fa-water"></i></div>
+            <div>
+                <div class="logo-text">LUMA<span>FLOAT</span></div>
+                <span class="logo-tagline">FLOAT THERAPY & SPA</span>
+            </div>
+        </a>
+        <button class="mobile-menu-close" id="close-mobile-menu" aria-label="Close menu"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="mobile-menu-items">
+        <div class="mobile-dropdown">
+            <button class="mobile-dropdown-btn" onclick="toggleMobileDropdown('home-mobile')">
+                <span><i class="fas fa-home"></i> Home</span> <i class="fas fa-chevron-down"></i>
+            </button>
+            <div id="home-mobile" class="mobile-dropdown-content">
+                <a href="index.html">Home 1</a> <a href="home2.html">Home 2</a>
+            </div>
+        </div>
+        <a href="about.html" class="mobile-menu-item"><i class="fas fa-users"></i> About</a>
+        <a href="services.html" class="mobile-menu-item"><i class="fas fa-spa"></i> Services</a>
+        <a href="pricing.html" class="mobile-menu-item"><i class="fas fa-tag"></i> Pricing</a>
+        <a href="gallery.html" class="mobile-menu-item"><i class="fas fa-image"></i> Gallery</a>
+        <a href="faq.html" class="mobile-menu-item"><i class="fas fa-question-circle"></i> FAQ</a>
+        <a href="contact.html" class="mobile-menu-item"><i class="fas fa-envelope"></i> Contact</a>
+        <div class="mobile-dropdown">
+            <button class="mobile-dropdown-btn" onclick="toggleMobileDropdown('dashboard-mobile')">
+                <span><i class="fas fa-gauge"></i> Dashboard</span> <i class="fas fa-chevron-down"></i>
+            </button>
+            <div id="dashboard-mobile" class="mobile-dropdown-content">
+                <a href="client-dashboard.html">Client Dashboard</a>
+                <a href="admin-dashboard.html">Admin Dashboard</a>
+            </div>
+        </div>
+        <div class="mobile-separator"></div>
+        <button class="mobile-action-item" onclick="window.location.href='login.html'"><i class="fas fa-sign-in-alt"></i> Login</button>
+        <button class="mobile-action-item" onclick="window.location.href='join.html'"><i class="fas fa-user-plus"></i> Register</button>
+        <button class="mobile-action-item" id="mobile-rtl-toggle"><i class="fas fa-exchange-alt"></i> RTL</button>
+        <button class="mobile-action-item" id="mobile-theme-toggle"><i class="fas fa-sun" id="mobile-theme-icon"></i> Theme</button>
+    </div>
+</div>
+
+<!-- ============================================================
+     SECTION 1 — SPLIT HERO (Different from index)
+============================================================ -->
+<section class="hero-split">
+    <div class="container" style="display: contents;">
+        <div class="hero-split-left" style="padding-left: 1.5rem; padding-right: 1.5rem;">
+            <div style="max-width: 1280px; margin: 0 auto;">
+                <div class="hero-eyebrow" style="display:inline-flex; align-items:center; gap:0.7rem; padding:0.5rem 1.1rem; border:1px solid var(--aqua-border); background:var(--aqua-glow); border-radius:9999px; font-size:0.72rem; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; color:var(--aqua); margin-bottom:2rem;">
+                    <i class="fas fa-spa"></i> FLOAT THERAPY · SENSORY DEPRIVATION
+                </div>
+                <h1>
+                    Your nervous system<br>
+                    deserves <em>silence.</em>
+                </h1>
+                <p>
+                    LUMA is a sensory deprivation spa built for the modern mind. Step out of the noise and into a state of deep, effortless calm.
+                </p>
+                <div class="hero-split-actions">
+                    <a href="pricing.html" class="btn-primary">
+                        <i class="fas fa-calendar-check"></i> Book a Float
+                    </a>
+                    <a href="services.html" class="btn-ghost">
+                        <i class="fas fa-play-circle"></i> Explore Services
+                    </a>
+                </div>
+                <div class="hero-split-stats">
+                    <div class="hero-split-stat">
+                        <div class="num">5k<span style="color:var(--aqua);">+</span></div>
+                        <div class="txt">Floats Hosted</div>
+                    </div>
+                    <div class="hero-split-stat">
+                        <div class="num">500<span style="color:var(--aqua);">kg</span></div>
+                        <div class="txt">Epsom Salt</div>
+                    </div>
+                    <div class="hero-split-stat">
+                        <div class="num">4.9<span style="color:var(--aqua);">★</span></div>
+                        <div class="txt">Client Rating</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-split-right">
+            <img src="images/h.webp" alt="Float therapy tank water surface">
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     SECTION 2 — HORIZONTAL SERVICE SCROLL
+============================================================ -->
+<section class="section" id="services-scroll">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="label">What we offer</span>
+            <h2 class="display-title" style="margin-top: 1.25rem;">Scroll through<br>your options.</h2>
+            <p>Six distinct ways to quiet the mind and reset the body. Swipe or scroll to explore each service.</p>
+        </div>
+
+        <div class="service-scroll-wrap reveal">
+            <div class="service-scroll" id="service-scroll">
+                <!-- 1 -->
+                <div class="service-scroll-card">
+                    <div class="img">
+                        <span class="num">01</span>
+                        <img src="images/h1.webp" alt="Float therapy">
+                    </div>
+                    <div class="body">
+                        <h3>Float Therapy</h3>
+                        <p>Zero gravity. Total silence. 60 or 90 minutes of complete sensory rest in skin-temperature Epsom salt water.</p>
+                        <a href="service-details.html?service=float-therapy" class="link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- 2 -->
+                <div class="service-scroll-card">
+                    <div class="img">
+                        <span class="num">02</span>
+                        <img src="images/h2.webp" alt="Sensory deprivation">
+                    </div>
+                    <div class="body">
+                        <h3>Sensory Deprivation</h3>
+                        <p>Fully soundproof, lightproof suites that reduce external input to near-zero and induce theta brainwave states.</p>
+                        <a href="service-details.html?service=sensory-deprivation" class="link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- 3 -->
+                <div class="service-scroll-card">
+                    <div class="img">
+                        <span class="num">03</span>
+                        <img src="images/h3.webp" alt="Breathwork">
+                    </div>
+                    <div class="body">
+                        <h3>Breathwork & Meditation</h3>
+                        <p>Optional in-tank audio guides you through pranayama and body-scan meditations designed for the float environment.</p>
+                        <a href="service-details.html?service=breathwork" class="link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- 4 -->
+                <div class="service-scroll-card">
+                    <div class="img">
+                        <span class="num">04</span>
+                        <img src="images/h4.webp" alt="Massage">
+                    </div>
+                    <div class="body">
+                        <h3>Post-Float Massage</h3>
+                        <p>A 30-minute magnesium oil massage immediately after your float, while muscles are still fully relaxed.</p>
+                        <a href="service-details.html?service=massage" class="link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- 5 -->
+                <div class="service-scroll-card">
+                    <div class="img">
+                        <span class="num">05</span>
+                        <img src="images/h5.webp" alt="Tea ceremony">
+                    </div>
+                    <div class="body">
+                        <h3>Herbal Tea Ceremony</h3>
+                        <p>A guided post-float tea ritual with adaptogenic blends selected to extend the parasympathetic response.</p>
+                        <a href="service-details.html?service=tea-ceremony" class="link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- 6 -->
+                <div class="service-scroll-card">
+                    <div class="img">
+                        <span class="num">06</span>
+                        <img src="images/h6.webp" alt="Group floats">
+                    </div>
+                    <div class="body">
+                        <h3>Private Group Floats</h3>
+                        <p>Book the entire spa for 4–8 guests. Each person gets their own private suite plus exclusive lounge access.</p>
+                        <a href="service-details.html?service=group-floats" class="link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-controls">
+                <button class="scroll-btn" id="scroll-left" aria-label="Scroll left"><i class="fas fa-chevron-left"></i></button>
+                <button class="scroll-btn" id="scroll-right" aria-label="Scroll right"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     SECTION 3 — BENEFITS TABS
+============================================================ -->
+<section class="section section-alt" id="benefits-tabs">
+    <div class="container">
+        <div class="section-head center reveal">
+            <span class="label" style="justify-content:center;">Why float</span>
+            <h2 class="display-title" style="margin-top: 1.25rem;">Different floats,<br>different gifts.</h2>
+            <p>Each service at LUMA works on a different system. Explore what each one offers.</p>
+        </div>
+
+        <div class="tabs-wrap reveal">
+            <div class="tab-buttons" id="tab-buttons">
+                <button class="tab-btn active" data-tab="tab-mind"><i class="fas fa-brain"></i> Mental Clarity</button>
+                <button class="tab-btn" data-tab="tab-body"><i class="fas fa-heart-pulse"></i> Physical Recovery</button>
+                <button class="tab-btn" data-tab="tab-sleep"><i class="fas fa-moon"></i> Deep Sleep</button>
+                <button class="tab-btn" data-tab="tab-pain"><i class="fas fa-wind"></i> Chronic Pain</button>
+                <button class="tab-btn" data-tab="tab-hormone"><i class="fas fa-leaf"></i> Hormonal Balance</button>
+            </div>
+
+            <div class="tab-panels">
+                <div class="tab-panel active" id="tab-mind">
+                    <div class="tab-panel-inner">
+                        <div class="tab-panel-img">
+                            <img src="images/h7.webp" alt="Mental clarity float">
+                        </div>
+                        <div class="tab-panel-text">
+                            <h3>Mental Clarity</h3>
+                            <p>Reduced sensory input allows the brain to enter theta state — the same brainwave pattern found in deep meditation and pre-sleep.</p>
+                            <p>Anxiety drops. Focus returns. The mental chatter that follows you all day finally quiets.</p>
+                            <ul>
+                                <li><i class="fas fa-circle"></i> Theta brainwave access within 20 minutes</li>
+                                <li><i class="fas fa-circle"></i> Reduced cortisol and adrenaline</li>
+                                <li><i class="fas fa-circle"></i> Improved focus and decision-making</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-panel" id="tab-body">
+                    <div class="tab-panel-inner">
+                        <div class="tab-panel-img">
+                            <img src="images/h8.webp" alt="Physical recovery float">
+                        </div>
+                        <div class="tab-panel-text">
+                            <h3>Physical Recovery</h3>
+                            <p>Muscular tension releases within minutes. Blood flow improves. Epsom salt reduces inflammation. Athletes use floating to accelerate recovery between training days.</p>
+                            <p>The elimination of gravity means no compression of the spine or joints — the deepest rest your body can experience.</p>
+                            <ul>
+                                <li><i class="fas fa-circle"></i> Accelerated muscle recovery</li>
+                                <li><i class="fas fa-circle"></i> Reduced inflammation</li>
+                                <li><i class="fas fa-circle"></i> Improved circulation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-panel" id="tab-sleep">
+                    <div class="tab-panel-inner">
+                        <div class="tab-panel-img">
+                            <img src="images/h9.webp" alt="Deep sleep float">
+                        </div>
+                        <div class="tab-panel-text">
+                            <h3>Deep Sleep</h3>
+                            <p>Floating triggers a parasympathetic response that lasts for hours after your session. Many clients report the best sleep of their month on float days.</p>
+                            <p>The combination of magnesium absorption, reduced cortisol, and theta state sets the stage for truly restorative sleep.</p>
+                            <ul>
+                                <li><i class="fas fa-circle"></i> Improved sleep onset</li>
+                                <li><i class="fas fa-circle"></i> Deeper REM cycles</li>
+                                <li><i class="fas fa-circle"></i> Reduced insomnia symptoms</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-panel" id="tab-pain">
+                    <div class="tab-panel-inner">
+                        <div class="tab-panel-img">
+                            <img src="images/h10.webp" alt="Chronic pain relief float">
+                        </div>
+                        <div class="tab-panel-text">
+                            <h3>Chronic Pain Relief</h3>
+                            <p>The elimination of gravity means no compression of the spine or joints. Those with fibromyalgia, arthritis, and back pain often find lasting relief.</p>
+                            <p>Magnesium absorption adds a secondary layer of relief by relaxing muscles and reducing inflammation.</p>
+                            <ul>
+                                <li><i class="fas fa-circle"></i> Zero spinal compression</li>
+                                <li><i class="fas fa-circle"></i> Reduced fibromyalgia symptoms</li>
+                                <li><i class="fas fa-circle"></i> Relief from arthritis and back pain</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-panel" id="tab-hormone">
+                    <div class="tab-panel-inner">
+                        <div class="tab-panel-img">
+                            <img src="images/h11.jpg" alt="Hormonal balance float">
+                        </div>
+                        <div class="tab-panel-text">
+                            <h3>Hormonal Balance</h3>
+                            <p>Studies show floating lowers cortisol and adrenaline while raising endorphins and dopamine. The result is a sustained sense of wellbeing.</p>
+                            <p>Regular floaters report improved mood, reduced anxiety, and a greater capacity for joy and connection.</p>
+                            <ul>
+                                <li><i class="fas fa-circle"></i> Lower cortisol and adrenaline</li>
+                                <li><i class="fas fa-circle"></i> Higher endorphins and dopamine</li>
+                                <li><i class="fas fa-circle"></i> Improved mood and emotional resilience</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     SECTION 4 — TIMELINE
+============================================================ -->
+<section class="section" id="timeline">
+    <div class="container">
+        <div class="section-head center reveal">
+            <span class="label" style="justify-content:center;">Your visit</span>
+            <h2 class="display-title" style="margin-top: 1.25rem;">A timeline of<br>letting go.</h2>
+            <p>Every float follows the same gentle arc — from arrival to integration. Here's how your visit unfolds.</p>
+        </div>
+
+        <div class="timeline reveal">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-time">00:00 — Arrival</div>
+                <h3>Check in. Slow down.</h3>
+                <p>You're welcomed into our quiet lounge with a cup of herbal tea. Phones stay in the locker. From this point, everything is designed to bring your heart rate down.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-time">00:10 — Preparation</div>
+                <h3>Shower & settle in.</h3>
+                <p>Private changing rooms with showers, robes, and towels. A quick pre-float rinse keeps the tank water pristine and helps your skin absorb the magnesium.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-time">00:20 — The Float</div>
+                <h3>60 or 90 minutes of nothing.</h3>
+                <p>Step into your private float suite. The tank lid is entirely optional. Music fades out after 10 minutes. You lie back. Time disappears.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-time">01:50 — Integration</div>
+                <h3>Return slowly.</h3>
+                <p>After your float, a soft chime signals the end. Post-float shower, then a slow return to the lounge — tea, water, silence. Take as long as you need.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     SECTION 5 — GALLERY STRIP
+============================================================ -->
+
+
+<!-- ============================================================
+     SECTION 6 — NEWSLETTER / CTA BAND
+============================================================ -->
+<section class="newsletter-band" id="newsletter">
+    <div class="newsletter-band-bg">
+        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2070&auto=format&fit=crop" alt="Spa background">
+    </div>
+    <div class="container">
+        <div class="newsletter-inner reveal">
+            <div>
+                <span class="label">Stay in the stillness</span>
+                <h2 style="margin-top: 1rem;">Get quiet updates<br>and <em>float tips.</em></h2>
+                <p>Join our newsletter for new services, breathwork guides, and first access to special float offers. No spam — just stillness.</p>
+                <div class="newsletter-perks">
+                    <div class="newsletter-perk"><i class="fas fa-check"></i> $20 off your first float</div>
+                    <div class="newsletter-perk"><i class="fas fa-check"></i> Monthly breathwork guides</div>
+                    <div class="newsletter-perk"><i class="fas fa-check"></i> Early access to events</div>
+                </div>
+            </div>
+            <div>
+                <form class="newsletter-form" id="newsletter-form">
+                    <input type="email" id="newsletter-email" placeholder="Your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+                <div class="form-success-msg" id="newsletter-success">
+                    <i class="fas fa-check-circle"></i> You're in. Welcome to the quiet.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-logo-block">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"><i class="fas fa-water"></i></div>
+                    <div>
+                        <div class="logo-text">LUMA<span>FLOAT</span></div>
+                        <span class="logo-tagline">FLOAT THERAPY & SPA</span>
+                    </div>
+                </a>
+                <p style="color: var(--white-muted); margin-top: 1rem; font-size: 0.9rem; max-width: 260px; font-weight: 300;">A sensory deprivation spa built for the modern nervous system. Zero gravity. Zero noise. Zero pressure.</p>
+            </div>
+            <div>
+                <h3 class="footer-heading">Quick links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="footer-heading">Support</h3>
+                <ul class="footer-links">
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="footer-heading">Stay Updated</h3>
+                <input class="footer-input" placeholder="Your email address">
+                <button class="footer-btn">Subscribe</button>
+                <div class="footer-socials">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <i class="fas fa-copyright"></i> 2025 LUMA Float Therapy — Midnight Void · Mineral White · Float Aqua. All rights reserved.
+        </div>
+    </div>
+</footer>
+
+<button id="scroll-top" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+
+<script>
+    (function() {
+        const htmlEl = document.documentElement;
+        const desktopThemeBtn = document.getElementById('desktop-theme-toggle');
+        const mobileThemeBtn = document.getElementById('mobile-theme-toggle');
+        const desktopIcon = document.getElementById('desktop-theme-icon');
+        const mobileIcon = document.getElementById('mobile-theme-icon');
+        const desktopRtl = document.getElementById('desktop-rtl-toggle');
+        const mobileRtl = document.getElementById('mobile-rtl-toggle');
+
+        /* Load theme — default dark */
+        let savedTheme = localStorage.getItem('luma-theme') || 'dark';
+        htmlEl.setAttribute('data-theme', savedTheme);
+        updateIcons(savedTheme);
+
+        function updateIcons(theme) {
+            const iconClass = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            if (desktopIcon) desktopIcon.className = iconClass;
+            if (mobileIcon) mobileIcon.className = iconClass;
+        }
+
+        function toggleTheme() {
+            let currentTheme = htmlEl.getAttribute('data-theme');
+            let newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            htmlEl.setAttribute('data-theme', newTheme);
+            localStorage.setItem('luma-theme', newTheme);
+            updateIcons(newTheme);
+        }
+
+        if (desktopThemeBtn) desktopThemeBtn.addEventListener('click', toggleTheme);
+        if (mobileThemeBtn) mobileThemeBtn.addEventListener('click', toggleTheme);
+
+        function toggleRtl() {
+            let dir = htmlEl.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl';
+            htmlEl.setAttribute('dir', dir);
+            localStorage.setItem('luma-direction', dir);
+        }
+        if (desktopRtl) desktopRtl.addEventListener('click', toggleRtl);
+        if (mobileRtl) mobileRtl.addEventListener('click', toggleRtl);
+
+        const savedDir = localStorage.getItem('luma-direction') || 'ltr';
+        htmlEl.setAttribute('dir', savedDir);
+
+        window.toggleDesktopDropdown = function(id) {
+            document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+            document.getElementById(id)?.classList.toggle('active');
+        };
+        window.toggleMobileDropdown = function(id) {
+            document.getElementById(id)?.classList.toggle('active');
+        };
+
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        if (menuBtn) menuBtn.addEventListener('click', () => mobileMenu.classList.add('active'));
+        if (closeBtn) closeBtn.addEventListener('click', () => mobileMenu.classList.remove('active'));
+        if (mobileMenu) mobileMenu.addEventListener('click', (e) => { if (e.target === mobileMenu) mobileMenu.classList.remove('active'); });
+
+        const scrollBtn = document.getElementById('scroll-top');
+        window.addEventListener('scroll', () => { if(scrollBtn) scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none'; });
+        if (scrollBtn) scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        window.addEventListener('resize', () => { if (window.innerWidth >= 1280 && mobileMenu) mobileMenu.classList.remove('active'); });
+
+        /* Reveal on scroll */
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+        reveals.forEach(el => observer.observe(el));
+
+        /* ---------- SERVICE SCROLL CONTROLS ---------- */
+        const scrollContainer = document.getElementById('service-scroll');
+        const scrollLeft = document.getElementById('scroll-left');
+        const scrollRight = document.getElementById('scroll-right');
+        if (scrollContainer && scrollLeft && scrollRight) {
+            scrollLeft.addEventListener('click', () => {
+                scrollContainer.scrollBy({ left: -400, behavior: 'smooth' });
+            });
+            scrollRight.addEventListener('click', () => {
+                scrollContainer.scrollBy({ left: 400, behavior: 'smooth' });
+            });
+        }
+
+        /* ---------- BENEFITS TABS ---------- */
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabPanels = document.querySelectorAll('.tab-panel');
+        tabButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const target = btn.dataset.tab;
+                tabButtons.forEach(b => b.classList.remove('active'));
+                tabPanels.forEach(p => p.classList.remove('active'));
+                btn.classList.add('active');
+                document.getElementById(target)?.classList.add('active');
+            });
+        });
+
+        /* ---------- NEWSLETTER FORM ---------- */
+        const newsletterForm = document.getElementById('newsletter-form');
+        const newsletterSuccess = document.getElementById('newsletter-success');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const email = document.getElementById('newsletter-email').value.trim();
+                if (!email) return;
+                newsletterSuccess.classList.add('show');
+                newsletterForm.reset();
+                setTimeout(() => newsletterSuccess.classList.remove('show'), 5000);
+            });
+        }
+
+        /* Smooth anchor with offset for fixed nav */
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    const offsetTop = target.getBoundingClientRect().top + window.pageYOffset - 100;
+                    window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                }
+            });
+        });
+    })();
+</script>
+</body>
+</html>
