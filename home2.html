@@ -368,6 +368,10 @@
             position: relative;
             z-index: 2;
             padding: 3rem 0 3rem 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
         @media (min-width: 1024px) {
             .hero-split-left { padding: 4rem 2rem 4rem 0; }
@@ -420,6 +424,7 @@
         .hero-split-actions {
             display: flex;
             flex-wrap: wrap;
+            justify-content: center;
             gap: 1rem;
             margin-bottom: 3rem;
         }
@@ -469,6 +474,7 @@
             padding-top: 2rem;
             border-top: 1px solid var(--border-line);
             max-width: 480px;
+            margin: 0 auto;
         }
         .hero-split-stat .num {
             font-family: 'Cormorant Garamond', serif;
@@ -1117,7 +1123,7 @@
         </a>
         <div class="desktop-nav">
             <div class="dropdown" id="home-dropdown">
-                <span class="nav-link" onclick="toggleDesktopDropdown('home-dropdown')">Home <i class="fas fa-chevron-down dropdown-arrow"></i></span>
+                <span class="nav-link active" onclick="toggleDesktopDropdown('home-dropdown')">Home <i class="fas fa-chevron-down dropdown-arrow"></i></span>
                 <div class="dropdown-menu">
                     <a href="index.html" class="dropdown-item"><i class="fas fa-house"></i> Home 1</a>
                     <a href="home2.html" class="dropdown-item"><i class="fas fa-house-chimney"></i> Home 2</a>
@@ -1161,7 +1167,7 @@
     </div>
     <div class="mobile-menu-items">
         <div class="mobile-dropdown">
-            <button class="mobile-dropdown-btn" onclick="toggleMobileDropdown('home-mobile')">
+            <button class="mobile-dropdown-btn active" onclick="toggleMobileDropdown('home-mobile')" style="color: var(--aqua);">
                 <span><i class="fas fa-home"></i> Home</span> <i class="fas fa-chevron-down"></i>
             </button>
             <div id="home-mobile" class="mobile-dropdown-content">

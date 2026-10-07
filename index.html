@@ -419,6 +419,11 @@
             position: relative;
             z-index: 2;
             max-width: 780px;
+            margin: 0 auto;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .hero-eyebrow {
             display: inline-flex;
@@ -460,6 +465,7 @@
         .hero-actions {
             display: flex;
             flex-wrap: wrap;
+            justify-content: center;
             gap: 1rem;
             margin-bottom: 3.5rem;
         }
@@ -612,6 +618,13 @@
             border: 1px solid var(--aqua-border);
             border-radius: 4px;
             z-index: 2;
+        }
+        [data-theme="light"] .split-badge {
+            background: rgba(248, 250, 252, 0.9);
+            color: var(--white);
+        }
+        [data-theme="light"] .video-play-btn {
+            color: #F8FAFC;
         }
         .split-badge .k {
             font-size: 0.65rem;
@@ -1240,7 +1253,7 @@
     </div>
     <div class="mobile-menu-items">
         <div class="mobile-dropdown">
-            <button class="mobile-dropdown-btn" onclick="toggleMobileDropdown('home-mobile')">
+            <button class="mobile-dropdown-btn active" onclick="toggleMobileDropdown('home-mobile')" style="color: var(--aqua);">
                 <span><i class="fas fa-home"></i> Home</span> <i class="fas fa-chevron-down"></i>
             </button>
             <div id="home-mobile" class="mobile-dropdown-content">
@@ -1275,7 +1288,7 @@
 ============================================================ -->
 <section class="hero">
     <div class="hero-bg">
-        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2070&auto=format&fit=crop" alt="Float therapy tank interior">
+        <img src="images/h12.webp" alt="Float therapy tank interior">
     </div>
     <div class="hero-glow"></div>
     <div class="container">
@@ -1327,7 +1340,7 @@
     <div class="container">
         <div class="split">
             <div class="split-img reveal">
-                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=2070&auto=format&fit=crop" alt="Float tank water surface">
+                <img src="images/h12.webp" alt="Float tank water surface">
                 <div class="split-badge">
                     <div class="k">Water Temperature</div>
                     <div class="v">Skin-Receptor Neutral · 35.0°C</div>
