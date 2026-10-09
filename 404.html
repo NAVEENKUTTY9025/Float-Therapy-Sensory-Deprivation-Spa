@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | LUMA Float Therapy</title>
+    <meta name="description" content="The page you are looking for does not exist.">
+    <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌊</text></svg>" />
+    <!-- Matching Fonts from index.html -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..900&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Exact Color Theme from index.html */
+        :root {
+            --void: #0F172A;
+            --void-deep: #0A111F;
+            --void-soft: #1A2439;
+            --white: #F8FAFC;
+            --white-muted: #CBD5E1;
+            --white-dim: #94A3B8;
+            --aqua: #06B6D4;
+            --aqua-glow: rgba(6, 182, 212, 0.15);
+            --aqua-border: rgba(6, 182, 212, 0.35);
+            --border-line: rgba(248, 250, 252, 0.08);
+            --border-line-strong: rgba(248, 250, 252, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden; /* Prevent scrolling */
+            font-family: 'Inter', sans-serif;
+            background-color: var(--void);
+            color: var(--white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Matching Ambient Glow from index.html */
+        .hero-glow {
+            position: absolute;
+            top: 15%;
+            right: -10%;
+            width: 60%;
+            height: 60%;
+            background: radial-gradient(circle, var(--aqua-glow) 0%, transparent 60%);
+            filter: blur(60px);
+            z-index: 0;
+            pointer-events: none;
+            animation: pulse 8s infinite alternate ease-in-out;
+        }
+
+        .hero-glow-2 {
+            position: absolute;
+            bottom: -10%;
+            left: -10%;
+            width: 50%;
+            height: 50%;
+            background: radial-gradient(circle, var(--aqua-glow) 0%, transparent 60%);
+            filter: blur(50px);
+            z-index: 0;
+            pointer-events: none;
+            animation: pulse 6s infinite alternate-reverse ease-in-out;
+        }
+
+        .content {
+            z-index: 10;
+            max-width: 90%;
+            animation: fadeIn 1s ease-out forwards;
+            padding: 3.5rem 4rem;
+            background: var(--void-soft);
+            border: 1px solid var(--aqua-border);
+            border-radius: 24px;
+            box-shadow: 0 15px 30px rgba(6, 182, 212, 0.15);
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1.1rem;
+            border: 1px solid var(--aqua-border);
+            background: var(--aqua-glow);
+            border-radius: 9999px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--aqua);
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 8rem;
+            font-weight: 600;
+            line-height: 1;
+            color: var(--aqua);
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: var(--white-muted);
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        /* Matching Primary Button from index.html */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            background: var(--aqua);
+            color: var(--void);
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            border: 1px solid var(--aqua);
+            transition: 0.3s;
+            text-decoration: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--aqua);
+            box-shadow: 0 0 32px var(--aqua-glow);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        @keyframes pulse {
+            from { opacity: 0.6; transform: scale(1); }
+            to { opacity: 1; transform: scale(1.1); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 5rem; }
+            h2 { font-size: 2rem; }
+            .content { padding: 2.5rem 2rem; }
+            .eyebrow { margin-bottom: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background atmospheric glow matching index.html -->
+    <div class="hero-glow"></div>
+    <div class="hero-glow-2"></div>
+    
+    <div class="content">
+        <div class="eyebrow">Error 404</div>
+        <h1>404</h1>
+        <h2>Lost in the Void?</h2>
+        <p>The page you are looking for has drifted away or doesn't exist. Take a deep breath and return to the surface.</p>
+        <a href="index.html" class="btn-primary">Return Home</a>
+    </div>
+</body>
+</html>
