@@ -320,7 +320,7 @@
             overflow: hidden;
             transition: max-height 0.3s ease;
             background: var(--void-soft);
-            border-radius: 12px;
+            border-radius: 16px;
         }
         .mobile-dropdown-content.active { max-height: 220px; padding: 0.5rem 0; }
         .mobile-dropdown-content a {
@@ -388,7 +388,8 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.7;
+            opacity: 0.95;
+            filter: contrast(1.04) saturate(1.05);
         }
         .hero-split-right::after {
             content: '';
@@ -417,9 +418,19 @@
         .hero-split-left p {
             font-size: 1.1rem;
             color: var(--white-muted);
+            max-width: 520px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            font-weight: 400;
+        }
+        .hero-split-left-p-legacy { display: contents; }
+            font-size: 1.1rem;
+            color: var(--white-muted);
             max-width: 480px;
             margin-bottom: 2.5rem;
-            font-weight: 300;
+            font-weight: 400;
         }
         .hero-split-actions {
             display: flex;
@@ -499,7 +510,7 @@
         .section-alt { background: var(--void-deep); }
         .section-head { max-width: 720px; margin-bottom: 3.5rem; }
         .section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
-        .section-head p { color: var(--white-muted); font-size: 1.05rem; margin-top: 1.25rem; font-weight: 300; }
+        .section-head p { color: var(--white-muted); font-size: 1.05rem; margin-top: 1.25rem; font-weight: 400; }
 
         .service-scroll-wrap {
             position: relative;
@@ -514,19 +525,20 @@
             scroll-snap-type: x mandatory;
             padding-bottom: 1.5rem;
             -webkit-overflow-scrolling: touch;
-            scrollbar-width: thin;
-            scrollbar-color: var(--aqua) var(--void-soft);
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+
         }
-        .service-scroll::-webkit-scrollbar { height: 6px; }
-        .service-scroll::-webkit-scrollbar-track { background: var(--void-soft); border-radius: 9999px; }
-        .service-scroll::-webkit-scrollbar-thumb { background: var(--aqua); border-radius: 9999px; }
+        .service-scroll::-webkit-scrollbar { display: none; width: 0; height: 0; }
+
+
 
         .service-scroll-card {
             flex: 0 0 320px;
             scroll-snap-align: start;
             background: var(--void-soft);
             border: 1px solid var(--border-line);
-            border-radius: 4px;
+            border-radius: 16px;
             overflow: hidden;
             transition: 0.35s;
             display: flex;
@@ -575,7 +587,7 @@
         .service-scroll-card p {
             font-size: 0.88rem;
             color: var(--white-muted);
-            font-weight: 300;
+            font-weight: 400;
             line-height: 1.6;
             margin-bottom: 1.5rem;
             flex: 1;
@@ -643,7 +655,7 @@
             padding: 1rem 1.25rem;
             background: transparent;
             border: 1px solid var(--border-line);
-            border-radius: 4px;
+            border-radius: 16px;
             color: var(--white-muted);
             font-size: 0.92rem;
             font-weight: 500;
@@ -696,7 +708,7 @@
             .tab-panel-inner { grid-template-columns: 1fr 1fr; }
         }
         .tab-panel-img {
-            border-radius: 4px;
+            border-radius: 16px;
             overflow: hidden;
             aspect-ratio: 4 / 3;
             border: 1px solid var(--border-line-strong);
@@ -712,7 +724,7 @@
         .tab-panel-text p {
             color: var(--white-muted);
             font-size: 0.98rem;
-            font-weight: 300;
+            font-weight: 400;
             line-height: 1.7;
             margin-bottom: 1rem;
         }
@@ -726,7 +738,7 @@
             padding: 0.5rem 0;
             color: var(--white-muted);
             font-size: 0.9rem;
-            font-weight: 300;
+            font-weight: 400;
         }
         .tab-panel-text ul li i {
             color: var(--aqua);
@@ -816,7 +828,7 @@
         .timeline-item p {
             color: var(--white-muted);
             font-size: 0.92rem;
-            font-weight: 300;
+            font-weight: 400;
             line-height: 1.65;
         }
 
@@ -833,7 +845,7 @@
         }
         .gallery-strip-item {
             position: relative;
-            border-radius: 4px;
+            border-radius: 16px;
             overflow: hidden;
             aspect-ratio: 1 / 1;
             border: 1px solid var(--border-line);
@@ -869,9 +881,491 @@
         }
 
         /* ============================================================
+           FLOAT SELECTOR, SCIENCE, PRICING, FAQS & REVIEWS
+        ============================================================ */
+        /* Float Selector / Finder */
+        .selector-card {
+            background: var(--void-soft);
+            border: 1px solid var(--border-line);
+            border-radius: 16px;
+            padding: 3rem 2.5rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 45px rgba(6, 182, 212, 0.08);
+            margin-top: 1rem;
+        }
+        .selector-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, var(--aqua), rgba(6, 182, 212, 0.2));
+        }
+        .mood-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin: 2rem 0;
+            justify-content: center;
+        }
+        .mood-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            background: var(--void);
+            color: var(--white-muted);
+            border: 1px solid var(--border-line-strong);
+            padding: 0.75rem 1.4rem;
+            border-radius: 9999px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            font-family: inherit;
+        }
+        .mood-btn:hover, .mood-btn.active {
+            border-color: var(--aqua);
+            color: var(--aqua);
+            background: var(--aqua-glow);
+            box-shadow: 0 0 16px var(--aqua-glow);
+        }
+        .mood-btn i { font-size: 0.9rem; }
+        .finder-result {
+            background: var(--void);
+            border: 1px solid var(--aqua-border);
+            border-radius: 16px;
+            padding: 2.25rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+            transition: all 0.35s ease;
+        }
+        @media (min-width: 1024px) {
+            .finder-result { grid-template-columns: 1.3fr 1fr; }
+        }
+        .finder-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--aqua-glow);
+            color: var(--aqua);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 0.35rem 0.9rem;
+            border-radius: 9999px;
+            margin-bottom: 0.85rem;
+        }
+        .finder-title {
+            font-size: 2rem;
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .finder-desc {
+            color: var(--white-muted);
+            font-size: 0.95rem;
+            font-weight: 400;
+            line-height: 1.65;
+            margin-bottom: 1.5rem;
+        }
+        .finder-features-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+        @media (max-width: 640px) {
+            .finder-features-list { grid-template-columns: 1fr; }
+        }
+        .finder-feat {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.84rem;
+            color: var(--white-muted);
+            font-weight: 400;
+        }
+        .finder-feat i { color: var(--aqua); font-size: 0.8rem; }
+        .finder-price-box {
+            text-align: center;
+            background: var(--void-soft);
+            border: 1px solid var(--border-line-strong);
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .finder-price {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.25rem;
+            font-weight: 600;
+            color: var(--aqua);
+            line-height: 1;
+            margin-bottom: 0.35rem;
+        }
+        .finder-duration {
+            font-size: 0.82rem;
+            color: var(--white-dim);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Science & Biometrics */
+        .science-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        @media (min-width: 640px) { .science-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 1024px) { .science-grid { grid-template-columns: repeat(4, 1fr); } }
+        .science-card {
+            background: var(--void-soft);
+            border: 1px solid var(--border-line);
+            border-radius: 16px;
+            padding: 2.25rem 1.75rem;
+            transition: all 0.35s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .science-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 2px;
+            background: var(--aqua);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        .science-card:hover {
+            border-color: var(--aqua-border);
+            transform: translateY(-4px);
+            background: var(--void);
+        }
+        .science-card:hover::before { transform: scaleX(1); }
+        .science-val {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.75rem;
+            font-weight: 600;
+            color: var(--aqua);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        .science-label {
+            font-size: 0.72rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--white-dim);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .science-card p {
+            color: var(--white-muted);
+            font-size: 0.9rem;
+            font-weight: 400;
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        /* Pricing Grid */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        @media (min-width: 768px) { .pricing-grid { grid-template-columns: repeat(3, 1fr); } }
+        .price-card {
+            padding: 2.75rem 2.25rem;
+            border: 1px solid var(--border-line);
+            border-radius: 16px;
+            background: var(--void-soft);
+            display: flex;
+            flex-direction: column;
+            transition: 0.4s;
+            position: relative;
+        }
+        .price-card:hover {
+            border-color: var(--aqua-border);
+            transform: translateY(-6px);
+        }
+        .price-card.featured {
+            border-color: var(--aqua);
+            background: linear-gradient(180deg, rgba(6,182,212,0.06) 0%, rgba(15,23,42,0.9) 100%);
+        }
+        [data-theme="light"] .price-card.featured {
+            background: linear-gradient(180deg, rgba(6,182,212,0.08) 0%, rgba(255,255,255,0.95) 100%);
+        }
+        .price-card.featured::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: -1px;
+            right: 1.5rem;
+            background: var(--aqua);
+            color: var(--void);
+            font-size: 0.62rem;
+            font-weight: 800;
+            letter-spacing: 0.2em;
+            padding: 0.4rem 0.85rem;
+            border-radius: 0 0 8px 8px;
+            font-family: 'Inter', sans-serif;
+        }
+        .price-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        .price-desc {
+            color: var(--white-dim);
+            font-size: 0.88rem;
+            margin-bottom: 2rem;
+            font-weight: 400;
+            min-height: 42px;
+        }
+        .price-amount {
+            display: flex;
+            align-items: baseline;
+            gap: 0.4rem;
+            margin-bottom: 0.35rem;
+        }
+        .price-amount .currency {
+            font-size: 1.25rem;
+            color: var(--aqua);
+            font-weight: 500;
+        }
+        .price-amount .num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: var(--white);
+            line-height: 1;
+        }
+        .price-amount .per {
+            color: var(--white-dim);
+            font-size: 0.85rem;
+            font-weight: 400;
+        }
+        .price-duration {
+            color: var(--white-dim);
+            font-size: 0.82rem;
+            margin-bottom: 2rem;
+        }
+        .price-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            flex: 1;
+        }
+        .price-features li {
+            display: flex;
+            gap: 0.85rem;
+            padding: 0.7rem 0;
+            color: var(--white-muted);
+            font-size: 0.9rem;
+            font-weight: 400;
+            border-bottom: 1px solid var(--border-line);
+        }
+        .price-features li:last-child { border-bottom: none; }
+        .price-features i {
+            color: var(--aqua);
+            font-size: 0.8rem;
+            margin-top: 0.35rem;
+            flex-shrink: 0;
+        }
+        .price-cta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            padding: 1rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            transition: 0.3s;
+            border: 1px solid var(--border-line-strong);
+            color: var(--white);
+            background: transparent;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .price-cta:hover {
+            border-color: var(--aqua);
+            color: var(--aqua);
+        }
+        .price-card.featured .price-cta {
+            background: var(--aqua);
+            color: var(--void);
+            border-color: var(--aqua);
+        }
+        .price-card.featured .price-cta:hover {
+            background: transparent;
+            color: var(--aqua);
+        }
+
+        /* FAQ Accordion */
+        .faq-accordion {
+            max-width: 860px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .faq-card {
+            background: var(--void-soft);
+            border: 1px solid var(--border-line);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .faq-card:hover { border-color: var(--aqua-border); }
+        .faq-card.open {
+            border-color: var(--aqua);
+            background: linear-gradient(180deg, rgba(6,182,212,0.05) 0%, var(--void-soft) 100%);
+        }
+        .faq-btn {
+            width: 100%;
+            padding: 1.5rem 1.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.25rem;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            color: var(--white);
+            font-family: inherit;
+            transition: color 0.2s;
+        }
+        .faq-btn:hover { color: var(--aqua); }
+        .faq-btn h3 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: inherit;
+            line-height: 1.35;
+        }
+        .faq-card-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 1px solid var(--border-line-strong);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--aqua);
+            font-size: 0.8rem;
+            flex-shrink: 0;
+            transition: transform 0.35s ease, background 0.35s;
+        }
+        .faq-card.open .faq-card-icon {
+            transform: rotate(45deg);
+            background: var(--aqua-glow);
+            border-color: var(--aqua);
+        }
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+        .faq-content-inner {
+            padding: 0 1.75rem 1.5rem;
+            color: var(--white-muted);
+            font-size: 0.96rem;
+            font-weight: 400;
+            line-height: 1.7;
+            border-top: 1px solid var(--border-line);
+            padding-top: 1.2rem;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        @media (min-width: 768px) { .testimonials-grid { grid-template-columns: repeat(3, 1fr); } }
+        .testimonial-card {
+            padding: 2.5rem 2rem;
+            background: var(--void-soft);
+            border: 1px solid var(--border-line);
+            border-radius: 16px;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .testimonial-card:hover { border-color: var(--aqua-border); transform: translateY(-4px); }
+        .quote-icon {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            color: var(--aqua);
+            line-height: 0.5;
+            opacity: 0.4;
+            margin-bottom: 1.25rem;
+            display: block;
+        }
+        .testimonial-card p {
+            color: var(--white-muted);
+            font-size: 0.96rem;
+            font-weight: 400;
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            flex: 1;
+        }
+        .testimonial-user {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--border-line);
+        }
+        .testimonial-avatar-img {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            border: 1px solid var(--aqua-border);
+            flex-shrink: 0;
+        }
+        .testimonial-user h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 0.1rem;
+        }
+        .testimonial-user span {
+            font-size: 0.75rem;
+            color: var(--white-dim);
+            letter-spacing: 0.05em;
+        }
+
+        /* ============================================================
            SECTION 6 — NEWSLETTER / CTA BAND
         ============================================================ */
         .newsletter-band {
+            position: relative;
+            padding: 6.5rem 0;
+            overflow: hidden;
+            background: radial-gradient(circle at 25% 50%, rgba(6, 182, 212, 0.18) 0%, rgba(10, 17, 31, 0.98) 75%),
+                        linear-gradient(135deg, rgba(6, 182, 212, 0.12) 0%, var(--void-deep) 100%);
+            border-top: 1px solid var(--aqua-border);
+            border-bottom: 1px solid var(--aqua-border);
+            box-shadow: inset 0 1px 0 rgba(6, 182, 212, 0.25), inset 0 -1px 0 rgba(6, 182, 212, 0.25);
+        }
+        [data-theme="light"] .newsletter-band {
+            background: radial-gradient(circle at 25% 50%, rgba(6, 182, 212, 0.14) 0%, rgba(241, 245, 249, 0.98) 75%),
+                        linear-gradient(135deg, rgba(6, 182, 212, 0.08) 0%, var(--void-deep) 100%);
+        }
+        .newsletter-band-legacy { display: contents; }
             position: relative;
             padding: 6rem 0;
             overflow: hidden;
@@ -918,7 +1412,7 @@
         .newsletter-inner p {
             color: var(--white-muted);
             font-size: 1.05rem;
-            font-weight: 300;
+            font-weight: 400;
             max-width: 480px;
             line-height: 1.7;
         }
@@ -939,7 +1433,7 @@
             color: var(--white);
             font-family: inherit;
             font-size: 0.95rem;
-            font-weight: 300;
+            font-weight: 400;
             outline: none;
             transition: 0.3s;
         }
@@ -1030,7 +1524,7 @@
             color: var(--white-muted);
             transition: 0.2s;
             font-size: 0.9rem;
-            font-weight: 300;
+            font-weight: 400;
         }
         .footer-links a:hover { color: var(--aqua); padding-left: 4px; }
         .footer-input {
@@ -1041,7 +1535,7 @@
             background: var(--void-soft);
             color: var(--white);
             margin-bottom: 0.75rem;
-            font-weight: 300;
+            font-weight: 400;
             font-family: inherit;
             font-size: 0.9rem;
             outline: none;
@@ -1073,7 +1567,7 @@
             text-align: center;
             color: var(--white-dim);
             font-size: 0.85rem;
-            font-weight: 300;
+            font-weight: 400;
         }
 
         #scroll-top {
@@ -1212,7 +1706,7 @@
                     deserves <em>silence.</em>
                 </h1>
                 <p>
-                    LUMA is a sensory deprivation spa built for the modern mind. Step out of the noise and into a state of deep, effortless calm.
+                    <span style="display: block; text-align: center; margin-left: auto; margin-right: auto;">LUMA is a sensory deprivation spa built for the modern mind. Step out of the noise and into a state of deep, effortless calm.</span>
                 </p>
                 <div class="hero-split-actions">
                     <a href="pricing.html" class="btn-primary">
@@ -1239,7 +1733,7 @@
             </div>
         </div>
         <div class="hero-split-right">
-            <img src="images/h.webp" alt="Float therapy tank water surface">
+            <img src="images/h7.webp" alt="Modern sensory deprivation float pod suite with floater in stillness">
         </div>
     </div>
 </section>
@@ -1333,6 +1827,47 @@
             <div class="scroll-controls">
                 <button class="scroll-btn" id="scroll-left" aria-label="Scroll left"><i class="fas fa-chevron-left"></i></button>
                 <button class="scroll-btn" id="scroll-right" aria-label="Scroll right"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+
+
+        <!-- Interactive Float Finder Card -->
+        <div class="selector-card reveal" style="margin-top: 3.5rem;">
+            <div style="text-align: center; max-width: 640px; margin: 0 auto;">
+                <span class="label" style="justify-content: center;">Personalized Selector</span>
+                <h3 class="display-title" style="font-size: 2.2rem; margin-top: 0.75rem; margin-bottom: 0.5rem;">Find Your Ideal Float</h3>
+                <p style="color: var(--white-muted); font-size: 0.95rem; font-weight: 400;">Select what your nervous system needs right now to reveal your recommended protocol.</p>
+            </div>
+            
+            <div class="mood-pills">
+                <button type="button" class="mood-btn active" data-mood="stress"><i class="fas fa-brain"></i> Deep Stress Relief</button>
+                <button type="button" class="mood-btn" data-mood="recovery"><i class="fas fa-heart-pulse"></i> Athletic Recovery</button>
+                <button type="button" class="mood-btn" data-mood="sleep"><i class="fas fa-moon"></i> Insomnia & Deep Sleep</button>
+                <button type="button" class="mood-btn" data-mood="burnout"><i class="fas fa-battery-half"></i> Digital Burnout</button>
+                <button type="button" class="mood-btn" data-mood="pain"><i class="fas fa-feather"></i> Chronic Pain Relief</button>
+            </div>
+
+            <div class="finder-result" id="finder-result">
+                <div>
+                    <span class="finder-badge" id="finder-badge">Recommended Experience</span>
+                    <h4 class="finder-title" id="finder-title">90-Min Deep Sensory Reset</h4>
+                    <p class="finder-desc" id="finder-desc">Complete sensory deprivation designed to switch your nervous system from chronic sympathetic fight-or-flight into restorative parasympathetic theta state.</p>
+                    <div class="finder-features-list">
+                        <div class="finder-feat"><i class="fas fa-check-circle"></i> <span id="finder-feat-1">Total light & sound isolation</span></div>
+                        <div class="finder-feat"><i class="fas fa-check-circle"></i> <span id="finder-feat-2">Skin-neutral 35.0°C salt water</span></div>
+                        <div class="finder-feat"><i class="fas fa-check-circle"></i> <span id="finder-feat-3">Theta binaural frequency audio (opt.)</span></div>
+                        <div class="finder-feat"><i class="fas fa-check-circle"></i> <span id="finder-feat-4">Chamomile & ashwagandha lounge tea</span></div>
+                    </div>
+                </div>
+                <div class="finder-price-box">
+                    <span style="font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--aqua); font-weight: 700;">All-Inclusive Session</span>
+                    <div class="finder-price" id="finder-price">$89</div>
+                    <div class="finder-duration" id="finder-duration">90 Min Session · Private Suite</div>
+                    <a href="pricing.html" class="btn-primary" style="width: 100%; justify-content: center;">
+                        <i class="fas fa-calendar-check"></i> Book This Float
+                    </a>
+                </div>
+
             </div>
         </div>
     </div>
@@ -1454,6 +1989,41 @@
 </section>
 
 <!-- ============================================================
+     SECTION 3B — CLINICAL SCIENCE
+============================================================ -->
+<section class="section" id="science" style="border-top: 1px solid var(--border-line);">
+    <div class="container">
+        <div class="section-head center reveal">
+            <span class="label" style="justify-content:center;">The Clinical Science</span>
+            <h2 class="display-title" style="margin-top: 1.25rem;">Measurable physiological shift.</h2>
+            <p>Validated by neuroscientists and sports physicians worldwide. Floating alters human biology in under an hour.</p>
+        </div>
+        <div class="science-grid reveal">
+            <div class="science-card">
+                <div class="science-val">4–7 Hz</div>
+                <div class="science-label">Theta Brainwave State</div>
+                <p>Within 25 minutes of zero gravity, brain activity slows from agitated Beta waves to deep Theta, the elusive twilight state accessed in lucid dreaming and advanced meditation.</p>
+            </div>
+            <div class="science-card">
+                <div class="science-val">500 kg</div>
+                <div class="science-label">Medical Epsom Salt</div>
+                <p>Each suite dissolves over 1,000 lbs of pure USP-grade magnesium sulfate, generating an effortless 1.28 specific gravity that takes 100% of the strain off joints and spine.</p>
+            </div>
+            <div class="science-card">
+                <div class="science-val">-31.6%</div>
+                <div class="science-label">Cortisol Biomarker Drop</div>
+                <p>Clinical studies at the Laureate Institute of Brain Research showed significant, immediate reduction in systemic cortisol and blood pressure after a single 60-minute float.</p>
+            </div>
+            <div class="science-card">
+                <div class="science-val">100%</div>
+                <div class="science-label">Hospital-Grade Purification</div>
+                <p>Water is 100% sanitized between every guest using a 4-stage protocol: 1-micron filtration, high-output germicidal UV radiation, active ozone injection, and hydrogen peroxide.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
      SECTION 4 — TIMELINE
 ============================================================ -->
 <section class="section" id="timeline">
@@ -1494,7 +2064,227 @@
 </section>
 
 <!-- ============================================================
-     SECTION 5 — GALLERY STRIP
+     SECTION 5 — SANCTUARY SPACES
+============================================================ -->
+<section class="section" id="sanctuary" style="padding-bottom: 3rem;">
+    <div class="container">
+        <div class="section-head center reveal">
+            <span class="label" style="justify-content:center;">Spaces of Stillness</span>
+            <h2 class="display-title" style="margin-top: 1.25rem;">Designed from the ground up<br>for sensory silence.</h2>
+            <p>Every corner of LUMA is acoustically isolated, climate-controlled, and purified to protect your peace.</p>
+        </div>
+        <div class="gallery-strip reveal">
+            <div class="gallery-strip-item">
+                <img src="images/s1.webp" alt="Sensory float pod in ocean glow">
+                <div class="overlay">
+                    <span>Float Pod Suites</span>
+                </div>
+            </div>
+            <div class="gallery-strip-item">
+                <img src="images/g4.webp" alt="Open float pool suite">
+                <div class="overlay">
+                    <span>Open Room Suites</span>
+                </div>
+            </div>
+            <div class="gallery-strip-item">
+                <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=1200&auto=format&fit=crop" alt="Post float herbal tea lounge">
+                <div class="overlay">
+                    <span>Integration Lounge</span>
+                </div>
+            </div>
+            <div class="gallery-strip-item">
+                <img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=1200&auto=format&fit=crop" alt="Private rain showers">
+                <div class="overlay">
+                    <span>Rain Shower Suites</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     SECTION 5B — PRICING & MEMBERSHIPS
+============================================================ -->
+<section class="section section-alt" id="pricing">
+    <div class="container">
+        <div class="section-head center reveal">
+            <span class="label" style="justify-content:center;">Transparent Pricing</span>
+            <h2 class="display-title" style="margin-top: 1.25rem;">Simple rates for<br>profound reset.</h2>
+            <p>No hidden amenity fees. Every booking includes private suite access, organic toiletries, earplugs, towels, and integration tea.</p>
+        </div>
+        <div class="pricing-grid reveal">
+            <div class="price-card">
+                <div class="price-name">First-Time Discovery</div>
+                <div class="price-desc">The ideal introductory float session for newcomers wanting to experience zero gravity.</div>
+                <div class="price-amount">
+                    <span class="currency">$</span>
+                    <span class="num">59</span>
+                    <span class="per">/ session</span>
+                </div>
+                <div class="price-duration">60 Minutes · Single Float</div>
+                <ul class="price-features">
+                    <li><i class="fas fa-check"></i> 60-min private sensory float</li>
+                    <li><i class="fas fa-check"></i> Pre-float orientation & guide</li>
+                    <li><i class="fas fa-check"></i> Organic shampoo & body wash</li>
+                    <li><i class="fas fa-check"></i> Herbal tea in integration lounge</li>
+                </ul>
+                <a href="pricing.html" class="price-cta">Claim Discovery Rate</a>
+            </div>
+
+            <div class="price-card featured">
+                <div class="price-name">Signature Deep Reset</div>
+                <div class="price-desc">Our flagship 90-minute therapeutic float for deep nervous system decompression.</div>
+                <div class="price-amount">
+                    <span class="currency">$</span>
+                    <span class="num">89</span>
+                    <span class="per">/ session</span>
+                </div>
+                <div class="price-duration">90 Minutes · Most Popular Choice</div>
+                <ul class="price-features">
+                    <li><i class="fas fa-check"></i> Extended 90-min private float</li>
+                    <li><i class="fas fa-check"></i> Choice of pod or open room suite</li>
+                    <li><i class="fas fa-check"></i> Optional binaural theta soundscape</li>
+                    <li><i class="fas fa-check"></i> Organic recovery tea & journal access</li>
+                </ul>
+                <a href="pricing.html" class="price-cta">Book Signature Float</a>
+            </div>
+
+            <div class="price-card">
+                <div class="price-name">Monthly Flow Pass</div>
+                <div class="price-desc">For sustained wellness, athletic recovery, and monthly neuro-reset routines.</div>
+                <div class="price-amount">
+                    <span class="currency">$</span>
+                    <span class="num">219</span>
+                    <span class="per">/ month</span>
+                </div>
+                <div class="price-duration">3 Sessions / Mo · Shareable With Partner</div>
+                <ul class="price-features">
+                    <li><i class="fas fa-check"></i> 3 × 90-min floats each month</li>
+                    <li><i class="fas fa-check"></i> Rollover unused floats anytime</li>
+                    <li><i class="fas fa-check"></i> 20% discount on additional floats</li>
+                    <li><i class="fas fa-check"></i> Guest pass privilege included</li>
+                </ul>
+                <a href="pricing.html" class="price-cta">Join Monthly Flow</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     SECTION 5C — FIRST-TIME FLOATER FAQS
+============================================================ -->
+<section class="section" id="faqs">
+    <div class="container">
+        <div class="section-head center reveal">
+            <span class="label" style="justify-content:center;">Got Questions?</span>
+            <h2 class="display-title" style="margin-top: 1.25rem;">First time floating?<br>You are completely safe.</h2>
+            <p>Sensory deprivation is gentle and completely within your control. Here are the top answers for beginners.</p>
+        </div>
+        <div class="faq-accordion reveal">
+            <div class="faq-card open">
+                <button class="faq-btn" type="button">
+                    <h3>What if I feel claustrophobic or anxious?</h3>
+                    <div class="faq-card-icon"><i class="fas fa-plus"></i></div>
+                </button>
+                <div class="faq-content" style="max-height: 200px;">
+                    <div class="faq-content-inner">
+                        You are in complete control of your experience at all times. Our tanks and pods do not latch or lock; you can open the door with a fingertip or leave it completely propped open. We also offer Open Float Suites with 8-foot high ceilings and no enclosure whatsoever. You can leave ambient starlight lights on or listen to calming audio as long as you wish.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-card">
+                <button class="faq-btn" type="button">
+                    <h3>What happens if I fall asleep while floating?</h3>
+                    <div class="faq-card-icon"><i class="fas fa-plus"></i></div>
+                </button>
+                <div class="faq-content">
+                    <div class="faq-content-inner">
+                        Falling asleep is common and completely safe! With over 1,000 lbs of dissolved medical-grade Epsom salt, the water is dense enough (1.28 specific gravity) that your body remains effortlessly buoyant on top of the water without any physical effort. You cannot roll over accidentally, and even if salt water splashes near your eyes, it wakes you immediately.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-card">
+                <button class="faq-btn" type="button">
+                    <h3>How clean and hygienic is the float water?</h3>
+                    <div class="faq-card-icon"><i class="fas fa-plus"></i></div>
+                </button>
+                <div class="faq-content">
+                    <div class="faq-content-inner">
+                        Our float water is cleaner than drinking water. Between every single client, 100% of the water undergoes a rigorous 4-step purification cycle: high-output germicidal UV light, ozone sanitation, medical hydrogen peroxide infusion, and 1-micron mechanical filtration. Furthermore, the extreme salt concentration creates an environment where bacteria and microbes cannot survive.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-card">
+                <button class="faq-btn" type="button">
+                    <h3>What should I bring with me to my appointment?</h3>
+                    <div class="faq-card-icon"><i class="fas fa-plus"></i></div>
+                </button>
+                <div class="faq-content">
+                    <div class="faq-content-inner">
+                        Just yourself! We provide everything: luxurious organic shampoo, conditioner, body wash, makeup remover, earplugs, towels, robes, and hairdryers. Most floaters prefer floating without swimwear because swimsuits can press against skin and create tactile sensation, but swimwear is completely welcomed if that makes you feel most comfortable.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 2.5rem;" class="reveal">
+            <p style="color: var(--white-muted); font-size: 0.95rem;">Have more specific questions? <a href="faq.html" style="color: var(--aqua); font-weight: 600; text-decoration: underline;">Read our complete 20+ question FAQ guide &rarr;</a></p>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     SECTION 5D — VERIFIED TESTIMONIALS
+============================================================ -->
+<section class="section section-alt" id="testimonials">
+    <div class="container">
+        <div class="section-head center reveal">
+            <span class="label" style="justify-content:center;">Client Experiences</span>
+            <h2 class="display-title" style="margin-top: 1.25rem;">Real people.<br>Unfiltered calm.</h2>
+            <p>From neurosurgeons and marathoners to chronic pain sufferers, here is what 90 minutes of zero gravity feels like.</p>
+        </div>
+        <div class="testimonials-grid reveal">
+            <div class="testimonial-card">
+                <span class="quote-icon">&ldquo;</span>
+                <p>As an ER physician working 14-hour trauma shifts, my sympathetic nervous system is perpetually on high alert. LUMA is the only place on earth where my mind truly uncouples from stress. My heart rate drops 15 bpm within twenty minutes.</p>
+                <div class="testimonial-user">
+                    <div class="testimonial-avatar-img" style="background-image: url('https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=300&auto=format&fit=crop');"></div>
+                    <div>
+                        <h4>Dr. Elena Vance, MD</h4>
+                        <span>Emergency Physician · Member since 2023</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <span class="quote-icon">&ldquo;</span>
+                <p>I ruptured my L4/L5 disc three years ago and had chronic lower back pain ever since. The relief of floating with zero spinal compression is indescribable. I leave feeling three inches taller and completely pain-free for days.</p>
+                <div class="testimonial-user">
+                    <div class="testimonial-avatar-img" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300&auto=format&fit=crop');"></div>
+                    <div>
+                        <h4>Marcus Thorne</h4>
+                        <span>Triathlete & Graphic Designer</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <span class="quote-icon">&ldquo;</span>
+                <p>I was terrified of claustrophobia before my first visit. The team was so gentle and recommended the Open Float Suite. Watching the starlight ceiling fade while weightless was the most therapeutic hour of my adult life.</p>
+                <div class="testimonial-user">
+                    <div class="testimonial-avatar-img" style="background-image: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=300&auto=format&fit=crop');"></div>
+                    <div>
+                        <h4>Sophia Chen</h4>
+                        <span>Tech Product Lead & Creative</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--
 ============================================================ -->
 
 
@@ -1544,7 +2334,7 @@
                         <span class="logo-tagline">FLOAT THERAPY & SPA</span>
                     </div>
                 </a>
-                <p style="color: var(--white-muted); margin-top: 1rem; font-size: 0.9rem; max-width: 260px; font-weight: 300;">A sensory deprivation spa built for the modern nervous system. Zero gravity. Zero noise. Zero pressure.</p>
+                <p style="color: var(--white-muted); margin-top: 1rem; font-size: 0.9rem; max-width: 260px; font-weight: 400;">A sensory deprivation spa built for the modern nervous system. Zero gravity. Zero noise. Zero pressure.</p>
             </div>
             <div>
                 <h3 class="footer-heading">Quick links</h3>
@@ -1659,7 +2449,153 @@
         }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
         reveals.forEach(el => observer.observe(el));
 
-        /* ---------- SERVICE SCROLL CONTROLS ---------- */
+        /* ---------- SERVICE SCROLL DRAG CONTROLS ---------- */
+        const dragScrollContainer = document.getElementById('service-scroll');
+        if (dragScrollContainer) {
+            let isDown = false;
+            let startX, scrollLeftPos;
+            dragScrollContainer.style.cursor = 'grab';
+            dragScrollContainer.addEventListener('mousedown', (e) => {
+                isDown = true;
+                dragScrollContainer.style.cursor = 'grabbing';
+                startX = e.pageX - dragScrollContainer.offsetLeft;
+                scrollLeftPos = dragScrollContainer.scrollLeft;
+            });
+            dragScrollContainer.addEventListener('mouseleave', () => {
+                isDown = false;
+                dragScrollContainer.style.cursor = 'grab';
+            });
+            dragScrollContainer.addEventListener('mouseup', () => {
+                isDown = false;
+                dragScrollContainer.style.cursor = 'grab';
+            });
+            dragScrollContainer.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - dragScrollContainer.offsetLeft;
+                const walk = (x - startX) * 1.5;
+                dragScrollContainer.scrollLeft = scrollLeftPos - walk;
+            });
+        }
+
+        /* ---------- INTERACTIVE FLOAT FINDER ---------- */
+        const moodData = {
+            burnout: {
+                badge: 'Recommended: Deep Reset Float',
+                title: '90-Min Total Sensory Silence',
+                desc: 'When modern life saturates your sympathetic nervous system, true healing begins when all input ceases. Zero light, zero sound, zero gravity.',
+                price: '$89',
+                duration: '90 Min Session · Private Suite',
+                features: [
+                    'Total light & sound isolation',
+                    'Skin-neutral 35.0°C salt water',
+                    'Theta binaural frequency audio (opt.)',
+                    'Chamomile & ashwagandha lounge tea'
+                ]
+            },
+            creative: {
+                badge: 'Recommended: Open Float & Theta Sound',
+                title: '75-Min Twilight Flow Session',
+                desc: 'Access hyper-associative problem solving and creative breakthroughs in the 4-7Hz Theta brainwave state with ambient starry ceilings.',
+                price: '$79',
+                duration: '75 Min Session · Open Suite',
+                features: [
+                    'Gentle ambient fiber-optic starry sky',
+                    'Spatial binaural 528Hz frequency audio',
+                    'Integration notebook & artisan lounge tea',
+                    'Extended post-float private reflection'
+                ]
+            },
+            recovery: {
+                badge: 'Recommended: Contrast Magnesium Soak',
+                title: '90-Min Athletic Recovery & Contrast',
+                desc: '500kg of Epsom salt eliminates all joint impact and spinal compression, facilitating rapid lactic acid flush and muscle restoration.',
+                price: '$99',
+                duration: '90 Min Session · Pod + Infrared',
+                features: [
+                    'Zero spinal loading (1.28 specific gravity)',
+                    'High-concentration transdermal magnesium',
+                    'Cold-mist eucalyptus rain shower',
+                    'Electrolyte infusion in lounge'
+                ]
+            },
+            sleep: {
+                badge: 'Recommended: Somatic Evening Reset',
+                title: '60-Min Restorative Slumber Float',
+                desc: 'Engineered specifically for chronic insomnia and circadian rhythm alignment. Evening booking with twilight dimming sequence.',
+                price: '$69',
+                duration: '60 Min Session · Pod Suite',
+                features: [
+                    'Gradual darkness fade sequence',
+                    'Delta wave transition soundscape',
+                    'Organic lavender shower amenities',
+                    'Organic valerian & passionflower tea'
+                ]
+            },
+            'first-time': {
+                badge: 'Recommended: Discovery Float Session',
+                title: '60-Min Beginner Comfort Float',
+                desc: 'Our introductory session designed for complete peace of mind. Full orientation, open suite option, and fingertip lid control.',
+                price: '$59',
+                duration: '60 Min Session · Any Suite',
+                features: [
+                    'Personalized 1-on-1 orientation guide',
+                    'Fingertip lid & light controls anytime',
+                    'Choice between closed pod or open room',
+                    'Complimentary herbal integration tea'
+                ]
+            }
+        };
+
+        const moodButtons = document.querySelectorAll('.mood-btn');
+        const finderBadge = document.getElementById('finder-badge');
+        const finderTitle = document.getElementById('finder-title');
+        const finderDesc = document.getElementById('finder-desc');
+        const finderPrice = document.getElementById('finder-price');
+        const finderDuration = document.getElementById('finder-duration');
+
+        moodButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                moodButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const mood = btn.dataset.mood;
+                const data = moodData[mood];
+                if (data) {
+                    if (finderBadge) finderBadge.innerHTML = `<i class="fas fa-sparkles"></i> ${data.badge}`;
+                    if (finderTitle) finderTitle.textContent = data.title;
+                    if (finderDesc) finderDesc.textContent = data.desc;
+                    if (finderPrice) finderPrice.textContent = data.price;
+                    if (finderDuration) finderDuration.textContent = data.duration;
+                    data.features.forEach((feat, idx) => {
+                        const el = document.getElementById(`finder-feat-${idx + 1}`);
+                        if (el) el.textContent = feat;
+                    });
+                }
+            });
+        });
+
+        /* ---------- FAQ ACCORDION ---------- */
+        const faqCards = document.querySelectorAll('.faq-card');
+        faqCards.forEach(card => {
+            const btn = card.querySelector('.faq-btn');
+            const content = card.querySelector('.faq-content');
+            if (btn && content) {
+                btn.addEventListener('click', () => {
+                    const isOpen = card.classList.contains('open');
+                    faqCards.forEach(c => {
+                        c.classList.remove('open');
+                        const innerContent = c.querySelector('.faq-content');
+                        if (innerContent) innerContent.style.maxHeight = null;
+                    });
+                    if (!isOpen) {
+                        card.classList.add('open');
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                    }
+                });
+            }
+        });
+
+
         const scrollContainer = document.getElementById('service-scroll');
         const scrollLeft = document.getElementById('scroll-left');
         const scrollRight = document.getElementById('scroll-right');

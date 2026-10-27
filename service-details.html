@@ -344,7 +344,7 @@
             overflow: hidden;
             transition: max-height 0.3s ease;
             background: var(--void-soft);
-            border-radius: 12px;
+            border-radius: 16px;
         }
         .mobile-dropdown-content.active { max-height: 220px; padding: 0.5rem 0; }
         .mobile-dropdown-content a {
@@ -397,16 +397,17 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.28;
+            opacity: 0.6;
+            filter: contrast(1.05) saturate(1.1);
         }
         .page-hero-bg::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at 50% 50%, rgba(15,23,42,0.55) 0%, rgba(15,23,42,0.95) 80%);
+            background: radial-gradient(circle at 50% 50%, rgba(15,23,42,0.4) 0%, rgba(15,23,42,0.85) 80%);
         }
         [data-theme="light"] .page-hero-bg::after {
-            background: radial-gradient(circle at 50% 50%, rgba(248,250,252,0.55) 0%, rgba(248,250,252,0.95) 80%);
+            background: radial-gradient(circle at 50% 50%, rgba(248,250,252,0.3) 0%, rgba(248,250,252,0.7) 80%);
         }
         .page-hero-content {
             position: relative;
@@ -437,7 +438,7 @@
             font-size: 1.15rem;
             color: var(--white-muted);
             max-width: 640px;
-            font-weight: 300;
+            font-weight: 400;
             margin: 0 auto 1.5rem;
         }
         .hero-meta-row {
@@ -486,7 +487,7 @@
             color: var(--white-muted);
             font-size: 1.05rem;
             margin-top: 1.25rem;
-            font-weight: 300;
+            font-weight: 400;
         }
 
         /* ============================================================
@@ -501,7 +502,7 @@
         @media (min-width: 1024px) { .split { grid-template-columns: 1fr 1fr; gap: 5rem; } }
         .split-img {
             position: relative;
-            border-radius: 4px;
+            border-radius: 16px;
             overflow: hidden;
             aspect-ratio: 4 / 3;
             border: 1px solid var(--border-line-strong);
@@ -529,7 +530,7 @@
             color: var(--white-muted);
             font-size: 1.05rem;
             margin-bottom: 1.25rem;
-            font-weight: 300;
+            font-weight: 400;
             line-height: 1.7;
         }
         .feature-list {
@@ -543,7 +544,7 @@
             padding: 1rem 0;
             border-bottom: 1px solid var(--border-line);
             color: var(--white-muted);
-            font-weight: 300;
+            font-weight: 400;
         }
         .feature-list li:last-child { border-bottom: none; }
         .feature-list i {
@@ -567,7 +568,7 @@
             padding: 2.25rem 1.85rem;
             background: var(--void-soft);
             border: 1px solid var(--border-line);
-            border-radius: 4px;
+            border-radius: 16px;
             transition: 0.4s ease;
             position: relative;
             overflow: hidden;
@@ -610,7 +611,7 @@
         .benefit-card p {
             color: var(--white-muted);
             font-size: 0.92rem;
-            font-weight: 300;
+            font-weight: 400;
             line-height: 1.65;
         }
 
@@ -664,7 +665,7 @@
         .process-body p {
             color: var(--white-muted);
             font-size: 0.98rem;
-            font-weight: 300;
+            font-weight: 400;
             max-width: 600px;
         }
 
@@ -678,7 +679,7 @@
             padding: 3rem;
             background: var(--void-soft);
             border: 1px solid var(--aqua-border);
-            border-radius: 4px;
+            border-radius: 16px;
             align-items: center;
         }
         @media (min-width: 1024px) {
@@ -691,7 +692,7 @@
         .booking-card p {
             color: var(--white-muted);
             font-size: 1.05rem;
-            font-weight: 300;
+            font-weight: 400;
             margin-bottom: 1.5rem;
             line-height: 1.7;
         }
@@ -728,7 +729,7 @@
             padding: 0.6rem 0;
             color: var(--white-muted);
             font-size: 0.92rem;
-            font-weight: 300;
+            font-weight: 400;
             border-bottom: 1px solid var(--border-line);
         }
         .booking-features li:last-child { border-bottom: none; }
@@ -800,7 +801,7 @@
             padding: 1.75rem;
             background: var(--void-soft);
             border: 1px solid var(--border-line);
-            border-radius: 4px;
+            border-radius: 16px;
             transition: 0.3s;
         }
         .faq-mini-item:hover {
@@ -821,7 +822,7 @@
         .faq-mini-item p {
             font-size: 0.9rem;
             color: var(--white-muted);
-            font-weight: 300;
+            font-weight: 400;
             line-height: 1.65;
         }
 
@@ -842,7 +843,7 @@
             padding: 1.75rem;
             background: var(--void-soft);
             border: 1px solid var(--border-line);
-            border-radius: 4px;
+            border-radius: 16px;
             transition: 0.35s;
         }
         .other-service-card:hover {
@@ -868,7 +869,7 @@
         .other-service-card p {
             font-size: 0.88rem;
             color: var(--white-muted);
-            font-weight: 300;
+            font-weight: 400;
             line-height: 1.6;
             flex: 1;
         }
@@ -895,10 +896,39 @@
             align-items: center;
             justify-content: space-between;
             gap: 2rem;
+            padding: 3.5rem 3rem;
+            background: radial-gradient(circle at 10% 20%, rgba(6, 182, 212, 0.16) 0%, rgba(15, 23, 42, 0.95) 75%),
+                        linear-gradient(135deg, rgba(6, 182, 212, 0.12) 0%, rgba(26, 36, 57, 0.95) 100%);
+            border: 1px solid var(--aqua-border);
+            border-radius: 16px;
+            margin-top: 4rem;
+            box-shadow: 0 16px 40px -10px rgba(6, 182, 212, 0.15), inset 0 1px 0 rgba(248, 250, 252, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-inline::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--aqua), transparent);
+        }
+        [data-theme="light"] .cta-inline {
+            background: radial-gradient(circle at 10% 20%, rgba(6, 182, 212, 0.12) 0%, rgba(255, 255, 255, 0.98) 75%),
+                        linear-gradient(135deg, rgba(6, 182, 212, 0.08) 0%, #FFFFFF 100%);
+            border: 1px solid var(--aqua-border);
+            box-shadow: 0 16px 36px -10px rgba(6, 182, 212, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+        }
+        .cta-inline-legacy { display: contents; }
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
             padding: 3rem 2.5rem;
             background: var(--void-soft);
             border: 1px solid var(--aqua-border);
-            border-radius: 4px;
+            border-radius: 16px;
             margin-top: 4rem;
         }
         .cta-inline h3 {
@@ -950,7 +980,7 @@
             color: var(--white-muted);
             transition: 0.2s;
             font-size: 0.9rem;
-            font-weight: 300;
+            font-weight: 400;
         }
         .footer-links a:hover {
             color: var(--aqua);
@@ -964,7 +994,7 @@
             background: var(--void-soft);
             color: var(--white);
             margin-bottom: 0.75rem;
-            font-weight: 300;
+            font-weight: 400;
             font-family: inherit;
             font-size: 0.9rem;
             outline: none;
@@ -1010,7 +1040,7 @@
             text-align: center;
             color: var(--white-dim);
             font-size: 0.85rem;
-            font-weight: 300;
+            font-weight: 400;
         }
 
         #scroll-top {
@@ -1069,7 +1099,7 @@
         .not-found p {
             color: var(--white-muted);
             margin-bottom: 2rem;
-            font-weight: 300;
+            font-weight: 400;
         }
         .dynamic-content { display: block; }
         .dynamic-content.hidden { display: none; }
@@ -1173,7 +1203,7 @@
     <!-- PAGE HERO -->
     <section class="page-hero">
         <div class="page-hero-bg">
-            <img id="hero-img" src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2070&auto=format&fit=crop" alt="Service hero image">
+            <img id="hero-img" src="images/s1.webp" alt="Sensory deprivation float therapy suite">
         </div>
         <div class="container">
             <div class="page-hero-content">
@@ -1309,7 +1339,7 @@
                         <span class="logo-tagline">FLOAT THERAPY & SPA</span>
                     </div>
                 </a>
-                <p style="color: var(--white-muted); margin-top: 1rem; font-size: 0.9rem; max-width: 260px; font-weight: 300;">A sensory deprivation spa built for the modern nervous system. Zero gravity. Zero noise. Zero pressure.</p>
+                <p style="color: var(--white-muted); margin-top: 1rem; font-size: 0.9rem; max-width: 260px; font-weight: 400;">A sensory deprivation spa built for the modern nervous system. Zero gravity. Zero noise. Zero pressure.</p>
             </div>
             <div>
                 <h3 class="footer-heading">Quick links</h3>
@@ -1358,7 +1388,7 @@ const SERVICES = {
         title: "Float Therapy",
         titleHtml: "Zero gravity.<br><em>Total silence.</em>",
         desc: "Lie back in a shallow pool of skin-temperature water saturated with 500kg of pharmaceutical-grade Epsom salt. The water supports you completely — no pressure, no gravity, no sound.",
-        heroImg: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=2070&auto=format&fit=crop",
+        heroImg: "images/s1.webp",
         overviewImg: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2070&auto=format&fit=crop",
         heroMeta: [
             { icon: "fas fa-clock", text: "60 or 90 min" },
@@ -1414,7 +1444,7 @@ const SERVICES = {
         title: "Sensory Deprivation",
         titleHtml: "The art of<br><em>nothing at all.</em>",
         desc: "Our float suites are fully soundproof and lightproof — designed to reduce external sensory input to near-zero. In this state, your brain enters theta waves.",
-        heroImg: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2070&auto=format&fit=crop",
+        heroImg: "images/h7.webp",
         overviewImg: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=2070&auto=format&fit=crop",
         heroMeta: [
             { icon: "fas fa-brain", text: "Theta state" },
@@ -1638,7 +1668,7 @@ const SERVICES = {
         title: "Private Group Floats",
         titleHtml: "Share the silence<br><em>with your people.</em>",
         desc: "Book the entire spa for your team, your friends, or your family. 4–8 guests, each with their own private float suite, plus exclusive use of the lounge.",
-        heroImg: "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?q=80&w=2070&auto=format&fit=crop",
+        heroImg: "images/g4.webp",
         overviewImg: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2070&auto=format&fit=crop",
         heroMeta: [
             { icon: "fas fa-users", text: "4–8 guests" },
